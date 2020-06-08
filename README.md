@@ -81,9 +81,7 @@ Mobile View (via whimsical)
 src
 |__ assets/
       |__ fonts
-      |__ graphics
       |__ images
-      |__ mockups
 |__ components/
       |__ Header.jsx
       |__ FilterBar.jsx
@@ -94,8 +92,12 @@ src
       |__ CreateAcct.jsx
       |__ CreatePost.jsx
       |__ UpdatePost.jsx
-|__ App.jsx
 |__ services/
+      |__ apiConfig.js
+      |__ postAPICall.js
+      |__ userAPICall.js
+|__ App.jsx
+|__ index.js
 
 ```
 
