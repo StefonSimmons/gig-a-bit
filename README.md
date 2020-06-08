@@ -77,11 +77,7 @@ Mobile View (via whimsical)
 > Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
 
 #### Component Hierarchy
-
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
-
-``` structure
-
+```
 src
 |__ assets/
       |__ fonts
@@ -90,6 +86,15 @@ src
       |__ mockups
 |__ components/
       |__ Header.jsx
+      |__ FilterBar.jsx
+      |__ BodyContainer.jsx
+      |__ PostList.jsx
+      |__ Post.jsx
+      |__ LogIn.jsx
+      |__ CreateAcct.jsx
+      |__ CreatePost.jsx
+      |__ UpdatePost.jsx
+|__ App.jsx
 |__ services/
 
 ```
