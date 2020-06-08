@@ -74,7 +74,8 @@ Mobile View (via whimsical)
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
+<img src="./ComponentTree.png" alt="component tree" style= "border-radius: 5px; width: 350px"/>
+
 
 #### Component Hierarchy
 ```
@@ -85,17 +86,19 @@ src
 |__ components/
       |__ Header.jsx
       |__ FilterBar.jsx
-      |__ BodyContainer.jsx
+      |__ MainContainer.jsx
       |__ PostList.jsx
-      |__ Post.jsx
       |__ LogIn.jsx
+      |__ ProfileBody.jsx
       |__ CreateAcct.jsx
       |__ CreatePost.jsx
       |__ UpdatePost.jsx
+      |__ Footer.jsx
 |__ services/
-      |__ apiConfig.js
-      |__ postAPICall.js
-      |__ userAPICall.js
+      |__ api-helper.js
+      |__ auth.js
+      |__ post.js
+      |__ user.js
 |__ App.jsx
 |__ index.js
 
