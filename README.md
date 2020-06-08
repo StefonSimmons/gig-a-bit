@@ -1,5 +1,5 @@
 <br/>
-<img src="https://media.giphy.com/media/26gR0Dcj9gwzvy4H6/giphy.gif" alt="earth" style= "border-radius: 90px; width: 250px"/>
+<img src="https://media.giphy.com/media/26gR0Dcj9gwzvy4H6/giphy.gif" alt="D.R.A.M" style= "border-radius: 90px; width: 250px"/>
 
 
 
@@ -33,7 +33,11 @@ The focus of the app is to provide a space for talent to post project ideas, wor
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
+- Content (JSX/HTML) and styling (CSS) resembling the wireframes presented.
+- A RESTful 'React on Rails' app with 
+- Accessible regional detail page
+- Accessible country detail pages via randomly generated result and via the regional detail page.
+- GET API data on total statistics from all countries ('world data' -Home pg), total stats per region ('region details' -region pg.), and country stats (-country pg.).
 
 _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
 
@@ -129,7 +133,7 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model.
+<img src="./ERD.png" alt="entity relationship diagram" style= "border-radius: 5px; width: 350px"/>
 
 <br>
 
