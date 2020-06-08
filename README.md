@@ -2,11 +2,9 @@
 <img src="https://media.giphy.com/media/26gR0Dcj9gwzvy4H6/giphy.gif" alt="earth" style= "border-radius: 90px; width: 250px"/>
 
 
-# Gig-A-Bit <!-- omit in toc -->
 
-> The talent-board app for artistic individuals and small groups
->
-- [Overview](#overview)
+
+- [Overview](#Gig-A-Bit)
 - [MVP](#mvp)
   - [Goals](#goals)
   - [Libraries](#libraries)
@@ -22,14 +20,14 @@
 - [Code Showcase](#code-showcase)
 - [Code Issues & Resolutions](#code-issues--resolutions)
 
-<br>
+# Gig-A-Bit
 
-## Overview
+_The talent-board app for artistic individuals and small groups_
+<br>
 
 **Gig-A-Bit** allows registered users to create, edit and delete posts related to specific topics for the purpose of attracting talent-seekers.
 
 The focus of the app is to provide a space for talent to post project ideas, work availability and portfolio work so talent-seekers can get in touch  and employ/collaborate with talent.
-
 
 <br>
 
@@ -69,31 +67,15 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views.
+> Desktop and Mobile views.
 
-![Dummy Link](url)
 
-- Desktop Landing
+Desktop View (via whimsical)
+- https://whimsical.com/UKCsKBa2VwiMM5dD1Eyuw4
 
-![Dummy Link](url)
+Mobile View (via whimsical)
+- https://whimsical.com/Mw2B2VeXv6PinJvpepggQs
 
-- Desktop Hero
-
-![Dummy Link](url)
-
-- Resource Index
-
-![Dummy Link](url)
-
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
 
 #### Component Tree
 
