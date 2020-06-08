@@ -34,45 +34,36 @@ The focus of the app is to provide a space for talent to post project ideas, wor
 ## MVP
 
 - Content (JSX/HTML) and styling (CSS) resembling the wireframes presented.
-- A RESTful 'React on Rails' app with 
-- Accessible regional detail page
-- Accessible country detail pages via randomly generated result and via the regional detail page.
-- GET API data on total statistics from all countries ('world data' -Home pg), total stats per region ('region details' -region pg.), and country stats (-country pg.).
+- A RESTful 'React on Rails' app with three relational tables
+- Homepage displaying all posts from all users
+- All site visitors can filter through all posts and contact a user through their post
+- Filter can be applied on the homepage and user profile
+- User should be able to create a profile and/or log in
+- Logged In user can create a new post, edit and/or delete their own published posts and no one elses
+- Logged In user has access to their profile where they can only see their posts on their profile.
+- GET, SHOW, POST, PUT, and DESTROY API data via front-end (view).
 
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
-
-<br>
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
-
-<br>
+Create a full-stack app with CRUD functionality and user authentication
 
 ### Libraries
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project.
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       | _Javascript library used to develop the front-end (client)_  |
+|   React Router   | _Used for establishing links and routes for front-end components_ |
+| Rails | _Ruby library used to develop the back-end server/api_ |
+|     Axios    | _Used to make http requests from the front end_ |
+|  JSON Web Tokens  | _Used to encode and decode payload for user authentication_ |
+|Styled Components | _Used for writing CSS in react components vs a seperate stylesheet _
 
 <br>
 
 ### Client (Front End)
 
 #### Wireframes
-
-> Desktop and Mobile views.
-
 
 Desktop View (via whimsical)
 - https://whimsical.com/UKCsKBa2VwiMM5dD1Eyuw4
