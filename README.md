@@ -87,10 +87,10 @@ src
       |__ Header.jsx
       |__ FilterBar.jsx
       |__ MainContainer.jsx
-      |__ PostList.jsx
+      |__ Posts.jsx
       |__ LogIn.jsx
-      |__ ProfileBody.jsx
-      |__ CreateAcct.jsx
+      |__ ProfileContainer.jsx
+      |__ CreateProfile.jsx
       |__ CreatePost.jsx
       |__ UpdatePost.jsx
       |__ Footer.jsx
@@ -106,15 +106,20 @@ src
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
 
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
-|    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+|     App      |   class    |   y   |   n   | _Handles state for the logged in user-view/data ._               |
+|    Header    | functional |   n   |   y   | _passed logged in user status as prop for dynamic nav btns._ |
+|   FilterBar  | functional |   n   |   y   | _props passed from MainComponent. Filters posts by topic onClick._|
+| MainContainer|   class    |   y   |   n   | _handles state for post data._                 |
+|   Posts   | functional |   n   |   y   | _shows all posts. props from main_ |
+|     LogIn    |   class    |   y   |   y   | _displays onChange event form for user login. Recieves props from App_ |
+| ProfilePosts | functional |   n   |   y   | _Access only for logged in users. Recieves props from App and Main _   |
+|    Footer    | functional |   n   |   n   | _Static component for About and Contact Links_ |
+|   CreatePost    |   class    |   y   |   y   | _Needs props from App and Main_      |
+|   CreateProfile  |   class    |   y   |   y   | _Needs props from App. State for onChange event form_      |
+|   UpdatePost  |   class    |   y   |   y   | _Needs props from App and Main. State for onChange event form_      |
 
 #### Component Estimates
 
@@ -122,9 +127,18 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Installing          |    H     |     15 mins    |        -      |        -     |
+| App.js / Calling API|    H     |     5 hrs      |        -      |        -     |
+| Header/Nav/Footer   |    H     |     4 hrs      |         -     |           -     |
+| Home                |    L     |     4 hrs      |         -     |           -     |
+| About               |    L     |     2 hrs      |         -  |          -   |
+| Contact             |    L     |     2 hrs      |         - |           -    |
+| Explorer pg.        |    H     |     6 hrs      |          -  |          -   |
+| Region pg.          |    M     |     6 hrs      |         -       |      -       |
+| Countries pg.       |    H     |     6 hrs      |     -    |            |
+| Testing or Storybook|    H     |     3 hrs      |     -  |      -     |
+| Styling/Responsive Design|  L  |     6 hrs      |      -   |      -     |
+| TOTAL               |    --    |    44 hrs      |     -    |     -   |
 
 > _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
