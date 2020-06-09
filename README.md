@@ -128,7 +128,7 @@ src
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
 | Installing dependencies|  H    |     15 mins    |        -      |        -    |
-| App & Main.jsx ACalling|    H  |   5 hrs        |        -      |        -    |
+| App & Main.jsx        |    H  |   5 hrs        |        -      |        -    |
 | Header/Nav        |    H     |     2 hrs       |         -     |        -    |
 | Footer              |    H     |     1 hrs      |         -     |        -    |
 | LogIn Modal         |    H     |     2 hrs      |         -     |       -     |
@@ -158,7 +158,12 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- search by user's name and location
+- add more seeded topics
+- make it so users have to test aptitude in topics in order to register or post on the topic
+- restictions on number of posts per day related to the same topic and the similarity of previous posts to deter spamming.
+- ability to register as a talent-seeker
+- add favorites button for talent-seekers to save talent. 
 
 ***
 
