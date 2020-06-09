@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_191452) do
+ActiveRecord::Schema.define(version: 2020_06_09_193244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.string "media_link"
+    t.string "bullet_one"
+    t.string "bullet_two"
+    t.string "bullet_three"
+    t.bigint "topic_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_posts_on_topic_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "name"
@@ -31,4 +44,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_191452) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "posts", "topics"
+  add_foreign_key "posts", "users"
 end
