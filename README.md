@@ -127,20 +127,22 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Installing          |    H     |     15 mins    |        -      |        -     |
-| App.js / Calling API|    H     |     5 hrs      |        -      |        -     |
-| Header/Nav/Footer   |    H     |     4 hrs      |         -     |           -     |
-| Home                |    L     |     4 hrs      |         -     |           -     |
-| About               |    L     |     2 hrs      |         -  |          -   |
-| Contact             |    L     |     2 hrs      |         - |           -    |
-| Explorer pg.        |    H     |     6 hrs      |          -  |          -   |
-| Region pg.          |    M     |     6 hrs      |         -       |      -       |
-| Countries pg.       |    H     |     6 hrs      |     -    |            |
-| Testing or Storybook|    H     |     3 hrs      |     -  |      -     |
-| Styling/Responsive Design|  L  |     6 hrs      |      -   |      -     |
-| TOTAL               |    --    |    44 hrs      |     -    |     -   |
+| Installing dependencies|  H    |     15 mins    |        -      |        -    |
+| App & Main.jsx ACalling|    H  |   5 hrs        |        -      |        -    |
+| Header/Nav        |    H     |     2 hrs       |         -     |        -    |
+| Footer              |    H     |     1 hrs      |         -     |        -    |
+| LogIn Modal         |    H     |     2 hrs      |         -     |       -     |
+| CreateProfile Modal |    H     |     2 hrs      |         -     |        -    |
+| Filter Bar          |    L     |     3 hrs      |         -     |        -    |
+| Logout function     |    H     |     1 hrs      |         -     |        -    |
+| Create Post         |    H     |     3 hrs      |          -    |        -    |
+| Update Post          |    H     |     3 hrs      |         -     |      -      |
+| Map All Posts         |    H     |     3 hrs      |     -         |      -      |
+| Map All Profile Posts |    H     |     4 hrs      |     -         |      -      |
+| Server/API (seed, routes etc.)| H | 5 hrs      |     -         |      -      |
+| Styling/Responsive Design|  M  |     10 hrs      |      -        |      -      |
+| TOTAL               |    --    |    44 hrs      |     -         |     -       |
 
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
