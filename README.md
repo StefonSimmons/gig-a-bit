@@ -130,6 +130,7 @@ src
 | Installing dependencies|  H    |     15 mins    |        -      |        -    |
 | App & Main.jsx        |    H  |   5 hrs        |        -      |        -    |
 | Header/Nav        |    H     |     2 hrs       |         -     |        -    |
+| Hamburger Menu     |    L     |    3 hrs        |      -        |      -      |
 | Footer              |    H     |     1 hrs      |         -     |        -    |
 | LogIn Modal         |    H     |     2 hrs      |         -     |       -     |
 | CreateProfile Modal |    H     |     2 hrs      |         -     |        -    |
@@ -141,7 +142,7 @@ src
 | Map All Profile Posts |    H     |     4 hrs      |     -         |      -      |
 | Server/API (seed, routes etc.)| H | 5 hrs      |     -         |      -      |
 | Styling/Responsive Design|  M  |     10 hrs      |      -        |      -      |
-| TOTAL               |    --    |    44 hrs      |     -         |     -       |
+| TOTAL               |    --    |    47 hrs      |     -         |     -       |
 
 
 <br>
