@@ -42,7 +42,7 @@ The focus of the app is to provide a space for talent to post project ideas, wor
 - Logged In user can create a new post, edit and/or delete their own published posts and no one elses
 - Logged In user has access to their profile where they can only see their posts on their profile.
 - GET, SHOW, POST, PUT, and DESTROY API data via front-end (view).
-
+- Allow for posting of audio, video, img or gif
 
 ### Goals
 
