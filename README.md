@@ -74,7 +74,7 @@ Mobile View (via whimsical)
 
 #### Component Tree
 
-<img src="./ComponentTree.png" alt="component tree" style= "border-radius: 5px; width: 350px"/>
+<img src="README_Imgs/ComponentTree.png" alt="component tree" style= "border-radius: 5px; width: 350px"/>
 
 
 #### Component Hierarchy
@@ -149,7 +149,7 @@ src
 
 #### ERD Model
 
-<img src="./ERD.png" alt="entity relationship diagram" style= "border-radius: 5px; width: 350px"/>
+<img src="README_Imgs/ERD.png" alt="entity relationship diagram" style= "border-radius: 5px; width: 350px"/>
 
 <br>
 
