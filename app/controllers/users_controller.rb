@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users = User.all
     render json: @users
   end
-
+  
   def show
     @user = User.find(params[:id])
     render json: @user
@@ -27,6 +27,17 @@ class UsersController < ApplicationController
     @destroyed_user.destroy()
     render json: "Deleted #{params[:primary_name]}"
   end 
+
+  # CUSTOM ACTION
+  def users_posts_topics
+    @users = User.all
+    render json: @users.to_json(:include => { :posts => {:include => :topic}})
+  end
+  # CUSTOM ACTION
+  def users_topics_posts
+    @users = User.all
+    render json: @users.to_json(:include => { :topics => {:include => :posts}})
+  end
 
 
   private

@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :topics, only: :index
 
-  get '/topic_posts', to: 'topics#topic_posts'
-  get '/user_topics_posts' to: 'users#user_topics_posts'
-  
+  get '/topics_posts', to: 'topics#topics_posts'
+  get '/users_posts_topics', to: 'users#users_posts_topics'
+  get '/users_topics_posts', to: 'users#users_topics_posts'
+
 end

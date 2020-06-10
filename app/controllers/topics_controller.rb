@@ -4,12 +4,11 @@ class TopicsController < ApplicationController
     @topics = Topic.all
     render json: @topics
   end
-
-  def topic_posts
+  
+  # CUSTOM ACTION
+  def topics_posts
     @topics = Topic.all
     render json: @topics, include: :posts
   end
 
 end
-
-
