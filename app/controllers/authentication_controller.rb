@@ -4,7 +4,7 @@ class AuthenticationController < ApplicationController
   # POST /auth/login
   def login
     @user = User.find_by_email(login_params[:email])
-    # authenticate method provided by Bcrypt. Compares password credentials entered with User db where user.email is the email entered.
+    # authenticate method provided by Bcrypt. Compares password credentials entered with data in the User db where user.email is the email entered.
     if @user.authenticate(login_params[:password])
       # generates an encryted token for authorized requests from the users specific browser (upon browser refresh)
       @token = encode({ user_id: @user.id })
