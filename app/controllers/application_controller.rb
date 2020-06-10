@@ -25,7 +25,7 @@ class ApplicationController < ActionController::API
     if header_token
       # begin
         @decoded = decode(header_token)
-        ## grabs the user.id from the database that matches the decoded token value
+        ## grabs the user.id from the User database that matches the decoded token value
         @loggedin_user = User.find(@decoded[:user_id])
       # rescue ActiveRecord::RecordNotFound => e
       #   render json: { errors: e.message }, status: :unauthorized
