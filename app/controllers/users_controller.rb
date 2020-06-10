@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @new_user = User.create(user_params)
-    render json: @new_user
+    @new_user = User.new(user_params)
+    @new_user.save
+    render json: params
   end
 
   def update  
@@ -31,8 +32,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:primary_name, :surname, :user_type, :email, :password)
-    ### like writing this-- params[:user]
+    params.require(:user).permit(:primary_name, :surname, :email, :password, :user_type)
   end
 
 end
