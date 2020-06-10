@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
 
+  resources :topics, only: :index
+
+  get '/topic_posts', to: 'topics#topic_posts'
+  get '/user_topics_posts' to: 'users#user_topics_posts'
+  
 end
