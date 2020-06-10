@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
     JWT.encode(payload, SECRET_KEY)
   end
 
-  #FOR USER LOGIN VERIFICATION
+  #FOR USER Browser VERIFICATION
   def decode(header_token)
     # Render decoded to see the 1st [0] and second [1] values
     # second value contains information about JWT algorithm that we use for encoding and decoding token
@@ -17,10 +17,11 @@ class ApplicationController < ActionController::API
     HashWithIndifferentAccess.new decoded_token
   end
 
-  # FOR USER LOGIN VERIFICATION
+  # FOR USER Browser VERIFICATION
   def authorize_request
+    # grabs the header's 
     header = request.headers['Authorization']
-    # Separated from the word 'Bearer'. on the front-end.
+    # Separates from the word 'Bearer'. on the front-end local storage
     header_token = header.split(' ').last 
     if header_token
       # begin
