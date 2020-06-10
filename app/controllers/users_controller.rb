@@ -12,8 +12,15 @@ class UsersController < ApplicationController
 
   def create
     @new_user = User.new(user_params)
-    @new_user.save
-    render json: @new_user
+
+    if @new_user.save
+      # Creating a payload/token
+      @token = encode({user_id: @new_user.id});
+      render json: {user: @new_user, token: @token}, status: :created, location: @new_user
+    else
+      render json: @new_user.errors, status: :unprocessable_entity
+    end
+
   end
 
   def update  
