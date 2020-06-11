@@ -27,6 +27,24 @@ class PostsController < ApplicationController
     render json: 'destroyed post'
   end
 
+  # CUSTOM ACTION
+  def posts_user_topic
+    @posts = Post.joins(:user, :topic).select(
+      "posts.id, 
+      posts.media_link, 
+      users.id AS user_id,
+      users.primary_name, 
+      topics.name AS topic_name,
+      users.surname,
+      users.email, 
+      posts.bullet_one, 
+      posts.bullet_two, 
+      posts.bullet_three,
+      posts.created_at,
+      posts.updated_at"
+    )
+    render json: @posts
+  end
 
   private
 

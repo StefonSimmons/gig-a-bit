@@ -14,23 +14,44 @@ const Image = styled.img`
 const Main = styled.main`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px
+  justify-content: center;
+  margin-top: 50px;
 `
 
-export default function Posts({ posts }) {
+export default function Posts({ userPosts }) {
 
-  const allPosts = posts.map((post, id) => {
+  // const allPosts = posts.map((post, id) => {
+  //   return (
+  //     <React.Fragment key={id}>
+  //       <PostSection>
+  //         <Image src={post.media_link} alt="se(no)" />
+  //         <h3>{post.user_id}</h3>
+  //         <h4>{post.topic_id}</h4>
+  //         <button>email here</button>
+  //         <ul>
+  //           <li>{post.bullet_one}</li>
+  //           <li>{post.bullet_two}</li>
+  //           <li>{post.bullet_three}</li>
+  //         </ul>
+  //       </PostSection>
+  //     </React.Fragment>
+
+  // })
+
+  const posts = userPosts.posts 
+  const allUserPosts = posts.map((post, id) => {
+
     return (
       <React.Fragment key={id}>
         <PostSection>
-          <Image src={post.media_link} alt="se(no)" />
-          <h3>{post.user_id}</h3>
-          <h4>{post.topic_id}</h4>
-          <button>email here</button>
+          <Image src={post.media_link} alt={post.media_link} />
+          <h3>{``}</h3>
+          <h4></h4>
+          <button><a href={`mailto:`}>Email</a></button>
           <ul>
-            <li>{post.bullet_one}</li>
-            <li>{post.bullet_two}</li>
-            <li>{post.bullet_three}</li>
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
         </PostSection>
       </React.Fragment>
@@ -40,7 +61,8 @@ export default function Posts({ posts }) {
   return (
     <>
       <Main>
-        {allPosts}
+        {console.log(userPosts)}
+        {allUserPosts}
       </Main>
     </>
   )
