@@ -7,7 +7,6 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        Main Component
       </div>
     )
   }

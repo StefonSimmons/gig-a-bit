@@ -45,7 +45,6 @@ export default class App extends Component {
       <div>
         <Header />
         <Main />
-        Hello From App
         <Footer />
       </div>
     )
