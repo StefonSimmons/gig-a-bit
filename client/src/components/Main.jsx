@@ -1,23 +1,33 @@
 import React, { Component } from 'react'
 import FilterBar from './FilterBar'
 import { getAllTopics } from '../services/topics'
+import { getAllPosts } from '../services/posts'
+import Posts from './Posts'
 
 export default class Main extends Component {
   state = {
-    topics: []
+    topics: [],
+    posts: []
   }
 
   componentDidMount() {
-    this.Topics()
+    this.allTopics()
+    this.allPosts()
   }
 
-  Topics = async () => {
+  allTopics = async () => {
     const topics = await getAllTopics();
     this.setState(
       { topics }
     )
   }
 
+  allPosts = async () => {
+    const posts = await getAllPosts();
+    this.setState(
+      { posts }
+    )
+  }
 
   render() {
 
@@ -25,6 +35,9 @@ export default class Main extends Component {
       <div>
         <FilterBar
           topics = {this.state.topics}
+        />
+        <Posts
+          posts = {this.state.posts}
         />
       </div>
     )
