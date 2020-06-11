@@ -1,58 +1,80 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const PostSection = styled.div`
-  margin: 15px;
-  width: 306px;
-  // padding: 20px;
-  border: grey solid 3px;
-`
-const Image = styled.img`
-  width: 300px;
-`
-
 const Main = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
 `
+const Post = styled.div`
+  margin: 15px;
+  width: 306px;
+  border: rgb(216,224,233) solid 2px;
+  font-family: 'Pathway Gothic One', sans-serif; 
+`
+const Image = styled.img`
+  width: 300px;
+  padding-bottom: 10px
+`
+const UserContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+const UserName = styled.h3`
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+`
+const Topic = styled.h4`
+  text-align: center;
+  font-size: 15px;
+  margin-top: 4px;
+  letter-spacing: 1.5px 
 
+`
+const EmailBtn = styled.button`
+  margin: 20px 0;
+  padding: 6px 12px;
+  background-color: rgb(154, 78, 80);
+  border-radius: 5px;
+  border: 2px solid rgb(154, 78, 80)
+`
+const EmailLnk = styled.a`
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px
+  letter-spacing: 1.26px;
+  color: white;
+`
+const List = styled.div`
+  margin: 20px
+`
+const Bullet = styled.li`
+  font-size: 15px;
+  list-style: none;
+  padding: 10px 0 
+`
 export default function Posts({ posts }) {
-
-  // const allPosts = posts.map((post, id) => {
-  //   return (
-  //     <React.Fragment key={id}>
-  //       <PostSection>
-  //         <Image src={post.media_link} alt="se(no)" />
-  //         <h3>{post.user_id}</h3>
-  //         <h4>{post.topic_id}</h4>
-  //         <button>email here</button>
-  //         <ul>
-  //           <li>{post.bullet_one}</li>
-  //           <li>{post.bullet_two}</li>
-  //           <li>{post.bullet_three}</li>
-  //         </ul>
-  //       </PostSection>
-  //     </React.Fragment>
-
-  // })
 
   const allPosts = posts.map((post, id) => {
 
     return (
       <React.Fragment key={id}>
-        <PostSection>
+        <Post>
           <Image src={post.media_link} alt={post.topic_name} />
-          <h3>{`${post.primary_name} ${post.surname}`}</h3>
-          <h4>{post.topic_name}</h4>
-          <button><a href={`mailto:${post.email}`}>Email</a></button>
-          <ul>
-            <li>{post.bullet_one}</li>
-            <li>{post.bullet_two}</li>
-            <li>{post.bullet_three}</li>
-          </ul>
-        </PostSection>
+          <UserContainer>
+            <UserName>{`${post.primary_name} ${post.surname}`}</UserName>
+            <Topic>{post.topic_name}</Topic>
+            <EmailBtn><EmailLnk href={`mailto:${post.email}`}>Email Me</EmailLnk></EmailBtn>
+          </UserContainer>
+          <List>
+            <Bullet>- {post.bullet_one}</Bullet>
+            <Bullet>- {post.bullet_two}</Bullet>
+            <Bullet>- {post.bullet_three}</Bullet>
+          </List>
+        </Post>
       </React.Fragment>
     )
   })
