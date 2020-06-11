@@ -24,14 +24,13 @@ const Topics = styled.li`
 
 export default function FilterBar({ topics }) {
 
-  const topicNames = topics.map(topic => {
+  const topicNames = topics.map((topic,id) => {
     return (
-      <>
+      <React.Fragment key={id}>
         <Topics>{topic.name}</Topics>
-      </>
+      </React.Fragment>
     )
   })
-  console.log(topics)
   return (
     <>
       <FilterSection>

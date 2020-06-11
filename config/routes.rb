@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/users_posts_topics', to: 'users#users_posts_topics'
   get '/users_topics_posts', to: 'users#users_topics_posts'
 
+  get '/posts_user_topic', to: 'posts#posts_user_topic'
+
   get '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
 end
