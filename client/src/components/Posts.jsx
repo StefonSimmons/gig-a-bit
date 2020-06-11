@@ -18,7 +18,7 @@ const Main = styled.main`
   margin-top: 50px;
 `
 
-export default function Posts({ userPosts }) {
+export default function Posts({ posts }) {
 
   // const allPosts = posts.map((post, id) => {
   //   return (
@@ -38,20 +38,19 @@ export default function Posts({ userPosts }) {
 
   // })
 
-  const posts = userPosts.posts 
-  const allUserPosts = posts.map((post, id) => {
+  const allPosts = posts.map((post, id) => {
 
     return (
       <React.Fragment key={id}>
         <PostSection>
-          <Image src={post.media_link} alt={post.media_link} />
-          <h3>{``}</h3>
-          <h4></h4>
-          <button><a href={`mailto:`}>Email</a></button>
+          <Image src={post.media_link} alt={post.topic_name} />
+          <h3>{`${post.primary_name} ${post.surname}`}</h3>
+          <h4>{post.topic_name}</h4>
+          <button><a href={`mailto:${post.email}`}>Email</a></button>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>{post.bullet_one}</li>
+            <li>{post.bullet_two}</li>
+            <li>{post.bullet_three}</li>
           </ul>
         </PostSection>
       </React.Fragment>
@@ -61,8 +60,8 @@ export default function Posts({ userPosts }) {
   return (
     <>
       <Main>
-        {console.log(userPosts)}
-        {allUserPosts}
+        {console.log(posts)}
+        {allPosts}
       </Main>
     </>
   )

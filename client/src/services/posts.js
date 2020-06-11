@@ -28,3 +28,9 @@ export const deleteFood = async (id) => {
   const resp = await api.delete(`/foods/${id}`);
   return resp
 }
+
+export const postsUserTopic = async (id) => {
+  const resp = await api.get('/posts_user_topic');
+  const posts = resp.data
+  return posts
+}
