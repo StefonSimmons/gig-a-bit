@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Head = styled.header`
+const HeaderSection = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 20px 45px
@@ -25,7 +25,7 @@ const NavItems = styled.li`
   font-family: 'Pathway Gothic One', sans-serif;  
   font-size: 20px
 `
-const Divider = styled.hr`
+export const Divider = styled.hr`
   height: 2px;
   background: grey;
   margin: 0px
@@ -34,16 +34,16 @@ const Divider = styled.hr`
 export default function Header() {
   return (
     <>
-      <Head>
+      <HeaderSection>
         <Title>Gig-A-Bit</Title>
         <NavBar>
           <NavList>
-            <NavItems><i class="material-icons w3-xxlarge">home</i></NavItems>
+            <NavItems><i className="material-icons w3-xxlarge">home</i></NavItems>
             <NavItems>Create A Profile</NavItems>
             <NavItems>Log In</NavItems>
           </NavList>
         </NavBar>
-      </Head>
+      </HeaderSection>
       <Divider/>
     </>
   )
