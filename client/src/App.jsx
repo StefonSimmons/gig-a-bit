@@ -63,6 +63,7 @@ export default class App extends Component {
           showCreateProfileForm={this.toggleCreateProfileForm}
         />
         <CreateProfileForm
+          handleRegisterSubmit={this.handleRegisterSubmit}
           createProfileClicked={this.state.createProfileClicked}
           hideCreateProfileForm={this.toggleCreateProfileForm}
         />

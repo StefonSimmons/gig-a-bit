@@ -27,11 +27,11 @@ const JoinLnk = styled(Link)`
 export default class CreateProfileForm extends Component {
 
   state = {
-    primaryName: '',
+    primary_name: '',
     surname: '',
     email: '',
     password: '',
-    userType: ''
+    user_type: ''
   }
 
   handleChange = (e) => {
@@ -42,14 +42,14 @@ export default class CreateProfileForm extends Component {
   }
 
   render() {
-    const { userType, primaryName, surname, email, password } = this.state;
+    const { user_type, primary_name, surname, email, password } = this.state;
     const { handleRegisterSubmit, history, createProfileClicked, hideCreateProfileForm} = this.props;
 
     return (
       <>
         <div className="w3-modal" style={createProfileClicked ? { display: "block" } : { display: "none" }}>
           <CreateProfileModal className="w3-modal-content w3-card-4 w3-animate-zoom">
-          <span onClick={hideCreateProfileForm} class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+          <span onClick={hideCreateProfileForm} className="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
             <Form onSubmit={(e) => {
               e.preventDefault();
               handleRegisterSubmit(this.state);
@@ -67,7 +67,7 @@ export default class CreateProfileForm extends Component {
               <Input
                 type="text"
                 name="user_type"
-                value={userType}
+                value={user_type}
                 placeholder="usertype"
                 onChange={this.handleChange}
               />
@@ -75,7 +75,7 @@ export default class CreateProfileForm extends Component {
               <Input
                 type="text"
                 name="primary_name"
-                value={primaryName}
+                value={primary_name}
                 placeholder="primary name"
                 onChange={this.handleChange}
               />
@@ -103,7 +103,7 @@ export default class CreateProfileForm extends Component {
                 placeholder="password"
                 onChange={this.handleChange}
               />
-              <Btn><JoinLnk>Join</JoinLnk></Btn>
+              <Btn><JoinLnk to="#">Join</JoinLnk></Btn>
             </Form>
           </CreateProfileModal>
         </div>
