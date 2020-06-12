@@ -11,7 +11,6 @@ const LogInModal = styled.div`
   font-family: 'Pathway Gothic One', sans-serif; 
   text-align: center;
   background-color: rgb(245,247,249);
-  // display: none;
 `
 const Form = styled.form`
   display: flex;
@@ -77,7 +76,7 @@ export default class LogInForm extends Component {
     return (
       <>
 
-        <LogInModal style={logInClicked ? { display: "block" } : { display: "none" }}>
+        <LogInModal className="w3-modal w3-modal-content w3-card-4 w3-animate-zoom" style={logInClicked ? { display: "block" } : { display: "none" }}>
           <Form onSubmit={(e) => {
             e.preventDefault();
             handleLoginSubmit(this.state);
