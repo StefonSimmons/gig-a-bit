@@ -12,27 +12,27 @@ const LogInModal = styled.div`
   text-align: center;
   background-color: rgb(245,247,249);
 `
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
   max-width: 600px
 `
-const Welcome = styled.h3`
+export const Welcome = styled.h3`
   margin-top: 5px;
   font-size: 28px;
   font-family: 'Pathway Gothic One', sans-serif;  
   color: rgb(61,77,92);
 `
-const TitleLogIn = styled.h4`
+export const TitleLogIn = styled.h4`
   font-size: 18px;
   font-family: 'Pathway Gothic One', sans-serif;  
   font-weight: 700;
   font-style: italic;
   color: rgb(154, 78, 80)
 `
-const Circle = styled.div`
+export const Circle = styled.div`
   border-radius: 50%;
   background-color: rgb(216,224,233);
   width: 120px;
@@ -42,7 +42,7 @@ const Circle = styled.div`
   align-items: center;
   margin: 15px auto;
 `
-const Input = styled.input`
+export const Input = styled.input`
   padding: 8px 10px;
   width: 250px;
   border: rgb(216,224,233) solid 2px;
@@ -74,12 +74,12 @@ export default class LogInForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { handleLoginSubmit, history, logInClicked, showLogInForm} = this.props;
+    const { handleLoginSubmit, history, logInClicked, hideLogInForm} = this.props;
     return (
       <>
         <div className="w3-modal" style={logInClicked ? { display: "block" } : { display: "none" }}>
           <LogInModal className="w3-modal-content w3-card-4 w3-animate-zoom">
-          <span onClick={showLogInForm} class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+          <span onClick={hideLogInForm} class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
             <Form onSubmit={(e) => {
               e.preventDefault();
               handleLoginSubmit(this.state);
@@ -120,26 +120,4 @@ export default class LogInForm extends Component {
     )
   }
 }
-{/* <div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
-      <div class="w3-center"><br>
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-        <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-      </div>
-
-
-
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-          <label><b>Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-        </div>
-      </form>
-
-
-    </div>
-  </div> */}

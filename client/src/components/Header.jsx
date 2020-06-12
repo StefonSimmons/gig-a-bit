@@ -32,7 +32,7 @@ export const Divider = styled.hr`
   margin: 0px
 `
 
-export default function Header({ showLogInForm }) {
+export default function Header({ showLogInForm, showCreateProfileForm }) {
 
   return (
     <>
@@ -41,7 +41,9 @@ export default function Header({ showLogInForm }) {
         <NavBar>
           <NavList>
             <NavItems><i className="material-icons w3-xxlarge">home</i></NavItems>
-            <NavItems>Create A Profile</NavItems>
+            <NavItems onClick={showCreateProfileForm}>
+              Create A Profile
+              </NavItems>
             <NavItems onClick={showLogInForm}>
               Log In
             </NavItems>

@@ -3,13 +3,15 @@ import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
+import CreateProfileForm from './components/CreateProfileForm'
 import LogInForm from './components/LogInForm';
 
 export default class App extends Component {
 
   state = {
     loggedInUser: null,
-    logInClicked: false
+    logInClicked: false,
+    createProfileClicked: false
   }
 
   componentDidMount() {
@@ -40,9 +42,15 @@ export default class App extends Component {
     this.setState({ loggedInUser })
   }
 
-  showLoginForm = () => {
+  toggleLoginForm = () => {
     this.setState(prevState => ({
       logInClicked: !prevState.logInClicked
+    }))
+  }
+
+  toggleCreateProfileForm = () => {
+    this.setState(prevState => ({
+      createProfileClicked: !prevState.createProfileClicked
     }))
   }
 
@@ -51,12 +59,16 @@ export default class App extends Component {
     return (
       <div>
         <Header
-          showLogInForm={this.showLoginForm}
+          showLogInForm={this.toggleLoginForm}
+          showCreateProfileForm={this.toggleCreateProfileForm}
+        />
+        <CreateProfileForm
+          
         />
         <LogInForm
           handleLoginSubmit={this.handleLoginSubmit}
           logInClicked={this.state.logInClicked}
-          showLogInForm={this.showLoginForm}
+          hideLogInForm={this.toggleLoginForm}
         />
         <Main />
         <Footer />
