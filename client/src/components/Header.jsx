@@ -23,7 +23,8 @@ const NavList = styled.ul`
 const NavItems = styled.li`
   padding-right: 50px;
   font-family: 'Pathway Gothic One', sans-serif;  
-  font-size: 20px
+  font-size: 20px;
+  cursor: pointer
 `
 export const Divider = styled.hr`
   height: 2px;

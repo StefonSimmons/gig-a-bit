@@ -16,9 +16,11 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0
+  margin: 20px 0;
+  max-width: 600px
 `
 const Welcome = styled.h3`
+  margin-top: 5px;
   font-size: 28px;
   font-family: 'Pathway Gothic One', sans-serif;  
   color: rgb(61,77,92);
@@ -45,7 +47,7 @@ const Input = styled.input`
   width: 250px;
   border: rgb(216,224,233) solid 2px;
   border-radius: 3px;
-` 
+`
 const LogInLnk = styled(Link)`
   text-decoration: none;
   font-weight: 500;
@@ -72,46 +74,48 @@ export default class LogInForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { handleLoginSubmit, history, logInClicked } = this.props;
+    const { handleLoginSubmit, history, logInClicked, showLogInForm} = this.props;
     return (
       <>
+        <div className="w3-modal" style={logInClicked ? { display: "block" } : { display: "none" }}>
+          <LogInModal className="w3-modal-content w3-card-4 w3-animate-zoom">
+          <span onClick={showLogInForm} class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+            <Form onSubmit={(e) => {
+              e.preventDefault();
+              handleLoginSubmit(this.state);
+              // history.push('/');
+              // this.setState({
+              //   username: "",
+              //   password: ""
+              // })
+            }}>
+              <Welcome>Welcome Back</Welcome>
+              <Circle>
+                <TitleLogIn>Gig-A-Bit</TitleLogIn>
+              </Circle>
+              <Input
+                id="email"
+                type="text"
+                name="email"
+                value={email}
+                placeholder='email'
+                onChange={this.handleChange}
+              />
 
-        <LogInModal className="w3-modal w3-modal-content w3-card-4 w3-animate-zoom" style={logInClicked ? { display: "block" } : { display: "none" }}>
-          <Form onSubmit={(e) => {
-            e.preventDefault();
-            handleLoginSubmit(this.state);
-            // history.push('/');
-            // this.setState({
-            //   username: "",
-            //   password: ""
-            // })
-          }}>
-            <Welcome>Welcome Back</Welcome>
-            <Circle>
-              <TitleLogIn>Gig-A-Bit</TitleLogIn>
-            </Circle>
-            <Input
-              id="email"
-              type="text"
-              name="email"
-              value={email}
-              placeholder= 'email'
-              onChange={this.handleChange}
-            />
-
-            <br />
-            <Input
-              id="password"
-              type="password"
-              name="password"
-              value={password}
-              placeholder= 'password'
-              onChange={this.handleChange}
-            />
-            <br />
-            <Btn><LogInLnk>Log In</LogInLnk></Btn>
-          </Form>
-        </LogInModal>
+              <br />
+              <Input
+                id="password"
+                type="password"
+                name="password"
+                value={password}
+                placeholder='password'
+                onChange={this.handleChange}
+              />
+              <br />
+              <Btn><LogInLnk>Log In</LogInLnk></Btn>
+            </Form>
+          </LogInModal>
+        </div>
       </>
     )
   }

@@ -56,6 +56,7 @@ export default class App extends Component {
         <LogInForm
           handleLoginSubmit={this.handleLoginSubmit}
           logInClicked={this.state.logInClicked}
+          showLogInForm={this.showLoginForm}
         />
         <Main />
         <Footer />
