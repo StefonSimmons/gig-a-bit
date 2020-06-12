@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 
-const CreatePostSection = styled.div`
+const CreateFormContainer = styled.div`
+
+`
+const CreatePostContainer = styled.div`
   display: flex;
   flex-direction: column;  
   background: blue;
@@ -11,8 +14,12 @@ const CreatePostSection = styled.div`
   margin: 15px;
   border: rgb(216,224,233) solid 2px;
 `
+const Create = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 15px; 
+`
 const CreateBtn = styled.button`
-  margin: 20px 0;
   padding: 6px 12px;
   background-color: rgb(154, 78, 80);
   border-radius: 5px;
@@ -23,7 +30,7 @@ const Form = styled.form`
   justify-content: space-evenly;
   flex-direction: column;  
   font-family: 'Pathway Gothic One', sans-serif; 
-`    
+`
 const MediaInput = styled.input`
   margin: 10px 15px; 
   height: 60px;
@@ -57,7 +64,7 @@ export default class CreatePostForm extends Component {
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
-      [name]: value 
+      [name]: value
     })
   }
 
@@ -66,60 +73,65 @@ export default class CreatePostForm extends Component {
     const { createNewPost, history, loggedInUser } = this.props;
     return (
       <>
-        <CreatePostSection>
-          <CreateBtn>Create</CreateBtn>
-          <Form onSubmit={(e) => {
-            e.preventDefault();
-            createNewPost(this.state);
-            // history.push('/foods');
-            // this.setState({
-            //   name: ""
-            // })
-          }}>
-            <MediaInput
-              type="text"
-              name="media_link"
-              value={media_link}
-              placeholder="Enter image, video, or audio link here"
-              onChange={this.handleChange} 
-            />
-            <ReadOnlyInput
-              type="text"
-              name="user_id"
-              value="Stefon Simmons" readOnly
+        <CreateFormContainer>
+          <Create>
+            <CreateBtn>Create</CreateBtn>
+          </Create>
+          <CreatePostContainer>
+            <Form onSubmit={(e) => {
+              e.preventDefault();
+              createNewPost(this.state);
+              // history.push('/foods');
+              // this.setState({
+              //   name: ""
+              // })
+            }}>
+              <MediaInput
+                type="text"
+                name="media_link"
+                value={media_link}
+                placeholder="Enter image, video, or audio link here"
+                onChange={this.handleChange}
+              />
+              <ReadOnlyInput
+                type="text"
+                name="user_id"
+                value="Stefon Simmons" readOnly
               // value={`${loggedInUser.primary_name} ${loggedInUser.surname}`} readOnly
-            />
-            <Input
-              type="text"
-              name="topic_id"
-              value="add dropdown here" readOnly
-            />
-            <ReadOnlyInput
-              type="text"
-              name="email"
-              value="email here" readOnly
-            />
-            <Input
-              type="text"
-              name="bullet_one"
-              value={bullet_one}
-              onChange={this.handleChange}
-            />
-            <Input
-              type="text"
-              name="bullet_two"
-              value={bullet_two}
-              onChange={this.handleChange}
-            />
-            <Input
-              type="text"
-              name="bullet_three"
-              value={bullet_three}
-              onChange={this.handleChange}
-            />
+              />
+              <Input
+                type="text"
+                name="topic_id"
+                value="add dropdown here" readOnly
+              />
+              <ReadOnlyInput
+                type="text"
+                name="email"
+                value="email here" readOnly
+              />
+              <Input
+                type="text"
+                name="bullet_one"
+                value={bullet_one}
+                onChange={this.handleChange}
+              />
+              <Input
+                type="text"
+                name="bullet_two"
+                value={bullet_two}
+                onChange={this.handleChange}
+              />
+              <Input
+                type="text"
+                name="bullet_three"
+                value={bullet_three}
+                onChange={this.handleChange}
+              />
 
-          </Form>
-        </CreatePostSection>
+            </Form>
+          </CreatePostContainer>
+        </CreateFormContainer>
+
       </>
     )
   }

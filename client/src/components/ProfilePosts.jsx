@@ -18,6 +18,10 @@ const UpdateDelete = styled.div`
 `
 const UpdateDeleteBtn = styled.button`
   margin: 0 10px;
+  padding: 6px 12px;
+  background-color: rgb(154, 78, 80);
+  border-radius: 5px;
+  border: 2px solid rgb(154, 78, 80)
 `
 const Post = styled.div`
   margin: 15px;
