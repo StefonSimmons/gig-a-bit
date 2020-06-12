@@ -8,6 +8,17 @@ const Main = styled.main`
   justify-content: center;
   margin-top: 50px;
 `
+const PostContainer = styled.div`
+
+`
+const UpdateDelete = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 15px; 
+`
+const UpdateDeleteBtn = styled.button`
+  margin: 0 10px;
+`
 const Post = styled.div`
   margin: 15px;
   width: 306px;
@@ -61,8 +72,11 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
   const allPosts = posts.map((post, id) => {
     if (post.user_id === loggedInUser.id) {
       return (
-        <React.Fragment key={id}>
-          
+        <PostContainer key={id}>
+          <UpdateDelete>
+            <UpdateDeleteBtn>edit</UpdateDeleteBtn>
+            <UpdateDeleteBtn>delete</UpdateDeleteBtn>
+          </UpdateDelete>
           <Post>
             <Image src={post.media_link} alt={post.topic_name} />
             <UserContainer>
@@ -76,7 +90,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
               <Bullet>- {post.bullet_three}</Bullet>
             </List>
           </Post>
-        </React.Fragment>
+        </PostContainer>
       )
     }
   })
@@ -85,8 +99,8 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
     <>
       <Main>
         <CreatePostForm
-          loggedInUser = {loggedInUser}
-          createNewPost = {createNewPost}
+          loggedInUser={loggedInUser}
+          createNewPost={createNewPost}
         />
         {allPosts}
       </Main>
