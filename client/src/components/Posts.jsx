@@ -33,14 +33,14 @@ const Topic = styled.h4`
   margin-top: 4px;
   letter-spacing: 1.5px 
 `
-const EmailBtn = styled.button`
+export const Btn = styled.button`
   margin: 20px 0;
   padding: 6px 12px;
   background-color: rgb(154, 78, 80);
   border-radius: 5px;
   border: 2px solid rgb(154, 78, 80)
 `
-const EmailLnk = styled.a`
+const BtnLnk = styled.a`
   text-decoration: none;
   font-weight: 500;
   font-size: 15px
@@ -66,7 +66,7 @@ export default function Posts({ posts }) {
           <UserContainer>
             <UserName>{`${post.primary_name} ${post.surname}`}</UserName>
             <Topic>{post.topic_name}</Topic>
-            <EmailBtn><EmailLnk href={`mailto:${post.email}`}>Email Me</EmailLnk></EmailBtn>
+            <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
           </UserContainer>
           <List>
             <Bullet>- {post.bullet_one}</Bullet>

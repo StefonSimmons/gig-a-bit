@@ -1,14 +1,58 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
+import { Btn } from './Posts'
 
 const LogInModal = styled.div`
   margin: 15px auto;
-  width: 306px;
+  width: 450px;
+  height: 400px;
   border: rgb(216,224,233) solid 2px;
   font-family: 'Pathway Gothic One', sans-serif; 
   text-align: center;
+  background-color: rgb(245,247,249);
+  displau: flex;
+`
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0
+`
+const Welcome = styled.h3`
+  font-size: 28px;
+  font-family: 'Pathway Gothic One', sans-serif;  
+  color: rgb(61,77,92);
+`
+const TitleLogIn = styled.h4`
+  font-size: 18px;
+  font-family: 'Pathway Gothic One', sans-serif;  
+  font-weight: 700;
+  font-style: italic;
+  color: rgb(154, 78, 80)
+`
+const Circle = styled.div`
+  border-radius: 50%;
+  background-color: rgb(216,224,233);
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px auto;
+`
+const Input = styled.input`
+  padding: 8px 10px;
+  width: 250px;
+  border: rgb(216,224,233) solid 2px;
+  border-radius: 3px;
+` 
+const LogInLnk = styled(Link)`
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px
+  letter-spacing: 1.26px;
+  color: white;
 `
 
 
@@ -34,7 +78,7 @@ export default class LogInForm extends Component {
       <>
 
         <LogInModal>
-          <form onSubmit={(e) => {
+          <Form onSubmit={(e) => {
             e.preventDefault();
             handleLoginSubmit(this.state);
             // history.push('/');
@@ -43,9 +87,11 @@ export default class LogInForm extends Component {
             //   password: ""
             // })
           }}>
-            <h3>Welcome Back</h3>
-            <h4>Gig-A-Bit</h4>
-            <input
+            <Welcome>Welcome Back</Welcome>
+            <Circle>
+              <TitleLogIn>Gig-A-Bit</TitleLogIn>
+            </Circle>
+            <Input
               id="email"
               type="text"
               name="email"
@@ -55,7 +101,7 @@ export default class LogInForm extends Component {
             />
 
             <br />
-            <input
+            <Input
               id="password"
               type="password"
               name="password"
@@ -64,8 +110,8 @@ export default class LogInForm extends Component {
               onChange={this.handleChange}
             />
             <br />
-            <button>Log In</button>
-          </form>
+            <Btn><LogInLnk>Log In</LogInLnk></Btn>
+          </Form>
         </LogInModal>
       </>
     )
