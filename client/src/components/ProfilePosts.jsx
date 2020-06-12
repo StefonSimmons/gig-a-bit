@@ -56,7 +56,7 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0 
 `
-export default function ProfilePosts({ loggedInUser, posts }) {
+export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
 
   const allPosts = posts.map((post, id) => {
     if (post.user_id === loggedInUser.id) {
@@ -83,7 +83,10 @@ export default function ProfilePosts({ loggedInUser, posts }) {
   return (
     <>
       <Main>
-        <CreatePostForm />
+        <CreatePostForm
+          loggedInUser = {loggedInUser}
+          createNewPost = {createNewPost}
+        />
         {allPosts}
       </Main>
     </>

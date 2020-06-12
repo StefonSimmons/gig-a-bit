@@ -31,8 +31,8 @@ export default class Main extends Component {
     )
   }
 
-  createNewPost = async () => {
-    const newPost = await createPost()
+  createNewPost = async (postInfo) => {
+    const newPost = await createPost(postInfo)
     this.setState(prevState => (
       { posts: [...prevState.posts, newPost] }
     ))
