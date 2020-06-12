@@ -32,7 +32,6 @@ const Topic = styled.h4`
   font-size: 15px;
   margin-top: 4px;
   letter-spacing: 1.5px 
-
 `
 const EmailBtn = styled.button`
   margin: 20px 0;
@@ -82,7 +81,6 @@ export default function Posts({ posts }) {
   return (
     <>
       <Main>
-        {console.log(posts)}
         {allPosts}
       </Main>
     </>

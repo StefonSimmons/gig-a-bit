@@ -3,6 +3,7 @@ import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import {loginUser, registerUser, removeToken, verifyUser} from './services/auth'
+import LogInForm from './components/LogInForm';
 
 export default class App extends Component {
 
@@ -15,6 +16,7 @@ export default class App extends Component {
   }
 
   handleLoginSubmit = async (loginParams) => {
+    console.log(loginParams)
     const loggedInUser = await loginUser(loginParams);
     this.setState({ loggedInUser});
   }
@@ -37,13 +39,18 @@ export default class App extends Component {
     this.setState({ loggedInUser })
   }
 
-
+  showLoginForm = () => {
+    
+  }
 
   render() {
 
     return (
       <div>
         <Header />
+        <LogInForm
+          handleLoginSubmit={this.handleLoginSubmit}
+        />
         <Main />
         <Footer />
       </div>
