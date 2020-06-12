@@ -13,18 +13,18 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    this.allTopics()
-    this.allPosts()
+    this.listAllTopics()
+    this.listAllPosts()
   }
 
-  allTopics = async () => {
+  listAllTopics = async () => {
     const topics = await getAllTopics();
     this.setState(
       { topics }
     )
   }
 
-  allPosts = async () => {
+  listAllPosts = async () => {
     const posts = await postsUserTopic()
     this.setState(
       { posts }
