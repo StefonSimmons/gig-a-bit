@@ -71,7 +71,7 @@ const Bullet = styled.li`
 export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
 
   const allPosts = posts.map((post, id) => {
-    if (post.user_id === loggedInUser.id) {
+    if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
         <PostContainer key={id}>
           <UpdateDelete>
@@ -89,7 +89,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
               <Bullet>- {post.bullet_one}</Bullet>
               <Bullet>- {post.bullet_two}</Bullet>
               <Bullet>- {post.bullet_three}</Bullet>
-            </List>
+            </List> 
           </Post>
         </PostContainer>
       )

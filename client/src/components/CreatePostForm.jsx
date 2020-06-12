@@ -62,18 +62,26 @@ const Dropdown = styled.input`
   padding: 10px;
   height: 45px;
   border-radius: 5px; 
-` 
+`
 
 export default class CreatePostForm extends Component {
 
   state = {
-    media_link: '',
-    bullet_one: '',
-    bullet_two: '',
-    bullet_three: '',
-    user_id: '',
-    topic_id: ''
+    postParams: {
+      media_link: '',
+      bullet_one: '',
+      bullet_two: '',
+      bullet_three: '',
+      user_id: '',
+      topic_id: ''
+    },
+    user_name: '',
+    topic_name: ''
   }
+
+  // componentDidMount() {
+  //   this.handleConversion()
+  // }
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -81,6 +89,11 @@ export default class CreatePostForm extends Component {
       [name]: value
     })
   }
+
+  // handleConversion = () => {
+  //   const user_id = loggedInUser.map(e => e.id)
+  //   return user_id
+  // }
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
@@ -109,7 +122,7 @@ export default class CreatePostForm extends Component {
               />
               <ReadOnlyInput
                 type="text"
-                name="user_id"
+                name="user_name"
                 value="Stefon Simmons" readOnly
               // value={`${loggedInUser.primary_name} ${loggedInUser.surname}`} readOnly
               />
