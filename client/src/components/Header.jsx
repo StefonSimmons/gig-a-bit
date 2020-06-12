@@ -51,7 +51,7 @@ export default function Header({ showLogInForm, showCreateProfileForm, loggedInU
               loggedInUser
               ?
               <>
-                <Link to='/myprofile'>
+                <Link to="/my_profile">
                   <NavItems>
                     My Profile
                   </NavItems>

@@ -11,4 +11,3 @@ export const getUsersTopicsPosts = async () => {
   const users = resp.data
   return users
 }
-

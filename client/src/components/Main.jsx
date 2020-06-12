@@ -33,7 +33,6 @@ export default class Main extends Component {
 
 
   render() {
-    const { loggedInUser } = this.props
     return (
       <div>
         <FilterBar
@@ -41,9 +40,10 @@ export default class Main extends Component {
         />
 
         <Switch>
-          <Route exact path="/myprofile">
+          <Route exact path="/my_profile">
             <ProfilePosts
-
+              loggedInUser={this.props.loggedInUser}
+              posts={this.state.posts}
             />
           </Route>
 

@@ -10,6 +10,7 @@ export default class App extends Component {
 
   state = {
     loggedInUser: null,
+    user: null,
     logInClicked: false,
     createProfileClicked: false,
   }
@@ -20,6 +21,7 @@ export default class App extends Component {
 
   handleLoginSubmit = async (loginParams) => {
     console.log(loginParams.email)
+    console.log(loginParams)
     const loggedInUser = await loginUser(loginParams);
     this.setState({ loggedInUser });
   }
@@ -53,6 +55,7 @@ export default class App extends Component {
       createProfileClicked: !prevState.createProfileClicked
     }))
   }
+
 
   render() {
 
