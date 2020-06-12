@@ -67,17 +67,15 @@ const Dropdown = styled.input`
 export default class CreatePostForm extends Component {
 
   state = {
-    postParams: {
-      media_link: '',
-      bullet_one: '',
-      bullet_two: '',
-      bullet_three: '',
-      user_id: '',
-      topic_id: ''
-    },
-    user_name: '',
-    topic_name: ''
+    media_link: '',
+    bullet_one: '',
+    bullet_two: '',
+    bullet_three: '',
+    user_id: '',
+    topic_id: ''
   }
+
+
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -88,7 +86,7 @@ export default class CreatePostForm extends Component {
 
 
   render() {
-    const { media_link, bullet_one, bullet_two, bullet_three, user_name } = this.state;
+    const { media_link, bullet_one, bullet_two, bullet_three} = this.state;
     const { createNewPost, history, loggedInUser } = this.props;
     const loggedIn = loggedInUser !== null ?
       <CreateFormContainer>
@@ -114,7 +112,8 @@ export default class CreatePostForm extends Component {
             <ReadOnlyInput
               type="text"
               name="user_name"
-              value={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)} readOnly
+              value={loggedInUser.user_id} readOnly
+              placeholder={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)}
             />
             <Label htmlFor="topic">Choose a Topic:</Label>
             <Dropdown
@@ -126,7 +125,8 @@ export default class CreatePostForm extends Component {
             <ReadOnlyInput
               type="text"
               name="email"
-              value="email here" readOnly
+              value={loggedInUser.email} readOnly
+              placeholder={loggedInUser.email}
             />
             <Input
               type="text"
