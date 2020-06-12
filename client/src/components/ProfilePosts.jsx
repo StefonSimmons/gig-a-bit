@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import CreatePostForm from './CreatePostForm'
 
 const Main = styled.main`
   display: flex;
@@ -82,6 +83,7 @@ export default function ProfilePosts({ loggedInUser, posts }) {
   return (
     <>
       <Main>
+        <CreatePostForm />
         {allPosts}
       </Main>
     </>
