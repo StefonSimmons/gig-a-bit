@@ -44,7 +44,6 @@ export default function Header({ showLogInForm, showCreateProfileForm, loggedInU
             <NavItems>
               <i className="material-icons w3-xxlarge">home</i>
             </NavItems>
-{console.log(loggedInUser)}
             {
               loggedInUser
               ?
@@ -73,8 +72,6 @@ export default function Header({ showLogInForm, showCreateProfileForm, loggedInU
                 Log In
               </NavItems>
             }
-
-
 
           </NavList>
         </NavBar>

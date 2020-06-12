@@ -126,17 +126,17 @@ src
 | Task                               | Priority | Estimated Time | Time Invested | Actual Time |
 | ---------------------------------- | :------: | :------------: | :-----------: | :---------: |
 | Installing dependencies            |    H     |     15 mins    |     9 mins    |        -    |
-| App & Main.jsx                     |    H     |     5 hrs      |        -      |        -    |
-| Header/Nav                         |    H     |     2 hrs      |         -     |        -    |
+| App & Main.jsx                     |    H     |     5 hrs      |     30 mins   |        -    |
+| Header/Nav                         |    H     |     2 hrs      |     1.5 hrs   |        -    |
 | Hamburger Menu                     |    L     |     3 hrs      |      -        |      -      |
 | Footer                             |    H     |     1 hrs      |         -     |        -    |
-| LogIn Modal                        |    H     |     2 hrs      |         -     |       -     |
-| CreateProfile Modal                |    H     |     2 hrs      |         -     |        -    |
-| Filter Bar                         |    L     |     3 hrs      |         -     |        -    |
-| Logout function                    |    H     |     1 hrs      |         -     |        -    |
+| LogIn Modal                        |    H     |     2 hrs      |     2.5 hrs   |       -     |
+| CreateProfile Modal                |    H     |     2 hrs      |     1.5 hrs   |        -    |
+| Filter Bar                         |    L     |     3 hrs      |     1 hr      |        -    |
+| Logout function                    |    H     |     1 hrs      |     1 hr      |        -    |
 | Create Post                        |    H     |     3 hrs      |          -    |        -    |
 | Update Post                        |    H     |     3 hrs      |         -     |      -      |
-| Map All Posts                      |    H     |     3 hrs      |     -         |      -      |
+| Map All Posts                      |    H     |     3 hrs      |     3 hrs      |      -      |
 | Map All Profile Posts              |    H     |     4 hrs      |     -         |      -      |
 | Server/API (schema)                |    H     |     1 hr       |     1 hr      |      -      |
 | Server/API (seed)                  |    H     |     .5 hr      |     1 hr      |      -      |
@@ -146,7 +146,7 @@ src
 | Server/API (auth and app_controller)|   H     |     1 hr       |     4 hrs     |      -      |
 | Server/API (custom routes)         |    M     |     .5 hrs     |     1.5 hrs   |      -      |
 | Styling/Responsive Design          |    M     |     10 hrs     |      -        |      -      |
-| TOTAL                              |    --    |    47 hrs      |     14 hrs    |     -       |
+| TOTAL                              |    --    |    47 hrs      |     25 hrs    |     -       |
 
 
 <br>
