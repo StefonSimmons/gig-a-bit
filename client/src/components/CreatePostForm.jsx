@@ -8,7 +8,6 @@ const CreateFormContainer = styled.div`
 const CreatePostContainer = styled.div`
   display: flex;
   flex-direction: column;  
-  background: blue;   
   height: 500px;
   width: 302px;
   margin: 0 15px 15px 15px;
@@ -21,7 +20,7 @@ const Create = styled.div`
   margin: 0 15px; 
 `
 const CreateBtn = styled.button`
-  padding: 6px 18px;
+  padding: 4px 18px;
   margin-bottom: 5px;
   background-color: rgb(204, 160, 161);
   border-radius: 2px;
@@ -39,12 +38,14 @@ const Label = styled.label`
 `
 const MediaInput = styled.input`
   margin: 10px 15px; 
+  padding: 10px;
   height: 65px;
   font-family: 'Pathway Gothic One', sans-serif; 
   border-radius: 5px;
 `
 const ReadOnlyInput = styled.input`
   margin: 10px 15px; 
+  padding: 10px;
   height: 45px;
   background-color: rgb(216,224,233);
   border: rgb(216,224,233) solid 1px;
@@ -52,11 +53,13 @@ const ReadOnlyInput = styled.input`
 `
 const Input = styled.input`
   margin: 10px 15px; 
+  padding: 10px;
   height: 45px;
   border-radius: 5px; 
 `
 const Dropdown = styled.input`
   margin: 0 15px 10px 15px; 
+  padding: 10px;
   height: 45px;
   border-radius: 5px; 
 ` 
@@ -71,7 +74,7 @@ export default class CreatePostForm extends Component {
     user_id: '',
     topic_id: ''
   }
- 
+
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
