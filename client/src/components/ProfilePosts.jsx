@@ -62,6 +62,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
     if (post.user_id === loggedInUser.id) {
       return (
         <React.Fragment key={id}>
+          
           <Post>
             <Image src={post.media_link} alt={post.topic_name} />
             <UserContainer>
