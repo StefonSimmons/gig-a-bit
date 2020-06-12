@@ -43,12 +43,13 @@ export default class CreateProfileForm extends Component {
 
   render() {
     const { userType, primaryName, surname, email, password } = this.state;
-    const { handleRegisterSubmit, history } = this.props;
+    const { handleRegisterSubmit, history, createProfileClicked, hideCreateProfileForm} = this.props;
 
     return (
       <>
-        <div>
-          <CreateProfileModal>
+        <div className="w3-modal" style={createProfileClicked ? { display: "block" } : { display: "none" }}>
+          <CreateProfileModal className="w3-modal-content w3-card-4 w3-animate-zoom">
+          <span onClick={hideCreateProfileForm} class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
             <Form onSubmit={(e) => {
               e.preventDefault();
               handleRegisterSubmit(this.state);
