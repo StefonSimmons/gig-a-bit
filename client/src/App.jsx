@@ -11,7 +11,7 @@ export default class App extends Component {
   state = {
     loggedInUser: null,
     logInClicked: false,
-    createProfileClicked: false
+    createProfileClicked: false,
   }
 
   componentDidMount() {
@@ -19,7 +19,7 @@ export default class App extends Component {
   }
 
   handleLoginSubmit = async (loginParams) => {
-    console.log(loginParams)
+    console.log(loginParams.email)
     const loggedInUser = await loginUser(loginParams);
     this.setState({ loggedInUser });
   }
@@ -74,7 +74,9 @@ export default class App extends Component {
           logInClicked={this.state.logInClicked}
           hideLogInForm={this.toggleLoginForm}
         />
-        <Main />
+        <Main
+          loggedInUser={this.state.loggedInUser}
+        />
         <Footer />
       </div>
     )

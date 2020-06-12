@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import FilterBar from './FilterBar'
 import { getAllTopics } from '../services/topics'
 import { postsUserTopic } from '../services/posts'
 import Posts from './Posts'
+import ProfilePosts from './ProfilePosts'
 
 export default class Main extends Component {
   state = {
@@ -31,15 +33,26 @@ export default class Main extends Component {
 
 
   render() {
-
+    const { loggedInUser } = this.props
     return (
       <div>
         <FilterBar
           topics={this.state.topics}
         />
-        <Posts
-          posts={this.state.posts}
-        />
+
+        <Switch>
+          <Route exact path="/myprofile">
+            <ProfilePosts
+
+            />
+          </Route>
+
+          <Route exact path="/">
+            <Posts
+              posts={this.state.posts}
+            />
+          </Route>
+        </Switch>
       </div>
     )
   }

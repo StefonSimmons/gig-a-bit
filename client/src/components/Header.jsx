@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 const HeaderSection = styled.header`
@@ -41,17 +42,20 @@ export default function Header({ showLogInForm, showCreateProfileForm, loggedInU
         <NavBar>
           <NavList>
 
-            <NavItems>
-              <i className="material-icons w3-xxlarge">home</i>
-            </NavItems>
+            <Link to="/">
+              <NavItems>
+                <i className="material-icons w3-xxlarge">home</i>
+              </NavItems>
+            </Link>
             {
               loggedInUser
               ?
               <>
-              <NavItems>
-                My Profile
-              </NavItems>
-
+                <Link to='/myprofile'>
+                  <NavItems>
+                    My Profile
+                  </NavItems>
+                </Link>
               </>
               :
               <NavItems onClick={showCreateProfileForm}>
