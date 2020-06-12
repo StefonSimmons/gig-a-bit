@@ -23,7 +23,8 @@ const NavList = styled.ul`
 const NavItems = styled.li`
   padding-right: 50px;
   font-family: 'Pathway Gothic One', sans-serif;  
-  font-size: 20px
+  font-size: 20px;
+  cursor: pointer
 `
 export const Divider = styled.hr`
   height: 2px;
@@ -31,7 +32,8 @@ export const Divider = styled.hr`
   margin: 0px
 `
 
-export default function Header() {
+export default function Header({ showLogInForm, showCreateProfileForm }) {
+
   return (
     <>
       <HeaderSection>
@@ -39,12 +41,16 @@ export default function Header() {
         <NavBar>
           <NavList>
             <NavItems><i className="material-icons w3-xxlarge">home</i></NavItems>
-            <NavItems>Create A Profile</NavItems>
-            <NavItems>Log In</NavItems>
+            <NavItems onClick={showCreateProfileForm}>
+              Create A Profile
+              </NavItems>
+            <NavItems onClick={showLogInForm}>
+              Log In
+            </NavItems>
           </NavList>
         </NavBar>
       </HeaderSection>
-      <Divider/>
+      <Divider />
     </>
   )
 }

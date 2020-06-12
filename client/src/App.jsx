@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
-import {loginUser, registerUser, removeToken, verifyUser} from './services/auth'
+import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
+import CreateProfileForm from './components/CreateProfileForm'
+import LogInForm from './components/LogInForm';
 
 export default class App extends Component {
 
   state = {
-    loggedInUser: null
+    loggedInUser: null,
+    logInClicked: false,
+    createProfileClicked: false
   }
 
   componentDidMount() {
@@ -15,8 +19,9 @@ export default class App extends Component {
   }
 
   handleLoginSubmit = async (loginParams) => {
+    console.log(loginParams)
     const loggedInUser = await loginUser(loginParams);
-    this.setState({ loggedInUser});
+    this.setState({ loggedInUser });
   }
 
   handleRegisterSubmit = async (registerParams) => {
@@ -37,13 +42,36 @@ export default class App extends Component {
     this.setState({ loggedInUser })
   }
 
+  toggleLoginForm = () => {
+    this.setState(prevState => ({
+      logInClicked: !prevState.logInClicked
+    }))
+  }
 
+  toggleCreateProfileForm = () => {
+    this.setState(prevState => ({
+      createProfileClicked: !prevState.createProfileClicked
+    }))
+  }
 
   render() {
 
     return (
       <div>
-        <Header />
+        <Header
+          showLogInForm={this.toggleLoginForm}
+          showCreateProfileForm={this.toggleCreateProfileForm}
+        />
+        <CreateProfileForm
+          handleRegisterSubmit={this.handleRegisterSubmit}
+          createProfileClicked={this.state.createProfileClicked}
+          hideCreateProfileForm={this.toggleCreateProfileForm}
+        />
+        <LogInForm
+          handleLoginSubmit={this.handleLoginSubmit}
+          logInClicked={this.state.logInClicked}
+          hideLogInForm={this.toggleLoginForm}
+        />
         <Main />
         <Footer />
       </div>
