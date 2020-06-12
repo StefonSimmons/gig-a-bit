@@ -8,11 +8,12 @@ const CreateFormContainer = styled.div`
 const CreatePostContainer = styled.div`
   display: flex;
   flex-direction: column;  
-  background: blue;
+  background: blue;   
   height: 500px;
   width: 302px;
-  margin: 15px;
+  margin: 0 15px 15px 15px;
   border: rgb(216,224,233) solid 2px;
+  border-radius: 5px
 `
 const Create = styled.div`
   display: flex;
@@ -20,9 +21,10 @@ const Create = styled.div`
   margin: 0 15px; 
 `
 const CreateBtn = styled.button`
-  padding: 6px 12px;
-  background-color: rgb(154, 78, 80);
-  border-radius: 5px;
+  padding: 6px 18px;
+  margin-bottom: 5px;
+  background-color: rgb(204, 160, 161);
+  border-radius: 2px;
   border: 2px solid rgb(154, 78, 80)
 `
 const Form = styled.form`
@@ -30,6 +32,10 @@ const Form = styled.form`
   justify-content: space-evenly;
   flex-direction: column;  
   font-family: 'Pathway Gothic One', sans-serif; 
+`
+const Label = styled.label` 
+  margin-top: 15px; 
+  text-align: center
 `
 const MediaInput = styled.input`
   margin: 10px 15px; 
@@ -49,6 +55,11 @@ const Input = styled.input`
   height: 40px;
   border-radius: 5px; 
 `
+const Dropdown = styled.input`
+  margin: 0 15px 15px 15px; 
+  height: 40px;
+  border-radius: 5px; 
+`
 
 export default class CreatePostForm extends Component {
 
@@ -60,7 +71,7 @@ export default class CreatePostForm extends Component {
     user_id: '',
     topic_id: ''
   }
-
+ 
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
@@ -99,7 +110,9 @@ export default class CreatePostForm extends Component {
                 value="Stefon Simmons" readOnly
               // value={`${loggedInUser.primary_name} ${loggedInUser.surname}`} readOnly
               />
-              <Input
+              <Label htmlFor="topic">Choose a Topic:</Label>
+              <Dropdown
+                id="topic"
                 type="text"
                 name="topic_id"
                 value="add dropdown here" readOnly

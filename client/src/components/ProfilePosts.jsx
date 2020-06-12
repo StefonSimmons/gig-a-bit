@@ -15,18 +15,23 @@ const UpdateDelete = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 0 15px; 
-`
-const UpdateDeleteBtn = styled.button`
+` 
+// const UpdateDeleteBtn = styled.button`
+//   margin: 0 10px;
+//   padding: 6px 12px;
+//   background-color: rgb(154, 78, 80);
+//   border-radius: 5px;
+//   border: 2px solid rgb(154, 78, 80)
+// `
+const Icon = styled.i`
   margin: 0 10px;
-  padding: 6px 12px;
-  background-color: rgb(154, 78, 80);
-  border-radius: 5px;
-  border: 2px solid rgb(154, 78, 80)
+  color: rgb(154, 78, 80)
 `
 const Post = styled.div`
-  margin: 15px;
+  margin: 0 15px 15px 15px;
   width: 306px;
   border: rgb(216,224,233) solid 2px;
+  border-radius: 5px;
   font-family: 'Pathway Gothic One', sans-serif; 
 `
 const Image = styled.img`
@@ -65,12 +70,12 @@ const BtnLnk = styled.a`
 `
 const List = styled.div`
   margin: 20px
-`
+` 
 const Bullet = styled.li`
   font-size: 15px;
   list-style: none;
   padding: 10px 0 
-`
+`   
 export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
 
   const allPosts = posts.map((post, id) => {
@@ -78,8 +83,8 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
       return (
         <PostContainer key={id}>
           <UpdateDelete>
-            <UpdateDeleteBtn>edit</UpdateDeleteBtn>
-            <UpdateDeleteBtn>delete</UpdateDeleteBtn>
+            <Icon><i class="material-icons w3-xxlarge">edit</i></Icon>
+            <Icon><i class="material-icons w3-xxlarge">clear</i></Icon>
           </UpdateDelete>
           <Post>
             <Image src={post.media_link} alt={post.topic_name} />
