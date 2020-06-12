@@ -32,7 +32,7 @@ export const Divider = styled.hr`
   margin: 0px
 `
 
-export default function Header({ showLogInForm, showCreateProfileForm }) {
+export default function Header({ showLogInForm, showCreateProfileForm, loggedInUser, logout }) {
 
   return (
     <>
@@ -40,13 +40,42 @@ export default function Header({ showLogInForm, showCreateProfileForm }) {
         <Title>Gig-A-Bit</Title>
         <NavBar>
           <NavList>
-            <NavItems><i className="material-icons w3-xxlarge">home</i></NavItems>
-            <NavItems onClick={showCreateProfileForm}>
-              Create A Profile
-              </NavItems>
-            <NavItems onClick={showLogInForm}>
-              Log In
+
+            <NavItems>
+              <i className="material-icons w3-xxlarge">home</i>
             </NavItems>
+{console.log(loggedInUser)}
+            {
+              loggedInUser
+              ?
+              <>
+              <NavItems>
+                My Profile
+              </NavItems>
+
+              </>
+              :
+              <NavItems onClick={showCreateProfileForm}>
+                Create A Profile
+              </NavItems>
+            }
+            {
+              loggedInUser
+              ?
+              <>
+              <NavItems onClick={logout}>
+                Log Out
+              </NavItems>
+
+              </>
+              :
+              <NavItems onClick={showLogInForm}>
+                Log In
+              </NavItems>
+            }
+
+
+
           </NavList>
         </NavBar>
       </HeaderSection>

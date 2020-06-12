@@ -61,6 +61,8 @@ export default class App extends Component {
         <Header
           showLogInForm={this.toggleLoginForm}
           showCreateProfileForm={this.toggleCreateProfileForm}
+          loggedInUser={this.state.loggedInUser}
+          logout={this.handleLogout}
         />
         <CreateProfileForm
           handleRegisterSubmit={this.handleRegisterSubmit}
