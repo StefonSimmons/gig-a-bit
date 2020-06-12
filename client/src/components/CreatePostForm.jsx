@@ -79,10 +79,6 @@ export default class CreatePostForm extends Component {
     topic_name: ''
   }
 
-  // componentDidMount() {
-  //   this.handleConversion()
-  // }
-
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
@@ -90,80 +86,77 @@ export default class CreatePostForm extends Component {
     })
   }
 
-  // handleConversion = () => {
-  //   const user_id = loggedInUser.map(e => e.id)
-  //   return user_id
-  // }
 
   render() {
-    const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
+    const { media_link, bullet_one, bullet_two, bullet_three, user_name } = this.state;
     const { createNewPost, history, loggedInUser } = this.props;
+    const loggedIn = loggedInUser !== null ?
+      <CreateFormContainer>
+        <Create>
+          <CreateBtn>Create</CreateBtn>
+        </Create>
+        <CreatePostContainer>
+          <Form onSubmit={(e) => {
+            e.preventDefault();
+            createNewPost(this.state);
+            // history.push('/foods');
+            // this.setState({
+            //   name: "" 
+            // })
+          }}>
+            <MediaInput
+              type="text"
+              name="media_link"
+              value={media_link}
+              placeholder="Enter image, video, or audio link here"
+              onChange={this.handleChange}
+            />
+            <ReadOnlyInput
+              type="text"
+              name="user_name"
+              value={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)} readOnly
+            />
+            <Label htmlFor="topic">Choose a Topic:</Label>
+            <Dropdown
+              id="topic"
+              type="text"
+              name="topic_id"
+              value="add dropdown here" readOnly
+            />
+            <ReadOnlyInput
+              type="text"
+              name="email"
+              value="email here" readOnly
+            />
+            <Input
+              type="text"
+              name="bullet_one"
+              value={bullet_one}
+              placeholder="Write a point about the Post"
+              onChange={this.handleChange}
+            />
+            <Input
+              type="text"
+              name="bullet_two"
+              value={bullet_two}
+              placeholder="Write a point about the Post"
+              onChange={this.handleChange}
+            />
+            <Input
+              type="text"
+              name="bullet_three"
+              value={bullet_three}
+              placeholder="Write a point about the Post"
+              onChange={this.handleChange}
+            />
+          </Form>
+        </CreatePostContainer>
+      </CreateFormContainer>
+      :
+      "User Cant be found"
     return (
       <>
-        <CreateFormContainer>
-          <Create>
-            <CreateBtn>Create</CreateBtn>
-          </Create>
-          <CreatePostContainer>
-            <Form onSubmit={(e) => {
-              e.preventDefault();
-              createNewPost(this.state);
-              // history.push('/foods');
-              // this.setState({
-              //   name: ""
-              // })
-            }}>
-              <MediaInput
-                type="text"
-                name="media_link"
-                value={media_link}
-                placeholder="Enter image, video, or audio link here"
-                onChange={this.handleChange}
-              />
-              <ReadOnlyInput
-                type="text"
-                name="user_name"
-                value="Stefon Simmons" readOnly
-              // value={`${loggedInUser.primary_name} ${loggedInUser.surname}`} readOnly
-              />
-              <Label htmlFor="topic">Choose a Topic:</Label>
-              <Dropdown
-                id="topic"
-                type="text"
-                name="topic_id"
-                value="add dropdown here" readOnly
-              />
-              <ReadOnlyInput
-                type="text"
-                name="email"
-                value="email here" readOnly
-              />
-              <Input
-                type="text"
-                name="bullet_one"
-                value={bullet_one}
-                placeholder="Write a point about the Post"
-                onChange={this.handleChange}
-              />
-              <Input
-                type="text"
-                name="bullet_two"
-                value={bullet_two}
-                placeholder="Write a point about the Post"
-                onChange={this.handleChange}
-              />
-              <Input
-                type="text"
-                name="bullet_three"
-                value={bullet_three}
-                placeholder="Write a point about the Post"
-                onChange={this.handleChange}
-              />
-
-            </Form>
-          </CreatePostContainer>
-        </CreateFormContainer>
-
+        {loggedIn}
       </>
     )
   }
