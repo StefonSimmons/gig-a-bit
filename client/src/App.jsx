@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
-import {loginUser, registerUser, removeToken, verifyUser} from './services/auth'
+import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
 import LogInForm from './components/LogInForm';
 
 export default class App extends Component {
 
   state = {
-    loggedInUser: null
+    loggedInUser: null,
+    logInClicked: false
   }
 
   componentDidMount() {
@@ -18,7 +19,7 @@ export default class App extends Component {
   handleLoginSubmit = async (loginParams) => {
     console.log(loginParams)
     const loggedInUser = await loginUser(loginParams);
-    this.setState({ loggedInUser});
+    this.setState({ loggedInUser });
   }
 
   handleRegisterSubmit = async (registerParams) => {
@@ -40,16 +41,21 @@ export default class App extends Component {
   }
 
   showLoginForm = () => {
-    
+    this.setState(prevState => ({
+      logInClicked: !prevState.logInClicked
+    }))
   }
 
   render() {
 
     return (
       <div>
-        <Header />
+        <Header
+          showLogInForm={this.showLoginForm}
+        />
         <LogInForm
           handleLoginSubmit={this.handleLoginSubmit}
+          logInClicked={this.state.logInClicked}
         />
         <Main />
         <Footer />

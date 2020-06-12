@@ -31,7 +31,8 @@ export const Divider = styled.hr`
   margin: 0px
 `
 
-export default function Header() {
+export default function Header({ showLogInForm }) {
+
   return (
     <>
       <HeaderSection>
@@ -40,11 +41,13 @@ export default function Header() {
           <NavList>
             <NavItems><i className="material-icons w3-xxlarge">home</i></NavItems>
             <NavItems>Create A Profile</NavItems>
-            <NavItems>Log In</NavItems>
+            <NavItems onClick={showLogInForm}>
+              Log In
+            </NavItems>
           </NavList>
         </NavBar>
       </HeaderSection>
-      <Divider/>
+      <Divider />
     </>
   )
 }
