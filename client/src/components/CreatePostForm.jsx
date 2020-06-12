@@ -39,27 +39,27 @@ const Label = styled.label`
 `
 const MediaInput = styled.input`
   margin: 10px 15px; 
-  height: 60px;
+  height: 65px;
   font-family: 'Pathway Gothic One', sans-serif; 
   border-radius: 5px;
 `
 const ReadOnlyInput = styled.input`
   margin: 10px 15px; 
-  height: 40px;
+  height: 45px;
   background-color: rgb(216,224,233);
   border: rgb(216,224,233) solid 1px;
   border-radius: 5px;
 `
 const Input = styled.input`
   margin: 10px 15px; 
-  height: 40px;
+  height: 45px;
   border-radius: 5px; 
 `
 const Dropdown = styled.input`
-  margin: 0 15px 15px 15px; 
-  height: 40px;
+  margin: 0 15px 10px 15px; 
+  height: 45px;
   border-radius: 5px; 
-`
+` 
 
 export default class CreatePostForm extends Component {
 
@@ -126,18 +126,21 @@ export default class CreatePostForm extends Component {
                 type="text"
                 name="bullet_one"
                 value={bullet_one}
+                placeholder="Write a point about the Post"
                 onChange={this.handleChange}
               />
               <Input
                 type="text"
                 name="bullet_two"
                 value={bullet_two}
+                placeholder="Write a point about the Post"
                 onChange={this.handleChange}
               />
               <Input
                 type="text"
                 name="bullet_three"
                 value={bullet_three}
+                placeholder="Write a point about the Post"
                 onChange={this.handleChange}
               />
 
