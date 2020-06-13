@@ -71,37 +71,53 @@ export default class CreatePostForm extends Component {
     bullet_one: '',
     bullet_two: '',
     bullet_three: '',
-    user_id: '',
-    topic_id: ''
+    user_id: `${this.props.loggedInUser !== null ? this.props.loggedInUser : 'null'}`,
+    topic_id: console.log(this.props.loggedInUser)
   }
 
 
+
+  // componentDidMount() {
+  //   this.getReadOnly()
+
+  // }
 
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
     })
+    console.log(this.props.loggedInUser)
   }
 
+  getReadOnly = () => {
+    if (this.props.loggedInUser !== null) {
+      this.setState(
+        { user_id: this.props.loggedInUser.id}
+      )
+    }
+  }
 
   render() {
-    const { media_link, bullet_one, bullet_two, bullet_three} = this.state;
+    console.log(this.props.loggedInUser)
+    const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { createNewPost, history, loggedInUser } = this.props;
     const loggedIn = loggedInUser !== null ?
       <CreateFormContainer>
+        {console.log(loggedInUser)}
         <Create>
-          <CreateBtn>Create</CreateBtn>
-        </Create>
-        <CreatePostContainer>
-          <Form onSubmit={(e) => {
+          <CreateBtn onClick={(e) => {
             e.preventDefault();
+            this.getReadOnly()
             createNewPost(this.state);
-            // history.push('/foods');
+            // history.push('/my_profile');
             // this.setState({
             //   name: "" 
             // })
-          }}>
+          }}>Create</CreateBtn>
+        </Create>
+        <CreatePostContainer>
+          <Form>
             <MediaInput
               type="text"
               name="media_link"
@@ -111,9 +127,10 @@ export default class CreatePostForm extends Component {
             />
             <ReadOnlyInput
               type="text"
-              name="user_name"
-              value={loggedInUser.user_id} readOnly
+              name="user_id"
+              value={loggedInUser.user_id}
               placeholder={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)}
+              onChange={this.handleChange}
             />
             <Label htmlFor="topic">Choose a Topic:</Label>
             <Dropdown
@@ -151,9 +168,12 @@ export default class CreatePostForm extends Component {
             />
           </Form>
         </CreatePostContainer>
+        {console.log(loggedInUser)}
       </CreateFormContainer>
       :
       "User Cant be found"
+
+
     return (
       <>
         {loggedIn}
@@ -161,18 +181,3 @@ export default class CreatePostForm extends Component {
     )
   }
 }
-{/* <React.Fragment key={id}>
-  <Post>
-    <Image src={post.media_link} alt={post.topic_name} />
-    <UserContainer>
-      <UserName>{`${post.primary_name} ${post.surname}`}</UserName>
-      <Topic>{post.topic_name}</Topic>
-      <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
-    </UserContainer>
-    <List>
-      <Bullet>- {post.bullet_one}</Bullet>
-      <Bullet>- {post.bullet_two}</Bullet>
-      <Bullet>- {post.bullet_three}</Bullet>
-    </List>
-  </Post>
-</React.Fragment> */}

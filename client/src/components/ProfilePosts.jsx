@@ -75,8 +75,8 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost }) {
       return (
         <PostContainer key={id}>
           <UpdateDelete>
-            <Icon><i class="material-icons w3-xxlarge">edit</i></Icon>
-            <Icon><i class="material-icons w3-xxlarge">clear</i></Icon>
+            <Icon><i className="material-icons w3-xxlarge">edit</i></Icon>
+            <Icon><i className="material-icons w3-xxlarge">clear</i></Icon>
           </UpdateDelete>
           <Post>
             <Image src={post.media_link} alt={post.topic_name} />
