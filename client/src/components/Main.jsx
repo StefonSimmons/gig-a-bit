@@ -64,11 +64,20 @@ export default class Main extends Component {
     }))
   }
 
+  filterPosts = (topicID) => {
+    const { posts }= this.state
+    this.setState({
+      posts: posts.filter(post => post.topic_id === topicID)
+    })
+  }
+
   render() {
     return (
       <div>
+        {console.log(this.state.posts)}
         <FilterBar
           topics={this.state.topics}
+          filterPosts={this.filterPosts}
         />
 
         <Switch>

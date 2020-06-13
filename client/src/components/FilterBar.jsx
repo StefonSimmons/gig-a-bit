@@ -22,12 +22,12 @@ const Topics = styled.li`
 `
 
 
-export default function FilterBar({ topics }) {
+export default function FilterBar({ topics, filterPosts }) {
 
   const topicNames = topics.map((topic,id) => {
     return (
       <React.Fragment key={id}>
-        <Topics>{topic.name}</Topics>
+        <Topics onClick={() => filterPosts(topic.id)}>{topic.name}</Topics>
       </React.Fragment>
     )
   })
