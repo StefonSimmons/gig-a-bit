@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import TopicOptions from './TopicOptions'
 
 const CreateFormContainer = styled.div`
 
@@ -57,7 +57,7 @@ const Input = styled.input`
   height: 45px;
   border-radius: 5px; 
 `
-const Dropdown = styled.input`
+const Dropdown = styled.select`
   margin: 0 15px 10px 15px; 
   padding: 10px;
   height: 45px;
@@ -93,7 +93,7 @@ export default class CreatePostForm extends Component {
   getReadOnly = () => {
     if (this.props.loggedInUser !== null) {
       this.setState(
-        { user_id: this.props.loggedInUser.id}
+        { user_id: this.props.loggedInUser.id }
       )
     }
   }
@@ -101,7 +101,7 @@ export default class CreatePostForm extends Component {
   render() {
     console.log(this.props.loggedInUser)
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
-    const { createNewPost, history, loggedInUser } = this.props;
+    const { createNewPost, history, loggedInUser, topics } = this.props;
     const loggedIn = loggedInUser !== null ?
       <CreateFormContainer>
         {console.log(loggedInUser)}
@@ -132,13 +132,21 @@ export default class CreatePostForm extends Component {
               placeholder={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)}
               onChange={this.handleChange}
             />
-            <Label htmlFor="topic">Choose a Topic:</Label>
+            {/* <Label htmlFor="topic">Choose a Topic:</Label>
             <Dropdown
               id="topic"
               type="text"
               name="topic_id"
               value="add dropdown here" readOnly
-            />
+            /> */}
+            <Label htmlFor="topic">Choose a Topic:</Label>
+            <Dropdown name id="topic" onChange={this.handleChange}>
+              {topics.map(topic =>
+                <TopicOptions
+                  topic= {topic}
+                />  
+              )}
+            </Dropdown>
             <ReadOnlyInput
               type="text"
               name="email"
@@ -181,3 +189,9 @@ export default class CreatePostForm extends Component {
     )
   }
 }
+
+{/* <option value={}>Painting</option>
+<option value="price-ascending">Dancing</option>
+<option value="price-descending">Singing</option>
+<option value="price-descending">Photographs</option>
+<option value="price-descending">Acting</option> */}

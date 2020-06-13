@@ -50,7 +50,8 @@ export default class Main extends Component {
             <ProfilePosts
               loggedInUser={this.props.loggedInUser}
               posts={this.state.posts}
-              createNewPost= {this.createNewPost}
+              createNewPost={this.createNewPost}
+              topics={this.state.topics}
             />
           </Route>
 
