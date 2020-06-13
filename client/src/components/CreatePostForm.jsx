@@ -71,7 +71,7 @@ export default class CreatePostForm extends Component {
     bullet_one: '',
     bullet_two: '',
     bullet_three: '',
-    user_id: `${this.props.loggedInUser !== null ? this.props.loggedInUser : 'null'}`,
+    user_id: '',
     topic_id: console.log(this.props.loggedInUser)
   }
 
@@ -132,17 +132,11 @@ export default class CreatePostForm extends Component {
               placeholder={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)}
               onChange={this.handleChange}
             />
-            {/* <Label htmlFor="topic">Choose a Topic:</Label>
-            <Dropdown
-              id="topic"
-              type="text"
-              name="topic_id"
-              value="add dropdown here" readOnly
-            /> */}
             <Label htmlFor="topic">Choose a Topic:</Label>
-            <Dropdown name id="topic" onChange={this.handleChange}>
+            <Dropdown name="topic_id" id="topic" onChange={this.handleChange}>
               {topics.map(topic =>
                 <TopicOptions
+                  id={topic.id}
                   topic= {topic}
                 />  
               )}
