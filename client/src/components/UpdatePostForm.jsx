@@ -65,7 +65,7 @@ const Dropdown = styled.select`
   border-radius: 5px; 
 `
 
-export default class CreatePostForm extends Component {
+export default class UpdatePostForm extends Component {
 
   state = {
     media_link: '',
@@ -89,14 +89,14 @@ export default class CreatePostForm extends Component {
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
-    const { createNewPost, loggedInUser, topics } = this.props;
+    const { updatePost, loggedInUser, topics } = this.props;
     const userPosts = loggedInUser !== null ?
       <CreateFormContainer>
         <Create>
           <CreateBtn onClick={(e) => {
             e.preventDefault();
-            createNewPost(this.state);
-            window.location.reload()
+            updatePost(,this.state);
+            // window.location.reload()
             this.setState({
               media_link: '',
               bullet_one: '',
