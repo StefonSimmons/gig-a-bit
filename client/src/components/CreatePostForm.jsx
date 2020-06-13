@@ -36,7 +36,7 @@ const Label = styled.label`
   margin-top: 15px; 
   text-align: center
 `
-const MediaInput = styled.input`
+const MediaInput = styled.textarea`
   margin: 10px 15px; 
   padding: 10px;
   height: 65px;
