@@ -85,30 +85,23 @@ export default class CreatePostForm extends Component {
     })
   }
 
-  getReadOnly = () => {
-    if (this.props.loggedInUser !== null) {
-      this.setState(
-        { user_id: this.props.loggedInUser.id }
-      )
-    }
-  }
 
   render() {
-    console.log(this.props.loggedInUser)
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { createNewPost, history, loggedInUser, topics } = this.props;
-    const loggedIn = loggedInUser !== null ?
+    const userPosts = loggedInUser !== null ?
       <CreateFormContainer>
-        {console.log(loggedInUser)}
         <Create>
           <CreateBtn onClick={(e) => {
             e.preventDefault();
-            // this.getReadOnly()
             createNewPost(this.state);
             // history.push('/my_profile');
-            // this.setState({
-            //   name: "" 
-            // })
+            this.setState({
+              media_link: '',
+              bullet_one: '',
+              bullet_two: '',
+              bullet_three: ''
+            })
           }}>Create</CreateBtn>
         </Create>
         <CreatePostContainer>
@@ -123,9 +116,8 @@ export default class CreatePostForm extends Component {
             <ReadOnlyInput
               type="text"
               name="user_id"
-              value={loggedInUser.user_id}
+              value={loggedInUser.user_id} readOnly
               placeholder={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)}
-              onChange={this.handleChange}
             />
             <Label htmlFor="topic">Choose a Topic:</Label>
             <Dropdown name="topic_id" id="topic" onChange={this.handleChange}>
@@ -165,15 +157,14 @@ export default class CreatePostForm extends Component {
             />
           </Form>
         </CreatePostContainer>
-        {console.log(loggedInUser)}
       </CreateFormContainer>
       :
-      "User Cant be found"
+      "Loading..."
 
 
     return (
       <>
-        {loggedIn}
+        {userPosts}
       </>
     )
   }
