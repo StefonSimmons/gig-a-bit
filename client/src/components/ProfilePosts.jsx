@@ -15,7 +15,7 @@ const UpdateDelete = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 0 15px; 
-` 
+`
 const Icon = styled.i`
   margin: 0 10px;
   color: rgb(154, 78, 80);
@@ -64,17 +64,26 @@ const BtnLnk = styled.a`
 `
 const List = styled.div`
   margin: 20px
-` 
+`
 const Bullet = styled.li`
   font-size: 15px;
   list-style: none;
   padding: 10px 0 
-`   
+`
 export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID }) {
 
   const allPosts = posts.map((post, id) => {
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
+        editPostID === post.id ?
+        <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
+          <UpdatePostForm
+            loggedInUser={loggedInUser}
+            topics={topics}
+          />
+        </div>
+        : 
+      // return 
         <PostContainer key={id}>
           <UpdateDelete>
             <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
@@ -91,21 +100,21 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
               <Bullet>- {post.bullet_one}</Bullet>
               <Bullet>- {post.bullet_two}</Bullet>
               <Bullet>- {post.bullet_three}</Bullet>
-            </List> 
+            </List>
           </Post>
         </PostContainer>
       )
     }
   })
-// IF clicked editPostID === post.id then render the UpdatePostForm component
+  // IF clicked editPostID === post.id then render the UpdatePostForm component in its place
   return (
     <>
-      <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
+      {/* <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
         <UpdatePostForm
           loggedInUser={loggedInUser}
           topics={topics}
           />
-      </div>
+      </div> */}
       <Main>
         <CreatePostForm
           loggedInUser={loggedInUser}
