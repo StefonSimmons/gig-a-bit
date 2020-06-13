@@ -72,22 +72,17 @@ export default class CreatePostForm extends Component {
     bullet_two: '',
     bullet_three: '',
     user_id: '',
-    topic_id: console.log(this.props.loggedInUser)
+    topic_id: ''
   }
 
 
 
-  // componentDidMount() {
-  //   this.getReadOnly()
-
-  // }
-
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
-      [name]: value
+      [name]: value,
+      user_id: this.props.loggedInUser.id
     })
-    console.log(this.props.loggedInUser)
   }
 
   getReadOnly = () => {
@@ -108,7 +103,7 @@ export default class CreatePostForm extends Component {
         <Create>
           <CreateBtn onClick={(e) => {
             e.preventDefault();
-            this.getReadOnly()
+            // this.getReadOnly()
             createNewPost(this.state);
             // history.push('/my_profile');
             // this.setState({
