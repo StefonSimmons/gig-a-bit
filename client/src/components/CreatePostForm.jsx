@@ -172,11 +172,3 @@ export default class CreatePostForm extends Component {
     )
   }
 }
-
-
-
-{/* <option value={}>Painting</option>
-<option value="price-ascending">Dancing</option>
-<option value="price-descending">Singing</option>
-<option value="price-descending">Photographs</option>
-<option value="price-descending">Acting</option> */}
