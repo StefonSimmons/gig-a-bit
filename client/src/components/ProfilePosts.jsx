@@ -83,8 +83,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
           />
         </div>
         : 
-      // return 
-        <PostContainer key={id}>
+        <PostContainer key={id} style={editBtnClicked && editPostID === post.id ? { display: "none" } : { display: "block" }}>
           <UpdateDelete>
             <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
             <Icon><i className="material-icons w3-xxlarge">clear</i></Icon>
