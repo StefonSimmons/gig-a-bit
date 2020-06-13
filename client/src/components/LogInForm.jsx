@@ -74,7 +74,7 @@ export default class LogInForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { handleLoginSubmit, history, logInClicked, hideLogInForm} = this.props;
+    const { handleLoginSubmit, logInClicked, hideLogInForm} = this.props;
     return (
       <>
         <div className="w3-modal" style={logInClicked ? { display: "block" } : { display: "none" }}>
@@ -83,11 +83,11 @@ export default class LogInForm extends Component {
             <Form onSubmit={(e) => {
               e.preventDefault();
               handleLoginSubmit(this.state);
-              // history.push('/');
-              // this.setState({
-              //   username: "",
-              //   password: ""
-              // })
+              hideLogInForm()
+              this.setState({
+                email: '',
+                password: ''
+              })
             }}>
               <Welcome>Welcome Back</Welcome>
               <Circle>
@@ -120,4 +120,5 @@ export default class LogInForm extends Component {
     )
   }
 }
+
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom';
 import styled from 'styled-components'
 import TopicOptions from './TopicOptions'
 
@@ -66,7 +65,7 @@ const Dropdown = styled.select`
   border-radius: 5px; 
 `
 
-class CreatePostForm extends Component {
+export default class CreatePostForm extends Component {
 
   state = {
     media_link: '',
@@ -90,14 +89,13 @@ class CreatePostForm extends Component {
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
-    const { createNewPost, history, loggedInUser, topics } = this.props;
+    const { createNewPost, loggedInUser, topics } = this.props;
     const userPosts = loggedInUser !== null ?
       <CreateFormContainer>
         <Create>
           <CreateBtn onClick={(e) => {
             e.preventDefault();
             createNewPost(this.state);
-            // history.push('/');
             window.location.reload()
             this.setState({
               media_link: '',
@@ -176,7 +174,6 @@ class CreatePostForm extends Component {
 }
 
 
-export default withRouter(CreatePostForm)
 
 {/* <option value={}>Painting</option>
 <option value="price-ascending">Dancing</option>
