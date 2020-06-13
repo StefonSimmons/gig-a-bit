@@ -40,13 +40,25 @@ export default class Main extends Component {
     ))
   }
 
-  toggleUpdatePostForm = (e) => {
-    const postID = e.target.value
+  toggleUpdatePostForm = (postID) => {
+    console.log(postID)
     this.setState(prevState => (
-      { editBtnClicked: !prevState.editBtnClicked }
+      {
+        editBtnClicked: !prevState.editBtnClicked,
+        editPostID: postID
+      }
     ))
+    // this.getPostID(e)
   }
 
+  // getPostID = (e) => {
+  //   const postID = e.target.value !== undefined ? e.target.value : 'loading'
+  //   console.log(postID)
+  //   this.setState(
+  //     {editPostID: postID }
+  //   )
+  // }
+  
   render() {
     return (
       <div>
@@ -63,6 +75,7 @@ export default class Main extends Component {
               topics={this.state.topics}
               showUpdatePostForm={this.toggleUpdatePostForm}
               editBtnClicked={this.state.editBtnClicked}
+              editPostID={this.state.editPostID}
             />
           </Route>
 

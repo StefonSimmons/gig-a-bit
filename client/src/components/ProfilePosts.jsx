@@ -77,7 +77,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
       return (
         <PostContainer key={id}>
           <UpdateDelete>
-            <Icon onClick={showUpdatePostForm} value={post.id}><i className="material-icons w3-xxlarge">edit</i></Icon>
+            <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
             <Icon><i className="material-icons w3-xxlarge">clear</i></Icon>
           </UpdateDelete>
           <Post>
@@ -97,7 +97,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
       )
     }
   })
-
+// IF UPDATE
   return (
     <>
       <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
