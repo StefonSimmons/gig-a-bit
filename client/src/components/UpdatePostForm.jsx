@@ -66,7 +66,6 @@ const Dropdown = styled.select`
 `
 
 export default class UpdatePostForm extends Component {
-
   state = {
     media_link: '',
     bullet_one: '',
@@ -76,10 +75,18 @@ export default class UpdatePostForm extends Component {
     topic_id: ''
   }
 
+  componentDidMount() {
+    this.setPostFormInfo()  
+  }
 
+  setPostFormInfo = () => {
+    const { media_link, bullet_one, bullet_two, bullet_three} = this.props.post;
+    this.setState({ media_link, bullet_one, bullet_two, bullet_three })
+  }
 
   handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name)
     this.setState({
       [name]: value,
       user_id: this.props.loggedInUser.id
@@ -88,12 +95,14 @@ export default class UpdatePostForm extends Component {
 
 
   render() {
-    // const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
-    const { updatePost, loggedInUser, topics, post} = this.props;
-    // const post = posts.filter(post => post.id === editPostID)
+    const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
+    const { updatePost, loggedInUser, topics, post } = this.props;
+    
     // console.log(post.id)
-    // console.log(editPostID)
     // console.log(post.media_link)
+    // console.log(post.bullet_one)
+    // console.log(post.bullet_two)
+
     const userPosts = loggedInUser !== null ?
       <UpdateFormContainer>
         <Update>
@@ -116,8 +125,8 @@ export default class UpdatePostForm extends Component {
             <MediaInput
               type="text"
               name="media_link"
-              value={post.media_link}
-              placeholder={post.media_link}
+              value={media_link}
+              placeholder={media_link}
               onChange={this.handleChange}
             />
             <ReadOnlyInput
@@ -130,7 +139,7 @@ export default class UpdatePostForm extends Component {
             <Dropdown name="topic_id" id="topic" onChange={this.handleChange}>
               {topics.map(topic =>
                 <TopicOptions
-                  id={topic.id}
+                  key={topic.id}
                   topic={topic}
                 />
               )}
@@ -144,22 +153,22 @@ export default class UpdatePostForm extends Component {
             <Input
               type="text"
               name="bullet_one"
-              value={post.bullet_one}
-              placeholder={post.bullet_one}
+              value={bullet_one}
+              placeholder={bullet_one}
               onChange={this.handleChange}
             />
             <Input
               type="text"
               name="bullet_two"
-              value={post.bullet_two}
-              placeholder={post.bullet_two}
+              value={bullet_two}
+              placeholder={bullet_two}
               onChange={this.handleChange}
             />
             <Input
               type="text"
               name="bullet_three"
-              value={post.bullet_three}
-              placeholder={post.bullet_three}
+              value={bullet_three}
+              placeholder={bullet_three}
               onChange={this.handleChange}
             />
           </Form>
@@ -167,7 +176,6 @@ export default class UpdatePostForm extends Component {
       </UpdateFormContainer>
       :
       "Loading..."
-
 
     return (
       <>

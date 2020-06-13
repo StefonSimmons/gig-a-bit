@@ -126,7 +126,7 @@ export default class CreatePostForm extends Component {
             <Dropdown name="topic_id" id="topic" onChange={this.handleChange}>
               {topics.map(topic =>
                 <TopicOptions
-                  id={topic.id}
+                  key={topic.id}
                   topic={topic}
                 />
               )}
