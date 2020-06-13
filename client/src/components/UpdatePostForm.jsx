@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import TopicOptions from './TopicOptions'
 
 
-const CreateFormContainer = styled.div`
+const UpdateFormContainer = styled.div`
 `
-const CreatePostContainer = styled.div`
+const UpdatePostContainer = styled.div`
   display: flex;
   flex-direction: column;  
   height: 500px;
@@ -14,12 +14,12 @@ const CreatePostContainer = styled.div`
   border: rgb(216,224,233) solid 2px;
   border-radius: 5px
 `
-const Create = styled.div`
+const Update = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 0 15px; 
 `
-const CreateBtn = styled.button`
+const UpdateBtn = styled.button`
   padding: 4px 18px;
   margin-bottom: 5px;
   background-color: rgb(204, 160, 161);
@@ -91,11 +91,11 @@ export default class UpdatePostForm extends Component {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { updatePost, loggedInUser, topics } = this.props;
     const userPosts = loggedInUser !== null ?
-      <CreateFormContainer>
-        <Create>
-          <CreateBtn onClick={(e) => {
+      <UpdateFormContainer>
+        <Update>
+          <UpdateBtn onClick={(e) => {
             e.preventDefault();
-            updatePost(,this.state);
+            updatePost(this.state);
             // window.location.reload()
             this.setState({
               media_link: '',
@@ -105,9 +105,9 @@ export default class UpdatePostForm extends Component {
               user_id: '',
               topic_id: ''
             })
-          }}>Create</CreateBtn>
-        </Create>
-        <CreatePostContainer>
+          }}>Update</UpdateBtn>
+        </Update>
+        <UpdatePostContainer>
           <Form>
             <MediaInput
               type="text"
@@ -159,8 +159,8 @@ export default class UpdatePostForm extends Component {
               onChange={this.handleChange}
             />
           </Form>
-        </CreatePostContainer>
-      </CreateFormContainer>
+        </UpdatePostContainer>
+      </UpdateFormContainer>
       :
       "Loading..."
 

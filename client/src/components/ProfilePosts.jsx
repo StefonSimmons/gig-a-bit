@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CreatePostForm from './CreatePostForm'
+import UpdatePostForm from './UpdatePostForm'
 
 const Main = styled.main`
   display: flex;
@@ -17,7 +18,8 @@ const UpdateDelete = styled.div`
 ` 
 const Icon = styled.i`
   margin: 0 10px;
-  color: rgb(154, 78, 80)
+  color: rgb(154, 78, 80);
+  cursor: pointer
 `
 const Post = styled.div`
   margin: 0 15px 15px 15px;
@@ -98,6 +100,10 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
 
   return (
     <>
+      <UpdatePostForm
+        loggedInUser={loggedInUser}
+        topics={topics}
+      />
       <Main>
         <CreatePostForm
           loggedInUser={loggedInUser}
