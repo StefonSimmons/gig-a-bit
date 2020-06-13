@@ -88,7 +88,7 @@ export default class UpdatePostForm extends Component {
 
 
   render() {
-    const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
+    // const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { updatePost, loggedInUser, topics, post} = this.props;
     // const post = posts.filter(post => post.id === editPostID)
     // console.log(post.id)
@@ -99,8 +99,8 @@ export default class UpdatePostForm extends Component {
         <Update>
           <UpdateBtn onClick={(e) => {
             e.preventDefault();
-            updatePost(this.state);
-            // window.location.reload()
+            updatePost(post.id,this.state);
+            window.location.reload()
             this.setState({
               media_link: '',
               bullet_one: '',

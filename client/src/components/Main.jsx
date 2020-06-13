@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import FilterBar from './FilterBar'
 import { getAllTopics } from '../services/topics'
-import { postsUserTopic, createPost } from '../services/posts'
+import { postsUserTopic, createPost, updatePost } from '../services/posts'
 import Posts from './Posts'
 import ProfilePosts from './ProfilePosts'
 
@@ -49,7 +49,14 @@ export default class Main extends Component {
       }
     ))
   }
-  
+
+  updateOnePost = async (id, postInfo) => {
+    const updatedPost = await updatePost(id, postInfo)
+    this.setState(prevState => ({
+      posts: prevState.posts.map(post => post.id === id ? updatedPost : post)
+    }))
+  }
+
   render() {
     return (
       <div>
@@ -67,6 +74,7 @@ export default class Main extends Component {
               showUpdatePostForm={this.toggleUpdatePostForm}
               editBtnClicked={this.state.editBtnClicked}
               editPostID={this.state.editPostID}
+              updatePost={this.updateOnePost}
             />
           </Route>
 
