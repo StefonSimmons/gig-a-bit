@@ -81,7 +81,6 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
               loggedInUser={loggedInUser}
               topics={topics}
               post={post}
-              editPostID={editPostID}
             />
           </div>
           :

@@ -89,7 +89,7 @@ export default class UpdatePostForm extends Component {
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
-    const { updatePost, loggedInUser, topics, post, editPostID } = this.props;
+    const { updatePost, loggedInUser, topics, post} = this.props;
     // const post = posts.filter(post => post.id === editPostID)
     // console.log(post.id)
     // console.log(editPostID)
@@ -144,22 +144,22 @@ export default class UpdatePostForm extends Component {
             <Input
               type="text"
               name="bullet_one"
-              value={bullet_one}
-              placeholder="Write a point about the Post"
+              value={post.bullet_one}
+              placeholder={post.bullet_one}
               onChange={this.handleChange}
             />
             <Input
               type="text"
               name="bullet_two"
-              value={bullet_two}
-              placeholder="Write a point about the Post"
+              value={post.bullet_two}
+              placeholder={post.bullet_two}
               onChange={this.handleChange}
             />
             <Input
               type="text"
               name="bullet_three"
-              value={bullet_three}
-              placeholder="Write a point about the Post"
+              value={post.bullet_three}
+              placeholder={post.bullet_three}
               onChange={this.handleChange}
             />
           </Form>
