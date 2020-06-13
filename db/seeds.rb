@@ -18,6 +18,12 @@ User.create([{
   email: 'ashlea@ashlea.me',
   password: 'ashlea1',
   user_type: 'Group (<10 Individuals)'
+},{
+  primary_name: 'Willie', 
+  surname: 'Smith',
+  email: 'willie@ws.com',
+  password: 'willie1',
+  user_type: 'Group (<10 Individuals)'
 }])
 
 Topic.create!([{
@@ -51,7 +57,7 @@ Post.create([{
 },{
   media_link: "https://imgur.com/UxkQuTq.png",
   bullet_one: "New painting for sale",
-  bullet_two: "$450",
+  bullet_two: "$4500",
   bullet_three: "new painting idea",
   topic_id: 2,
   user_id: 2
@@ -60,6 +66,20 @@ Post.create([{
   bullet_one: "New web app!",
   bullet_two: "ready to work for your team",
   bullet_three: "see my portfolio: https://stefonsimmons.me",
-  topic_id: 1,
-  user_id: 1
+  topic_id: 4,
+  user_id: 3
+},{
+  media_link: "https://api.time.com/wp-content/uploads/2018/06/dinosaurs-jurassic-world-fact-check-3.jpg",
+  bullet_one: "cooool!",
+  bullet_two: "ofofofofof",
+  bullet_three: "blah bldskdsn",
+  topic_id: 3,
+  user_id: 2
+},{
+  media_link: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/trex-baby-1581368304.jpg",
+  bullet_one: "Thats HOT!",
+  bullet_two: "Nice Nice",
+  bullet_three: "WOOOO",
+  topic_id: 6,
+  user_id: 3
 }])

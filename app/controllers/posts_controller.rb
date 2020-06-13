@@ -22,9 +22,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @destroyed_user = Post.find(params[:id])
-    @destroyed_user.destroy()
-    render json: 'destroyed post'
+    @destroyed_post = Post.find(params[:id])
+    @destroyed_post.destroy()
+    render json: 'destroyed post', status: :accepted
   end
 
   # CUSTOM ACTION

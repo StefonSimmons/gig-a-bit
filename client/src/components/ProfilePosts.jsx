@@ -11,7 +11,7 @@ const Main = styled.main`
 `
 const PostContainer = styled.div`
 `
-const UpdateDelete = styled.div`
+const UpdateDeleteBtns = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 0 15px; 
@@ -70,7 +70,7 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0 
 `
-export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID, updatePost }) {
+export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID, updatePost, deletePost }) {
 
   const allPosts = posts.map((post, id) => {
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
@@ -86,10 +86,10 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
           </div>
           :
           <PostContainer key={id} style={editBtnClicked && editPostID === post.id ? { display: "none" } : { display: "block" }}>
-            <UpdateDelete>
+            <UpdateDeleteBtns>
               <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
-              <Icon><i className="material-icons w3-xxlarge">clear</i></Icon>
-            </UpdateDelete>
+              <Icon onClick={() => deletePost(post.id)}><i className="material-icons w3-xxlarge">clear</i></Icon>
+            </UpdateDeleteBtns>
             <Post>
               <Image src={post.media_link} alt={post.topic_name} />
               <UserContainer>

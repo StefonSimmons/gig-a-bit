@@ -78,11 +78,11 @@ export default class UpdatePostForm extends Component {
   }
 
   componentDidMount() {
-    this.setPostFormInfo()  
+    this.setPostFormInfo()
   }
 
   setPostFormInfo = () => {
-    const { media_link, bullet_one, bullet_two, bullet_three} = this.props.post;
+    const { media_link, bullet_one, bullet_two, bullet_three } = this.props.post;
     this.setState({ media_link, bullet_one, bullet_two, bullet_three })
   }
 
@@ -99,7 +99,7 @@ export default class UpdatePostForm extends Component {
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { updatePost, loggedInUser, topics, post } = this.props;
-    
+
     // console.log(post.id)
     // console.log(post.media_link)
     // console.log(post.bullet_one)
@@ -110,7 +110,7 @@ export default class UpdatePostForm extends Component {
         <Update>
           <UpdateBtn onClick={(e) => {
             e.preventDefault();
-            updatePost(post.id,this.state);
+            updatePost(post.id, this.state);
             window.location.reload()
             this.setState({
               media_link: '',
@@ -121,7 +121,9 @@ export default class UpdatePostForm extends Component {
               topic_id: ''
             })
           }}>Save Changes</UpdateBtn>
-          <CancelBtn>Cancel</CancelBtn>
+          <CancelBtn>
+            Cancel
+          </CancelBtn>
         </Update>
         <UpdatePostContainer>
           <Form>

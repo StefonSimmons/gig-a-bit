@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import FilterBar from './FilterBar'
 import { getAllTopics } from '../services/topics'
-import { postsUserTopic, createPost, updatePost } from '../services/posts'
+import { postsUserTopic, createPost, updatePost, deletePost } from '../services/posts'
 import Posts from './Posts'
 import ProfilePosts from './ProfilePosts'
 
@@ -57,6 +57,13 @@ export default class Main extends Component {
     }))
   }
 
+  destroyPost = async (id) => {
+    await deletePost(id);
+    this.setState(prevState => ({
+      posts: prevState.posts.filter(post => post.id !== id)
+    }))
+  }
+
   render() {
     return (
       <div>
@@ -75,6 +82,7 @@ export default class Main extends Component {
               editBtnClicked={this.state.editBtnClicked}
               editPostID={this.state.editPostID}
               updatePost={this.updateOnePost}
+              deletePost={this.destroyPost}
             />
           </Route>
 
