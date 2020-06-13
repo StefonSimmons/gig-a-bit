@@ -10,7 +10,8 @@ export default class Main extends Component {
   state = {
     topics: [],
     posts: [],
-    editBtnClicked: false
+    editBtnClicked: false,
+    editPostID: null
   }
 
   componentDidMount() {
@@ -39,7 +40,8 @@ export default class Main extends Component {
     ))
   }
 
-  toggleUpdatePostForm = () => {
+  toggleUpdatePostForm = (e) => {
+    const postID = e.target.value
     this.setState(prevState => (
       { editBtnClicked: !prevState.editBtnClicked }
     ))
