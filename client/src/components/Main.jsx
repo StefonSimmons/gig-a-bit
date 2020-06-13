@@ -20,6 +20,7 @@ export default class Main extends Component {
     this.listAllPosts()
   }
 
+
   listAllTopics = async () => {
     const topics = await getAllTopics();
     this.setState(
@@ -43,7 +44,6 @@ export default class Main extends Component {
   }
 
   toggleUpdatePostForm = (postID) => {
-    console.log(postID)
     this.setState(prevState => (
       {
         editBtnClicked: !prevState.editBtnClicked,
@@ -66,21 +66,21 @@ export default class Main extends Component {
     }))
   }
 
-  reUpPosts = () => {
-    this.setState(
-      { posts: this.state.postsCopy }
-    )
-    console.log("reup?->", this.state.posts)
-  }
+  // reUpPosts = () => {
+  //   const { postsCopy } = this.state
+  //   this.setState(
+  //     { posts:  }
+  //   )
+  //   console.log("reup?->", this.state.postsCopy)
+  // }
 
   filterPosts = (topicID) => {
-    this.reUpPosts()
+    // this.reUpPosts()
     console.log("reupin called->", this.state.posts)
 
-    const { posts } = this.state
-    this.setState({
-      posts: posts.filter(post => post.topic_id === topicID)
-    })
+    // const { posts } = this.state
+    this.setState(prevState => ({posts: prevState.postsCopy }))
+    this.setState(prevState => ({posts: prevState.posts.filter(post => post.topic_id === topicID)}))
   }
 
   render() {
