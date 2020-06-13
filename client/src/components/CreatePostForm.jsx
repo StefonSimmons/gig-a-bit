@@ -47,6 +47,7 @@ const ReadOnlyInput = styled.input`
   margin: 10px 15px; 
   padding: 10px;
   height: 45px;
+  color: grey;
   background-color: rgb(216,224,233);
   border: rgb(216,224,233) solid 1px;
   border-radius: 5px;
@@ -87,7 +88,7 @@ export default class CreatePostForm extends Component {
 
 
   render() {
-    const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
+    const { media_link, bullet_one, bullet_two, bullet_three, user_id, topic_id } = this.state;
     const { createNewPost, history, loggedInUser, topics } = this.props;
     const userPosts = loggedInUser !== null ?
       <CreateFormContainer>
@@ -100,7 +101,9 @@ export default class CreatePostForm extends Component {
               media_link: '',
               bullet_one: '',
               bullet_two: '',
-              bullet_three: ''
+              bullet_three: '',
+              user_id: '',
+              topic_id: ''
             })
           }}>Create</CreateBtn>
         </Create>
