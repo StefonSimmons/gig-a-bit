@@ -20,11 +20,13 @@ const Update = styled.div`
   margin: 0 15px; 
 `
 const UpdateBtn = styled.button`
-  padding: 4px 18px;
-  margin-bottom: 5px;
+  padding: 4px 10px;
+  margin: 0 0 5px 10px;
   background-color: rgb(204, 160, 161);
   border-radius: 2px;
   border: 2px solid rgb(154, 78, 80)
+`
+const CancelBtn = styled(UpdateBtn)`
 `
 const Form = styled.form`
   display: flex;
@@ -118,7 +120,8 @@ export default class UpdatePostForm extends Component {
               user_id: '',
               topic_id: ''
             })
-          }}>Update</UpdateBtn>
+          }}>Save Changes</UpdateBtn>
+          <CancelBtn>Cancel</CancelBtn>
         </Update>
         <UpdatePostContainer>
           <Form>
