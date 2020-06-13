@@ -9,6 +9,7 @@ import ProfilePosts from './ProfilePosts'
 export default class Main extends Component {
   state = {
     topics: [],
+    postsCopy: [],
     posts: [],
     editBtnClicked: false,
     editPostID: null
@@ -28,9 +29,10 @@ export default class Main extends Component {
 
   listAllPosts = async () => {
     const posts = await postsUserTopic()
-    this.setState(
-      { posts }
-    )
+    this.setState({
+      posts: posts,
+      postsCopy: posts
+    })
   }
 
   createNewPost = async (postInfo) => {
@@ -64,8 +66,18 @@ export default class Main extends Component {
     }))
   }
 
+  reUpPosts = () => {
+    this.setState(
+      { posts: this.state.postsCopy }
+    )
+    console.log("reup?->", this.state.posts)
+  }
+
   filterPosts = (topicID) => {
-    const { posts }= this.state
+    this.reUpPosts()
+    console.log("reupin called->", this.state.posts)
+
+    const { posts } = this.state
     this.setState({
       posts: posts.filter(post => post.topic_id === topicID)
     })
@@ -74,7 +86,8 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state.posts)}
+        {console.log("original->", this.state.posts)}
+        {console.log("copy->", this.state.postsCopy)}
         <FilterBar
           topics={this.state.topics}
           filterPosts={this.filterPosts}

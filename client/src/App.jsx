@@ -44,7 +44,6 @@ class App extends Component {
   handleVerify = async () => {
     const loggedInUser = await verifyUser();
     this.setState({ loggedInUser })
-    console.log(loggedInUser)
   }
 
   toggleLoginForm = () => {
