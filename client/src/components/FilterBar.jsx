@@ -22,7 +22,7 @@ const Topics = styled.li`
 `
 
 
-export default function FilterBar({ topics, filterPosts }) {
+export default function FilterBar({ topics, filterPosts, getAllPosts }) {
 
   const topicNames = topics.map((topic,id) => {
     return (
@@ -37,6 +37,7 @@ export default function FilterBar({ topics, filterPosts }) {
         <Title>I'm Looking For:</Title>
         <nav>
           <FilterList>
+            <Topics onClick={getAllPosts}>All Posts</Topics>
             {topicNames}
           </FilterList>
         </nav>

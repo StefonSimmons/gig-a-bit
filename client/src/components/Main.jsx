@@ -12,7 +12,8 @@ export default class Main extends Component {
     postsCopy: [],
     posts: [],
     editBtnClicked: false,
-    editPostID: null
+    editPostID: null,
+    message: null
   }
 
   componentDidMount() {
@@ -66,21 +67,18 @@ export default class Main extends Component {
     }))
   }
 
-  // reUpPosts = () => {
-  //   const { postsCopy } = this.state
-  //   this.setState(
-  //     { posts:  }
-  //   )
-  //   console.log("reup?->", this.state.postsCopy)
-  // }
-
   filterPosts = (topicID) => {
-    // this.reUpPosts()
-    console.log("reupin called->", this.state.posts)
-
-    // const { posts } = this.state
     this.setState(prevState => ({posts: prevState.postsCopy }))
-    this.setState(prevState => ({posts: prevState.posts.filter(post => post.topic_id === topicID)}))
+    this.setState(prevState => ({
+      posts: prevState.posts.filter(post => post.topic_id === topicID)
+    }))
+    
+    this.setState(prevState => ({message: prevState.posts.length === 0 ? "No Posts on this Topic" : null}))
+
+  }
+
+  getAllPosts = () => {
+    this.setState(prevState => ({posts: prevState.postsCopy }))
   }
 
   render() {
@@ -91,6 +89,7 @@ export default class Main extends Component {
         <FilterBar
           topics={this.state.topics}
           filterPosts={this.filterPosts}
+          getAllPosts={this.getAllPosts}
         />
 
         <Switch>
