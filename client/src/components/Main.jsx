@@ -72,13 +72,12 @@ export default class Main extends Component {
     this.setState(prevState => ({
       posts: prevState.posts.filter(post => post.topic_id === topicID)
     }))
-    
     this.setState(prevState => ({message: prevState.posts.length === 0 ? "No Posts on this Topic" : null}))
-
   }
 
   getAllPosts = () => {
-    this.setState(prevState => ({posts: prevState.postsCopy }))
+    this.setState(prevState => ({ posts: prevState.postsCopy }))
+    this.setState({message: null}) 
   }
 
   render() {
@@ -110,6 +109,7 @@ export default class Main extends Component {
           <Route exact path="/">
             <Posts
               posts={this.state.posts}
+              noPostsMsg = {this.state.message}
             />
           </Route>
         </Switch>

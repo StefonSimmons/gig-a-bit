@@ -55,7 +55,7 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0 
 `
-export default function Posts({ posts }) {
+export default function Posts({ posts, noPostsMsg }) {
 
   const allPosts = posts.map((post, id) => {
 
@@ -81,6 +81,7 @@ export default function Posts({ posts }) {
   return (
     <>
       <Main>
+        {noPostsMsg}
         {allPosts}
       </Main>
     </>
