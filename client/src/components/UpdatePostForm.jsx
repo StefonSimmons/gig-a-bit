@@ -89,7 +89,11 @@ export default class UpdatePostForm extends Component {
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
-    const { updatePost, loggedInUser, topics } = this.props;
+    const { updatePost, loggedInUser, topics, post, editPostID } = this.props;
+    // const post = posts.filter(post => post.id === editPostID)
+    // console.log(post.id)
+    // console.log(editPostID)
+    // console.log(post.media_link)
     const userPosts = loggedInUser !== null ?
       <UpdateFormContainer>
         <Update>
@@ -112,8 +116,8 @@ export default class UpdatePostForm extends Component {
             <MediaInput
               type="text"
               name="media_link"
-              value={media_link}
-              placeholder="Enter image, video, or audio link here"
+              value={post.media_link}
+              placeholder={post.media_link}
               onChange={this.handleChange}
             />
             <ReadOnlyInput

@@ -76,32 +76,34 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
         editPostID === post.id ?
-        <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
-          <UpdatePostForm
-            loggedInUser={loggedInUser}
-            topics={topics}
-          />
-        </div>
-        : 
-        <PostContainer key={id} style={editBtnClicked && editPostID === post.id ? { display: "none" } : { display: "block" }}>
-          <UpdateDelete>
-            <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
-            <Icon><i className="material-icons w3-xxlarge">clear</i></Icon>
-          </UpdateDelete>
-          <Post>
-            <Image src={post.media_link} alt={post.topic_name} />
-            <UserContainer>
-              <UserName>{`${post.primary_name} ${post.surname}`}</UserName>
-              <Topic>{post.topic_name}</Topic>
-              <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
-            </UserContainer>
-            <List>
-              <Bullet>- {post.bullet_one}</Bullet>
-              <Bullet>- {post.bullet_two}</Bullet>
-              <Bullet>- {post.bullet_three}</Bullet>
-            </List>
-          </Post>
-        </PostContainer>
+          <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
+            <UpdatePostForm
+              loggedInUser={loggedInUser}
+              topics={topics}
+              post={post}
+              editPostID={editPostID}
+            />
+          </div>
+          :
+          <PostContainer key={id} style={editBtnClicked && editPostID === post.id ? { display: "none" } : { display: "block" }}>
+            <UpdateDelete>
+              <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
+              <Icon><i className="material-icons w3-xxlarge">clear</i></Icon>
+            </UpdateDelete>
+            <Post>
+              <Image src={post.media_link} alt={post.topic_name} />
+              <UserContainer>
+                <UserName>{`${post.primary_name} ${post.surname}`}</UserName>
+                <Topic>{post.topic_name}</Topic>
+                <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
+              </UserContainer>
+              <List>
+                <Bullet>- {post.bullet_one}</Bullet>
+                <Bullet>- {post.bullet_two}</Bullet>
+                <Bullet>- {post.bullet_three}</Bullet>
+              </List>
+            </Post>
+          </PostContainer>
       )
     }
   })
