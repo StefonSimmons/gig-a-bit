@@ -48,16 +48,7 @@ export default class Main extends Component {
         editPostID: postID
       }
     ))
-    // this.getPostID(e)
   }
-
-  // getPostID = (e) => {
-  //   const postID = e.target.value !== undefined ? e.target.value : 'loading'
-  //   console.log(postID)
-  //   this.setState(
-  //     {editPostID: postID }
-  //   )
-  // }
   
   render() {
     return (
