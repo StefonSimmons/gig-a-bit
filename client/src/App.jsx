@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
 import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -6,7 +7,7 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 import CreateProfileForm from './components/CreateProfileForm'
 import LogInForm from './components/LogInForm';
 
-export default class App extends Component {
+class App extends Component {
 
   state = {
     loggedInUser: null,
@@ -37,6 +38,7 @@ export default class App extends Component {
     })
     localStorage.clear();
     removeToken();
+    this.props.history.push('/')
   }
 
   handleVerify = async () => {
@@ -86,3 +88,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default withRouter(App)
