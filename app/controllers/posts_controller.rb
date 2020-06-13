@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create(post_params)
-    render json: @new_post
+    render json: @new_post, status: :created
   end
 
   def update
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
       posts.bullet_three,
       posts.created_at,
       posts.updated_at"
-    )
+    ).order('posts.created_at DESC')
     render json: @posts
   end
 

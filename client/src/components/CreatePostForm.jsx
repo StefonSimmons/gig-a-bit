@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components'
 import TopicOptions from './TopicOptions'
 
-const CreateFormContainer = styled.div`
 
+const CreateFormContainer = styled.div`
 `
 const CreatePostContainer = styled.div`
   display: flex;
@@ -65,7 +66,7 @@ const Dropdown = styled.select`
   border-radius: 5px; 
 `
 
-export default class CreatePostForm extends Component {
+class CreatePostForm extends Component {
 
   state = {
     media_link: '',
@@ -88,7 +89,7 @@ export default class CreatePostForm extends Component {
 
 
   render() {
-    const { media_link, bullet_one, bullet_two, bullet_three, user_id, topic_id } = this.state;
+    const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { createNewPost, history, loggedInUser, topics } = this.props;
     const userPosts = loggedInUser !== null ?
       <CreateFormContainer>
@@ -96,7 +97,8 @@ export default class CreatePostForm extends Component {
           <CreateBtn onClick={(e) => {
             e.preventDefault();
             createNewPost(this.state);
-            // history.push('/my_profile');
+            // history.push('/');
+            window.location.reload()
             this.setState({
               media_link: '',
               bullet_one: '',
@@ -172,6 +174,9 @@ export default class CreatePostForm extends Component {
     )
   }
 }
+
+
+export default withRouter(CreatePostForm)
 
 {/* <option value={}>Painting</option>
 <option value="price-ascending">Dancing</option>
