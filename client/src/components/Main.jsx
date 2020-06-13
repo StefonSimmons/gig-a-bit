@@ -10,6 +10,7 @@ export default class Main extends Component {
   state = {
     topics: [],
     posts: [],
+    editBtnClicked: false
   }
 
   componentDidMount() {
@@ -38,6 +39,12 @@ export default class Main extends Component {
     ))
   }
 
+  toggleUpdatePostForm = () => {
+    this.setState(prevState => (
+      { editBtnClicked: !prevState.editBtnClicked }
+    ))
+  }
+
   render() {
     return (
       <div>
@@ -52,6 +59,8 @@ export default class Main extends Component {
               posts={this.state.posts}
               createNewPost={this.createNewPost}
               topics={this.state.topics}
+              showUpdatePostForm={this.toggleUpdatePostForm}
+              editBtnClicked={this.state.editBtnClicked}
             />
           </Route>
 

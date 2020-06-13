@@ -70,14 +70,14 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0 
 `   
-export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics }) {
+export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked }) {
 
   const allPosts = posts.map((post, id) => {
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
         <PostContainer key={id}>
           <UpdateDelete>
-            <Icon><i className="material-icons w3-xxlarge">edit</i></Icon>
+            <Icon onClick={showUpdatePostForm}><i className="material-icons w3-xxlarge">edit</i></Icon>
             <Icon><i className="material-icons w3-xxlarge">clear</i></Icon>
           </UpdateDelete>
           <Post>
@@ -100,10 +100,12 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
 
   return (
     <>
-      <UpdatePostForm
-        loggedInUser={loggedInUser}
-        topics={topics}
-      />
+      <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
+        <UpdatePostForm
+          loggedInUser={loggedInUser}
+          topics={topics}
+          />
+      </div>
       <Main>
         <CreatePostForm
           loggedInUser={loggedInUser}
