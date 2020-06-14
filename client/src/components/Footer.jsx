@@ -17,6 +17,13 @@ const Text = styled.h6`
   font-size: 16px;
   color: rgb(28,28,28);
 `
+const AboutContact = styled.h6`
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(28,28,28);
+  cursor: pointer
+`
 
 
 export default function Footer({ showAboutModal, showContactModal }) {
@@ -25,9 +32,9 @@ export default function Footer({ showAboutModal, showContactModal }) {
       <Divider />
       <Foot>
         <Bottom>
-          <Text onClick={showAboutModal}>About</Text>
+          <AboutContact onClick={showAboutModal}>About</AboutContact>
           <Text>&copy; Stefon Simmons</Text>
-          <Text onClick={showContactModal}>Contact Developer</Text>
+          <AboutContact onClick={showContactModal}>Contact Developer</AboutContact>
         </Bottom>
       </Foot>
     </div>
