@@ -71,7 +71,7 @@ class App extends Component {
 
   toggleContactModal = () => {
     this.setState(prevState => ({
-      aboutClicked: !prevState.aboutClicked
+      contactClicked: !prevState.contactClicked
     }))
   }
 

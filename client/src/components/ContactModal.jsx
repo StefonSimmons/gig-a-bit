@@ -45,8 +45,8 @@ export const Circle = styled.div`
 `
 const Statement = styled.ul`
   font-family: 'Pathway Gothic One', sans-serif;  
-  font-size: 18px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 3;
   letter-spacing: 2px
 `
 const Strong = styled.span`
@@ -55,7 +55,7 @@ const Strong = styled.span`
 export default function ContactModal({ contactClicked, hideContactModal }) {
   return (
     <>
-      {/* <div className="w3-modal" style={contactClicked ? { display: "block" } : { display: "none" }}> */}
+      <div className="w3-modal" style={contactClicked ? { display: "block" } : { display: "none" }}>
       <Contact className="w3-modal-content w3-card-4 w3-animate-zoom">
         <span className="w3-button w3-xlarge w3-hover-red w3-display-topright" onClick={hideContactModal}>&times;</span>
         <Wrapper>
@@ -69,7 +69,7 @@ export default function ContactModal({ contactClicked, hideContactModal }) {
           </Statement>
         </Wrapper>
       </Contact>
-      {/* </div> */}
+      </div>
     </>
   )
 }
