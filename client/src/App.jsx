@@ -5,7 +5,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
 import CreateProfileForm from './components/CreateProfileForm'
-import LogInForm from './components/LogInForm';
+import LogInForm from './components/LogInForm'
+import AboutModal from './components/AboutModal'
 
 class App extends Component {
 
@@ -82,6 +83,7 @@ class App extends Component {
         <Main
           loggedInUser={this.state.loggedInUser}
         />
+        <AboutModal />
         <Footer />
       </div>
     )

@@ -18,6 +18,7 @@ const Text = styled.h6`
   color: rgb(28,28,28);
 `
 
+
 export default function Footer() {
   return (
     <div>
