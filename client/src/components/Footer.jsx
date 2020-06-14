@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Divider} from './Header'
+import { Divider } from './Header'
 
 const Foot = styled.footer`
   width: 100%;
@@ -19,15 +19,15 @@ const Text = styled.h6`
 `
 
 
-export default function Footer({showAboutModal}) {
+export default function Footer({ showAboutModal, showContactModal }) {
   return (
     <div>
-      <Divider/>
+      <Divider />
       <Foot>
         <Bottom>
           <Text onClick={showAboutModal}>About</Text>
           <Text>&copy; Stefon Simmons</Text>
-          <Text>Contact Developer</Text>
+          <Text onClick={showContactModal}>Contact Developer</Text>
         </Bottom>
       </Foot>
     </div>

@@ -7,6 +7,7 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 import CreateProfileForm from './components/CreateProfileForm'
 import LogInForm from './components/LogInForm'
 import AboutModal from './components/AboutModal'
+import ContactModal from './components/ContactModal'
 
 class App extends Component {
 
@@ -14,7 +15,8 @@ class App extends Component {
     loggedInUser: null,
     logInClicked: false,
     createProfileClicked: false,
-    aboutClicked: false
+    aboutClicked: false,
+    contactClicked: false
   }
 
   componentDidMount() {
@@ -67,6 +69,12 @@ class App extends Component {
     }))
   }
 
+  toggleContactModal = () => {
+    this.setState(prevState => ({
+      aboutClicked: !prevState.aboutClicked
+    }))
+  }
+
   render() {
 
     return (
@@ -94,8 +102,13 @@ class App extends Component {
           aboutClicked={this.state.aboutClicked}
           hideAboutModal={this.toggleAboutModal}
         />
+        <ContactModal
+          contactClicked={this.state.contactClicked}
+          hideContactModal={this.toggleContactModal}
+        />
         <Footer
           showAboutModal={this.toggleAboutModal}
+          showContactModal={this.toggleContactModal}
         />
       </div>
     )
