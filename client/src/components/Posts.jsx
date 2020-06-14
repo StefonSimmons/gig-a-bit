@@ -8,9 +8,12 @@ const Main = styled.main`
   margin-top: 50px;
 `
 const Post = styled.div`
+  display: grid;
+  align-items: end;
   margin: 15px;
   width: 306px;
   border: rgb(216,224,233) solid 2px;
+  border-radius: 5px;
   font-family: 'Pathway Gothic One', sans-serif; 
 `
 const Image = styled.img`

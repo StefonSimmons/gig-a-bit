@@ -22,6 +22,8 @@ const Icon = styled.i`
   cursor: pointer
 `
 const Post = styled.div`
+  display: grid;
+  align-items: end;
   margin: 0 15px 15px 15px;
   width: 306px;
   border: rgb(216,224,233) solid 2px;
