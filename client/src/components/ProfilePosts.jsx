@@ -70,7 +70,7 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0 
 `
-export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID, updatePost, deletePost }) {
+export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID, updatePost, deletePost, noPostsMsg }) {
 
 
 
@@ -111,21 +111,15 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
     }
   })
 
-  // IF clicked editPostID === post.id then render the UpdatePostForm component in its place
   return (
     <>
-      {/* <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
-        <UpdatePostForm
-          loggedInUser={loggedInUser}
-          topics={topics}
-          />
-      </div> */}
       <Main>
         <CreatePostForm
           loggedInUser={loggedInUser}
           createNewPost={createNewPost}
           topics={topics}
         />
+        {noPostsMsg}
         {allPosts}
       </Main>
     </>

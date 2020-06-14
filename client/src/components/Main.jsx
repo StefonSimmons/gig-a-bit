@@ -24,7 +24,7 @@ class Main extends Component {
 
   // componentDidUpdate(prevProps, prevState) {
   //   console.log('postsCopy',this.state.postsCopy)
-  //   if (prevState.posts !== this.state.postsCopy){
+  //   if (){
   //     this.getAllPosts()
   //   } else {
   //     console.log("match")
@@ -82,6 +82,7 @@ class Main extends Component {
       posts: prevState.posts.filter(post => post.topic_id === topicID)
     }))
     this.setState(prevState => ({ message: prevState.posts.length === 0 ? "No Posts on this Topic" : null }))
+    
   }
 
   getAllPosts = () => {
@@ -92,8 +93,6 @@ class Main extends Component {
   render() {
     return (
       <div>
-        {/* {console.log("original->", this.state.posts)}
-        {console.log("copy->", this.state.postsCopy)} */}
         <FilterBar
           topics={this.state.topics}
           filterPosts={this.filterPosts}
@@ -112,6 +111,7 @@ class Main extends Component {
               editPostID={this.state.editPostID}
               updatePost={this.updateOnePost}
               deletePost={this.destroyPost}
+              noPostsMsg={this.state.message}
             />
           </Route>
 

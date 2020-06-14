@@ -4,22 +4,35 @@ import { Divider } from './Header'
 
 const FilterSection = styled.div`
   display: flex;
-  padding: 50px 45px;
+  flex-wrap: wrap;
+  padding: 40px 45px;
   justify-content: center;
   font-family: 'Pathway Gothic One', sans-serif;  
   font-size: 20px
 `
 const Title = styled.h2`
   padding-right: 50px;
+  padding-bottom: 10px;
   font-weight: 700;
+
+  @media(max-width: 800px){   
+    padding-bottom: 40px;
+  }
 `
 const FilterList = styled.ul`
   display: flex;
+  flex-wrap: wrap;  
   align-items: center;
+  justify-content: center;
 `
 const Topics = styled.li`
   padding-right: 50px;
-  cursor: pointer
+  padding-bottom: 10px;
+  cursor: pointer;
+
+  @media(max-width: 800px){   
+    padding-bottom: 40px;
+  }
 `
 
 
