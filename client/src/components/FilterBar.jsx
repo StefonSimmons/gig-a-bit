@@ -41,7 +41,7 @@ export default function FilterBar({ topics, filterPosts, getAllPosts}) {
   const topicNames = topics.map((topic,id) => {
     return (
       <React.Fragment key={id}>
-        <Topics onClick={() => filterPosts(topic.id)}>{topic.name}</Topics>
+        <Topics onClick={() => filterPosts(topic.id, topic.name)}>{topic.name}</Topics>
       </React.Fragment>
     )
   })

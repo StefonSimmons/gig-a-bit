@@ -76,12 +76,12 @@ class Main extends Component {
     }))
   }
 
-  filterPosts = (topicID) => {
+  filterPosts = (topicID, topicName) => {
     this.setState(prevState => ({ posts: prevState.postsCopy }))
     this.setState(prevState => ({
       posts: prevState.posts.filter(post => post.topic_id === topicID)
     }))
-    this.setState(prevState => ({ message: prevState.posts.length === 0 ? "No Posts on this Topic" : null }))
+    this.setState(prevState => ({ message: prevState.posts.length === 0 ? `There are no posts related to ${topicName}` : null }))
     
   }
 

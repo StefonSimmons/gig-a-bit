@@ -106,7 +106,7 @@ export default class Header extends Component {
                 }
                 
               </Hamburger>
-              <NavOptionDropDown style={open ? { display: "block", backgroundColor: "rgb(216,224,233)"} : { display: "" }}>
+              <NavOptionDropDown style={open ? { display: "block", backgroundColor: "rgb(216,224,233)", height: "100rem"} : { display: "" }}>
                 <NavLink to="/" style={open ? { display: "block" } : { display: "" }}>
                   <NavItems style={open ? { display: "block" } : { display: "" }}>
                     <i className="material-icons w3-xxlarge">home</i>
