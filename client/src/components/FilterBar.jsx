@@ -11,10 +11,10 @@ const FilterSection = styled.div`
   font-size: 20px;
   background: white;
 `
-const Title = styled.h2`
-  padding-right: 50px;
-  padding-bottom: 10px;
+const FilterFor = styled.h2`
+  margin: 10px 25px;
   font-weight: 700;
+  align-self: center;
 
   @media(max-width: 800px){  
     padding: 0 50px 40px 50px; 
@@ -27,9 +27,12 @@ const FilterList = styled.ul`
   justify-content: center;
 `
 const Topic = styled.li`
-  padding-right: 50px;
-  padding-bottom: 10px;
+  margin: 10px 20px;
+  padding: 8px 10px;
   text-align: center;
+  background: rgb(234, 190, 191);
+  border-radius: 9px;
+  letter-spacing: 2px;
   cursor: pointer;
 
   @media(max-width: 800px){  
@@ -50,7 +53,7 @@ export default function FilterBar({ topics, filterPosts, getAllPosts }) {
   return (
     <>
       <FilterSection>
-        <Title>I'm Looking For:</Title>
+        <FilterFor>I'm Looking For:</FilterFor>
         <nav>
           <FilterList>
             <Topic onClick={getAllPosts}>All Posts</Topic>
