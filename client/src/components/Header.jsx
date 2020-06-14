@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const HeaderSection = styled.header`
@@ -33,54 +33,58 @@ export const Divider = styled.hr`
   margin: 0px
 `
 
-export default function Header({ showLogInForm, showCreateProfileForm, loggedInUser, logout }) {
+export default class Header extends Component {
 
-  return (
-    <>
-      <HeaderSection>
-        <Title>Gig-A-Bit</Title>
-        <NavBar>
-          <NavList>
 
-            <Link to="/">
-              <NavItems>
-                <i className="material-icons w3-xxlarge">home</i>
-              </NavItems>
-            </Link>
-            {
-              loggedInUser
-              ?
-              <>
-                <Link to="/my_profile">
-                  <NavItems>
-                    My Profile
+  render() {
+    const { showLogInForm, showCreateProfileForm, loggedInUser, logout } = this.props
+    return (
+      <>
+        <HeaderSection>
+          <Title>Gig-A-Bit</Title>
+          <NavBar>
+            <NavList>
+
+              <Link to="/">
+                <NavItems>
+                  <i className="material-icons w3-xxlarge">home</i>
+                </NavItems>
+              </Link>
+              {
+                loggedInUser
+                  ?
+                  <>
+                    <Link to="/my_profile">
+                      <NavItems>
+                        My Profile
                   </NavItems>
-                </Link>
-              </>
-              :
-              <NavItems onClick={showCreateProfileForm}>
-                Create A Profile
+                    </Link>
+                  </>
+                  :
+                  <NavItems onClick={showCreateProfileForm}>
+                    Create A Profile
               </NavItems>
-            }
-            {
-              loggedInUser
-              ?
-              <>
-              <NavItems onClick={logout}>
-                Log Out
+              }
+              {
+                loggedInUser
+                  ?
+                  <>
+                    <NavItems onClick={logout}>
+                      Log Out
               </NavItems>
 
-              </>
-              :
-              <NavItems onClick={showLogInForm}>
-                Log In
+                  </>
+                  :
+                  <NavItems onClick={showLogInForm}>
+                    Log In
               </NavItems>
-            }
+              }
 
-          </NavList>
-        </NavBar>
-      </HeaderSection>
-      <Divider />
-    </>
-  )
+            </NavList>
+          </NavBar>
+        </HeaderSection>
+        <Divider />
+      </>
+    )
+  }
 }
