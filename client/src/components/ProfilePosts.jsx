@@ -72,6 +72,9 @@ const Bullet = styled.li`
 `
 export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID, updatePost, deletePost }) {
 
+
+
+
   const allPosts = posts.map((post, id) => {
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
@@ -107,6 +110,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
       )
     }
   })
+
   // IF clicked editPostID === post.id then render the UpdatePostForm component in its place
   return (
     <>

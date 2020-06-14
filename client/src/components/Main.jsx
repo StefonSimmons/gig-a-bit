@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import FilterBar from './FilterBar'
 import { getAllTopics } from '../services/topics'
 import { postsUserTopic, createPost, updatePost, deletePost } from '../services/posts'
 import Posts from './Posts'
 import ProfilePosts from './ProfilePosts'
 
-export default class Main extends Component {
+class Main extends Component {
   state = {
     topics: [],
     postsCopy: [],
@@ -21,6 +22,14 @@ export default class Main extends Component {
     this.listAllPosts()
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('postsCopy',this.state.postsCopy)
+  //   if (prevState.posts !== this.state.postsCopy){
+  //     this.getAllPosts()
+  //   } else {
+  //     console.log("match")
+  //   }
+  // }
 
   listAllTopics = async () => {
     const topics = await getAllTopics();
@@ -68,23 +77,23 @@ export default class Main extends Component {
   }
 
   filterPosts = (topicID) => {
-    this.setState(prevState => ({posts: prevState.postsCopy }))
+    this.setState(prevState => ({ posts: prevState.postsCopy }))
     this.setState(prevState => ({
       posts: prevState.posts.filter(post => post.topic_id === topicID)
     }))
-    this.setState(prevState => ({message: prevState.posts.length === 0 ? "No Posts on this Topic" : null}))
+    this.setState(prevState => ({ message: prevState.posts.length === 0 ? "No Posts on this Topic" : null }))
   }
 
   getAllPosts = () => {
     this.setState(prevState => ({ posts: prevState.postsCopy }))
-    this.setState({message: null}) 
+    this.setState({ message: null })
   }
 
   render() {
     return (
       <div>
-        {console.log("original->", this.state.posts)}
-        {console.log("copy->", this.state.postsCopy)}
+        {/* {console.log("original->", this.state.posts)}
+        {console.log("copy->", this.state.postsCopy)} */}
         <FilterBar
           topics={this.state.topics}
           filterPosts={this.filterPosts}
@@ -109,7 +118,7 @@ export default class Main extends Component {
           <Route exact path="/">
             <Posts
               posts={this.state.posts}
-              noPostsMsg = {this.state.message}
+              noPostsMsg={this.state.message}
             />
           </Route>
         </Switch>
@@ -117,3 +126,5 @@ export default class Main extends Component {
     )
   }
 }
+
+export default withRouter(Main)

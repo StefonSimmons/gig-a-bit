@@ -18,6 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     this.handleVerify()
+    
   }
 
   handleLoginSubmit = async (loginParams) => {
