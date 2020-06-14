@@ -26,7 +26,7 @@ const NavList = styled.ul`
     display: block;
     text-align: center;
     position: absolute;
-    right: 45px;
+    // right: 45px;
   }
 `
 const Hamburger = styled.span`
@@ -67,7 +67,7 @@ const NavItems = styled.li`
   @media(max-width: 670px){
     display: none;
     // width: 40px;
-    padding: 10px 0px;
+    padding: 25px 0px;
     cursor: pointer;
   }
 `
@@ -97,9 +97,16 @@ export default class Header extends Component {
           <Title>Gig-A-Bit</Title>
           <NavBar>
 
-            <NavList>
-              <Hamburger onClick={this.toggleOpen}><i className="material-icons w3-xxlarge" >menu</i></Hamburger>
-              <NavOptionDropDown style={open ? { display: "block", backgroundColor: "grey"} : { display: "" }}>
+            <NavList style={open ? {right: "0px"} : {right: "45px"}}>
+              <Hamburger onClick={this.toggleOpen}>
+                {open ? 
+                  <i className="material-icons w3-xxlarge">menu</i>
+                :
+                  <i className="material-icons w3-xxlarge">menu_open</i>
+                }
+                
+              </Hamburger>
+              <NavOptionDropDown style={open ? { display: "block", backgroundColor: "rgb(216,224,233)"} : { display: "" }}>
                 <NavLink to="/" style={open ? { display: "block" } : { display: "" }}>
                   <NavItems style={open ? { display: "block" } : { display: "" }}>
                     <i className="material-icons w3-xxlarge">home</i>
