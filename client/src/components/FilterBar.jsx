@@ -15,8 +15,8 @@ const Title = styled.h2`
   padding-bottom: 10px;
   font-weight: 700;
 
-  @media(max-width: 800px){   
-    padding-bottom: 40px;
+  @media(max-width: 800px){  
+    padding: 0 50px 40px 50px; 
   }
 `
 const FilterList = styled.ul`
@@ -25,23 +25,23 @@ const FilterList = styled.ul`
   align-items: center;
   justify-content: center;
 `
-const Topics = styled.li`
+const Topic = styled.li`
   padding-right: 50px;
   padding-bottom: 10px;
   cursor: pointer;
 
-  @media(max-width: 800px){   
-    padding-bottom: 40px;
+  @media(max-width: 800px){  
+    padding: 0 50px 40px 50px; 
   }
 `
 
 
-export default function FilterBar({ topics, filterPosts, getAllPosts}) {
+export default function FilterBar({ topics, filterPosts, getAllPosts }) {
 
-  const topicNames = topics.map((topic,id) => {
+  const topicNames = topics.map((topic, id) => {
     return (
       <React.Fragment key={id}>
-        <Topics onClick={() => filterPosts(topic.id, topic.name)}>{topic.name}</Topics>
+        <Topic onClick={() => filterPosts(topic.id, topic.name)}>{topic.name}</Topic>
       </React.Fragment>
     )
   })
@@ -51,12 +51,12 @@ export default function FilterBar({ topics, filterPosts, getAllPosts}) {
         <Title>I'm Looking For:</Title>
         <nav>
           <FilterList>
-            <Topics onClick={getAllPosts}>All Posts</Topics>
+            <Topic onClick={getAllPosts}>All Posts</Topic>
             {topicNames}
           </FilterList>
         </nav>
       </FilterSection>
-      <Divider/>
+      <Divider />
     </>
   )
 }
