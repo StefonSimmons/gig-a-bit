@@ -80,16 +80,16 @@ export const Divider = styled.hr`
 export default class Header extends Component {
 
   state = {
-    open: false
+    openMenu: false
   }
 
-  toggleOpen = () => {
-    this.setState(prevState => ({ open: !prevState.open }))
+  toggleOpenMenu = () => {
+    this.setState(prevState => ({ openMenu: !prevState.openMenu }))
   }
 
   render() {
     const { showLogInForm, showCreateProfileForm, loggedInUser, logout } = this.props
-    const { open } = this.state
+    const { openMenu } = this.state
 
     return (
       <>
@@ -97,18 +97,18 @@ export default class Header extends Component {
           <Title>Gig-A-Bit</Title>
           <NavBar>
 
-            <NavList style={open ? {right: "0px"} : {right: "45px"}}>
-              <Hamburger onClick={this.toggleOpen}>
-                {open ? 
+            <NavList style={openMenu ? {right: "0px"} : {right: "45px"}}>
+              <Hamburger onClick={this.toggleOpenMenu}>
+                {openMenu ? 
                   <i className="material-icons w3-xxlarge">menu</i>
                 :
                   <i className="material-icons w3-xxlarge">menu_open</i>
                 }
                 
               </Hamburger>
-              <NavOptionDropDown style={open ? { display: "block", backgroundColor: "rgb(216,224,233)", height: "100rem"} : { display: "" }}>
-                <NavLink to="/" style={open ? { display: "block" } : { display: "" }}>
-                  <NavItems style={open ? { display: "block" } : { display: "" }}>
+              <NavOptionDropDown style={openMenu ? { display: "block", backgroundColor: "rgb(216,224,233)", height: "100rem"} : { display: "" }}>
+                <NavLink to="/" style={openMenu ? { display: "block" } : { display: "" }}>
+                  <NavItems style={openMenu ? { display: "block" } : { display: "" }}>
                     <i className="material-icons w3-xxlarge">home</i>
                   </NavItems>
                 </NavLink>
@@ -116,14 +116,14 @@ export default class Header extends Component {
                   loggedInUser
                     ?
                     <>
-                      <NavLink to='/my_profile' style={open ? { display: "block" } : { display: "" }}>
-                        <NavItems style={open ? { display: "block" } : { display: "" }}>
+                      <NavLink to='/my_profile' style={openMenu ? { display: "block" } : { display: "" }}>
+                        <NavItems style={openMenu ? { display: "block" } : { display: "" }}>
                           My Profile
                       </NavItems>
                       </NavLink>
                     </>
                     :
-                    <NavItems onClick={showCreateProfileForm} style={open ? { display: "block" } : { display: "" }}>
+                    <NavItems onClick={showCreateProfileForm} style={openMenu ? { display: "block" } : { display: "" }}>
                       Create A Profile
                   </NavItems>
                 }
@@ -131,13 +131,13 @@ export default class Header extends Component {
                   loggedInUser
                     ?
                     <>
-                      <NavItems onClick={logout} style={open ? { display: "block" } : { display: "" }}>
+                      <NavItems onClick={logout} style={openMenu ? { display: "block" } : { display: "" }}>
                         Log Out
                     </NavItems>
 
                     </>
                     :
-                    <NavItems onClick={showLogInForm} style={open ? { display: "block" } : { display: "" }}>
+                    <NavItems onClick={showLogInForm} style={openMenu ? { display: "block" } : { display: "" }}>
                       Log In
                     </NavItems>
                 }

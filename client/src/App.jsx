@@ -14,6 +14,7 @@ class App extends Component {
     loggedInUser: null,
     logInClicked: false,
     createProfileClicked: false,
+    aboutClicked: false
   }
 
   componentDidMount() {
@@ -60,6 +61,12 @@ class App extends Component {
     }))
   }
 
+  toggleAboutModal = () => {
+    this.setState(prevState => ({
+      aboutClicked: !prevState.aboutClicked
+    }))
+  }
+
   render() {
 
     return (
@@ -83,8 +90,13 @@ class App extends Component {
         <Main
           loggedInUser={this.state.loggedInUser}
         />
-        <AboutModal />
-        <Footer />
+        <AboutModal
+          aboutClicked={this.state.aboutClicked}
+          hideAboutModal={this.toggleAboutModal}
+        />
+        <Footer
+          showAboutModal={this.toggleAboutModal}
+        />
       </div>
     )
   }

@@ -79,7 +79,7 @@ export default class LogInForm extends Component {
       <>
         <div className="w3-modal" style={logInClicked ? { display: "block" } : { display: "none" }}>
           <LogInModal className="w3-modal-content w3-card-4 w3-animate-zoom">
-          <span onClick={hideLogInForm} className="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+          <span className="w3-button w3-xlarge w3-hover-red w3-display-topright" onClick={hideLogInForm}>&times;</span>
             <Form onSubmit={(e) => {
               e.preventDefault();
               handleLoginSubmit(this.state);

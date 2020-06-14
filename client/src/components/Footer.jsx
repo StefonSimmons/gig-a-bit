@@ -19,13 +19,13 @@ const Text = styled.h6`
 `
 
 
-export default function Footer() {
+export default function Footer({showAboutModal}) {
   return (
     <div>
       <Divider/>
       <Foot>
         <Bottom>
-          <Text>About</Text>
+          <Text onClick={showAboutModal}>About</Text>
           <Text>&copy; Stefon Simmons</Text>
           <Text>Contact Developer</Text>
         </Bottom>

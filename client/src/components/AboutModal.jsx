@@ -52,12 +52,12 @@ const Statement = styled.p`
 const Strong = styled.span`
   font-weight: 900
 `
-export default function AboutModal() {
+export default function AboutModal({ aboutClicked, hideAboutModal }) {
   return (
     <>
-      {/* <div className="w3-modal"> */}
+      <div className="w3-modal" style={aboutClicked ? { display: "block" } : { display: "none" }}>
       <About className="w3-modal-content w3-card-4 w3-animate-zoom">
-        <span className="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+        <span className="w3-button w3-xlarge w3-hover-red w3-display-topright" onClick={hideAboutModal}>&times;</span>
         <Wrapper>
           <Title>.About.</Title>
           <Circle>
@@ -66,7 +66,7 @@ export default function AboutModal() {
           <Statement><Strong>Gig-A-Bit:</Strong> The talent-board app for artistic individuals and small groups. Register and post your art, project ideas and/or portfolio to be seen by talent-seekers online.</Statement>
         </Wrapper>
       </About>
-      {/* </div> */}
+      </div>
     </>
   )
 }
