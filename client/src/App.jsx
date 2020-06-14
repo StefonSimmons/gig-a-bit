@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,15 +11,15 @@ class App extends Component {
 
   state = {
     loggedInUser: null,
-    user: null,
     logInClicked: false,
     createProfileClicked: false,
   }
 
   componentDidMount() {
     this.handleVerify()
-    
+
   }
+
 
   handleLoginSubmit = async (loginParams) => {
     console.log(loginParams.email)
@@ -33,6 +33,11 @@ class App extends Component {
     this.setState({ loggedInUser });
   }
 
+  handleVerify = async () => {
+    const loggedInUser = await verifyUser();
+    this.setState({ loggedInUser })
+  }
+
   handleLogout = () => {
     this.setState({
       loggedInUser: null
@@ -40,11 +45,6 @@ class App extends Component {
     localStorage.clear();
     removeToken();
     this.props.history.push('/')
-  }
-
-  handleVerify = async () => {
-    const loggedInUser = await verifyUser();
-    this.setState({ loggedInUser })
   }
 
   toggleLoginForm = () => {
@@ -58,7 +58,6 @@ class App extends Component {
       createProfileClicked: !prevState.createProfileClicked
     }))
   }
-
 
   render() {
 

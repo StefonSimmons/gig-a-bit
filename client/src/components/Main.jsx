@@ -14,22 +14,13 @@ class Main extends Component {
     posts: [],
     editBtnClicked: false,
     editPostID: null,
-    message: null
+    message: null,
   }
 
   componentDidMount() {
     this.listAllTopics()
     this.listAllPosts()
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log('postsCopy',this.state.postsCopy)
-  //   if (){
-  //     this.getAllPosts()
-  //   } else {
-  //     console.log("match")
-  //   }
-  // }
 
   listAllTopics = async () => {
     const topics = await getAllTopics();
@@ -82,7 +73,6 @@ class Main extends Component {
       posts: prevState.posts.filter(post => post.topic_id === topicID)
     }))
     this.setState(prevState => ({ message: prevState.posts.length === 0 ? `There are no posts related to ${topicName}` : null }))
-    
   }
 
   getAllPosts = () => {
@@ -90,7 +80,10 @@ class Main extends Component {
     this.setState({ message: null })
   }
 
+
   render() {
+    const { loggedInUser } = this.props
+
     return (
       <div>
         <FilterBar
@@ -98,9 +91,9 @@ class Main extends Component {
           filterPosts={this.filterPosts}
           getAllPosts={this.getAllPosts}
         />
-
         <Switch>
-          <Route exact path="/my_profile">
+
+          <Route exact path='/my_profile'>
             <ProfilePosts
               loggedInUser={this.props.loggedInUser}
               posts={this.state.posts}

@@ -116,7 +116,7 @@ export default class Header extends Component {
                   loggedInUser
                     ?
                     <>
-                      <NavLink to="/my_profile" style={open ? { display: "block" } : { display: "" }}>
+                      <NavLink to='/my_profile' style={open ? { display: "block" } : { display: "" }}>
                         <NavItems style={open ? { display: "block" } : { display: "" }}>
                           My Profile
                       </NavItems>

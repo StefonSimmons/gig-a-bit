@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import TopicOptions from './TopicOptions'
 
@@ -95,6 +96,9 @@ export default class UpdatePostForm extends Component {
     })
   }
 
+  cancel = () => {
+    window.location.reload()
+  }
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
@@ -121,10 +125,10 @@ export default class UpdatePostForm extends Component {
               topic_id: ''
             })
           }}>Save Changes</UpdateBtn>
-          <CancelBtn>
+          <CancelBtn onClick={this.cancel}>
             Cancel
           </CancelBtn>
-        </Update>
+        </Update >
         <UpdatePostContainer>
           <Form>
             <MediaInput
@@ -178,7 +182,7 @@ export default class UpdatePostForm extends Component {
             />
           </Form>
         </UpdatePostContainer>
-      </UpdateFormContainer>
+      </UpdateFormContainer >
       :
       "Loading..."
 
