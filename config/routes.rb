@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   get '/posts_user_topic', to: 'posts#posts_user_topic'
 
-  get '/auth/login', to: 'authentication#login'
+  post '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
 end

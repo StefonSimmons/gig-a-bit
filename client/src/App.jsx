@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
 import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -6,12 +7,13 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 import CreateProfileForm from './components/CreateProfileForm'
 import LogInForm from './components/LogInForm';
 
-export default class App extends Component {
+class App extends Component {
 
   state = {
     loggedInUser: null,
+    user: null,
     logInClicked: false,
-    createProfileClicked: false
+    createProfileClicked: false,
   }
 
   componentDidMount() {
@@ -19,6 +21,7 @@ export default class App extends Component {
   }
 
   handleLoginSubmit = async (loginParams) => {
+    console.log(loginParams.email)
     console.log(loginParams)
     const loggedInUser = await loginUser(loginParams);
     this.setState({ loggedInUser });
@@ -35,6 +38,7 @@ export default class App extends Component {
     })
     localStorage.clear();
     removeToken();
+    this.props.history.push('/')
   }
 
   handleVerify = async () => {
@@ -54,6 +58,7 @@ export default class App extends Component {
     }))
   }
 
+
   render() {
 
     return (
@@ -61,6 +66,8 @@ export default class App extends Component {
         <Header
           showLogInForm={this.toggleLoginForm}
           showCreateProfileForm={this.toggleCreateProfileForm}
+          loggedInUser={this.state.loggedInUser}
+          logout={this.handleLogout}
         />
         <CreateProfileForm
           handleRegisterSubmit={this.handleRegisterSubmit}
@@ -72,9 +79,13 @@ export default class App extends Component {
           logInClicked={this.state.logInClicked}
           hideLogInForm={this.toggleLoginForm}
         />
-        <Main />
+        <Main
+          loggedInUser={this.state.loggedInUser}
+        />
         <Footer />
       </div>
     )
   }
 }
+
+export default withRouter(App)

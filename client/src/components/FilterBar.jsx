@@ -19,15 +19,16 @@ const FilterList = styled.ul`
 `
 const Topics = styled.li`
   padding-right: 50px;
+  cursor: pointer
 `
 
 
-export default function FilterBar({ topics }) {
+export default function FilterBar({ topics, filterPosts, getAllPosts}) {
 
   const topicNames = topics.map((topic,id) => {
     return (
       <React.Fragment key={id}>
-        <Topics>{topic.name}</Topics>
+        <Topics onClick={() => filterPosts(topic.id)}>{topic.name}</Topics>
       </React.Fragment>
     )
   })
@@ -37,6 +38,7 @@ export default function FilterBar({ topics }) {
         <Title>I'm Looking For:</Title>
         <nav>
           <FilterList>
+            <Topics onClick={getAllPosts}>All Posts</Topics>
             {topicNames}
           </FilterList>
         </nav>

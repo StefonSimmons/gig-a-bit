@@ -46,7 +46,6 @@ class UsersController < ApplicationController
     render json: @users.to_json(:include => { :topics => {:include => :posts}})
   end
 
-
   private
 
   def user_params

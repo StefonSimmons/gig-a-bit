@@ -7,7 +7,7 @@ export const getAllPosts = async () => {
 }
 
 export const getOnePost = async (id) => {
-  const resp = await api.get(`/post/${id}`);
+  const resp = await api.get(`/post/${id}`); 
   const post = resp.data;
   return post;
 }
@@ -18,18 +18,18 @@ export const createPost = async (postParams) => {
   return newPost;
 }
 
-export const updateFood = async (id, foodData) => {
-  const resp = await api.put(`/posts/${id}`, { food: foodData });
+export const updatePost = async (id, postParams) => {
+  const resp = await api.put(`/posts/${id}`, { post: postParams });
   const updatedPost =resp.data
   return updatedPost;
 }
 
-export const deleteFood = async (id) => {
-  const resp = await api.delete(`/foods/${id}`);
+export const deletePost = async (id) => {
+  const resp = await api.delete(`/posts/${id}`);
   return resp
 }
 
-export const postsUserTopic = async (id) => {
+export const postsUserTopic = async () => {
   const resp = await api.get('/posts_user_topic');
   const posts = resp.data
   return posts

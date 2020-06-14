@@ -43,7 +43,7 @@ export default class CreateProfileForm extends Component {
 
   render() {
     const { user_type, primary_name, surname, email, password } = this.state;
-    const { handleRegisterSubmit, history, createProfileClicked, hideCreateProfileForm} = this.props;
+    const { handleRegisterSubmit, createProfileClicked, hideCreateProfileForm} = this.props;
 
     return (
       <>
@@ -53,12 +53,14 @@ export default class CreateProfileForm extends Component {
             <Form onSubmit={(e) => {
               e.preventDefault();
               handleRegisterSubmit(this.state);
-              // history.push('/');
-              // this.setState({
-              //   username: "",
-              //   email: "",
-              //   password: ""
-              // })
+              hideCreateProfileForm()
+              this.setState({
+                user_type: '',
+                primary_name: '',
+                surname: '',
+                email: '',
+                password: ''
+              })
             }}>
               <Welcome>Create a Profile</Welcome>
               <Circle>

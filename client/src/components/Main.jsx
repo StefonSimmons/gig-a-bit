@@ -1,45 +1,118 @@
 import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import FilterBar from './FilterBar'
 import { getAllTopics } from '../services/topics'
-import { postsUserTopic } from '../services/posts'
+import { postsUserTopic, createPost, updatePost, deletePost } from '../services/posts'
 import Posts from './Posts'
+import ProfilePosts from './ProfilePosts'
 
 export default class Main extends Component {
   state = {
     topics: [],
+    postsCopy: [],
     posts: [],
+    editBtnClicked: false,
+    editPostID: null,
+    message: null
   }
 
   componentDidMount() {
-    this.allTopics()
-    this.allPosts()
+    this.listAllTopics()
+    this.listAllPosts()
   }
 
-  allTopics = async () => {
+
+  listAllTopics = async () => {
     const topics = await getAllTopics();
     this.setState(
       { topics }
     )
   }
 
-  allPosts = async () => {
+  listAllPosts = async () => {
     const posts = await postsUserTopic()
-    this.setState(
-      { posts }
-    )
+    this.setState({
+      posts: posts,
+      postsCopy: posts
+    })
   }
 
+  createNewPost = async (postInfo) => {
+    const newPost = await createPost(postInfo)
+    this.setState(prevState => (
+      { posts: [...prevState.posts, newPost] }
+    ))
+  }
+
+  toggleUpdatePostForm = (postID) => {
+    this.setState(prevState => (
+      {
+        editBtnClicked: !prevState.editBtnClicked,
+        editPostID: postID
+      }
+    ))
+  }
+
+  updateOnePost = async (id, postInfo) => {
+    const updatedPost = await updatePost(id, postInfo)
+    this.setState(prevState => ({
+      posts: prevState.posts.map(post => post.id === id ? updatedPost : post)
+    }))
+  }
+
+  destroyPost = async (id) => {
+    await deletePost(id);
+    this.setState(prevState => ({
+      posts: prevState.posts.filter(post => post.id !== id)
+    }))
+  }
+
+  filterPosts = (topicID) => {
+    this.setState(prevState => ({posts: prevState.postsCopy }))
+    this.setState(prevState => ({
+      posts: prevState.posts.filter(post => post.topic_id === topicID)
+    }))
+    this.setState(prevState => ({message: prevState.posts.length === 0 ? "No Posts on this Topic" : null}))
+  }
+
+  getAllPosts = () => {
+    this.setState(prevState => ({ posts: prevState.postsCopy }))
+    this.setState({message: null}) 
+  }
 
   render() {
-
     return (
       <div>
+        {console.log("original->", this.state.posts)}
+        {console.log("copy->", this.state.postsCopy)}
         <FilterBar
           topics={this.state.topics}
+          filterPosts={this.filterPosts}
+          getAllPosts={this.getAllPosts}
         />
-        <Posts
-          posts={this.state.posts}
-        />
+
+        <Switch>
+          <Route exact path="/my_profile">
+            <ProfilePosts
+              loggedInUser={this.props.loggedInUser}
+              posts={this.state.posts}
+              createNewPost={this.createNewPost}
+              topics={this.state.topics}
+              showUpdatePostForm={this.toggleUpdatePostForm}
+              editBtnClicked={this.state.editBtnClicked}
+              editPostID={this.state.editPostID}
+              updatePost={this.updateOnePost}
+              deletePost={this.destroyPost}
+            />
+          </Route>
+
+          <Route exact path="/">
+            <Posts
+              posts={this.state.posts}
+              noPostsMsg = {this.state.message}
+            />
+          </Route>
+        </Switch>
       </div>
     )
   }

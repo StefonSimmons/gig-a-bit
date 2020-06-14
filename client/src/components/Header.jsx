@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 const HeaderSection = styled.header`
@@ -32,7 +33,7 @@ export const Divider = styled.hr`
   margin: 0px
 `
 
-export default function Header({ showLogInForm, showCreateProfileForm }) {
+export default function Header({ showLogInForm, showCreateProfileForm, loggedInUser, logout }) {
 
   return (
     <>
@@ -40,13 +41,42 @@ export default function Header({ showLogInForm, showCreateProfileForm }) {
         <Title>Gig-A-Bit</Title>
         <NavBar>
           <NavList>
-            <NavItems><i className="material-icons w3-xxlarge">home</i></NavItems>
-            <NavItems onClick={showCreateProfileForm}>
-              Create A Profile
+
+            <Link to="/">
+              <NavItems>
+                <i className="material-icons w3-xxlarge">home</i>
               </NavItems>
-            <NavItems onClick={showLogInForm}>
-              Log In
-            </NavItems>
+            </Link>
+            {
+              loggedInUser
+              ?
+              <>
+                <Link to="/my_profile">
+                  <NavItems>
+                    My Profile
+                  </NavItems>
+                </Link>
+              </>
+              :
+              <NavItems onClick={showCreateProfileForm}>
+                Create A Profile
+              </NavItems>
+            }
+            {
+              loggedInUser
+              ?
+              <>
+              <NavItems onClick={logout}>
+                Log Out
+              </NavItems>
+
+              </>
+              :
+              <NavItems onClick={showLogInForm}>
+                Log In
+              </NavItems>
+            }
+
           </NavList>
         </NavBar>
       </HeaderSection>

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create(post_params)
-    render json: @new_post
+    render json: @new_post, status: :created
   end
 
   def update
@@ -22,9 +22,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @destroyed_user = Post.find(params[:id])
-    @destroyed_user.destroy()
-    render json: 'destroyed post'
+    @destroyed_post = Post.find(params[:id])
+    @destroyed_post.destroy()
+    render json: 'destroyed post', status: :accepted
   end
 
   # CUSTOM ACTION
@@ -34,15 +34,16 @@ class PostsController < ApplicationController
       posts.media_link, 
       users.id AS user_id,
       users.primary_name, 
-      topics.name AS topic_name,
       users.surname,
+      topics.id AS topic_id,
+      topics.name AS topic_name,
       users.email, 
       posts.bullet_one, 
       posts.bullet_two, 
       posts.bullet_three,
       posts.created_at,
       posts.updated_at"
-    )
+    ).order('posts.created_at DESC')
     render json: @posts
   end
 

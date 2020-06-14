@@ -1,10 +1,8 @@
 import api from './apiConfig';
 
 export const loginUser = async (loginParams) => {
-  console.log(loginParams)
-  const resp = await api.get('/auth/login', { auth: loginParams })
-  console.log(loginParams)
-  // console.log(resp)
+
+  const resp = await api.post('/auth/login', { auth: loginParams })
   const token = resp.data.token
   const user = resp.data.user
   localStorage.setItem('authToken', token);
@@ -13,10 +11,8 @@ export const loginUser = async (loginParams) => {
 }
 
 export const registerUser = async (registerParams) => {
-  console.log(registerParams)
+  
   const resp = await api.post('/users', { user: registerParams })
-  console.log(registerParams)
-  console.log(resp)
   const token = resp.data.token
   const user = resp.data.user
   localStorage.setItem('authToken', token);
@@ -29,8 +25,8 @@ export const verifyUser = async () => {
   if (token) {
     api.defaults.headers.common.authorization = `Bearer ${token}`
     const resp = await api.get('/auth/verify');
-    const userID = resp.data
-    return userID
+    const user = resp.data
+    return user
   }
   return false
 }
