@@ -14,14 +14,16 @@ const Bottom = styled.div`
   padding: 25px 0; 
 `
 const Text = styled.h6`
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 16px;
+  font-family: 'Pathway Gothic One', sans-serif;  
+  font-size: 18px;
+  letter-spacing: 3px;
   color: rgb(28,28,28);
 `
 const AboutContact = styled.h6`
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Pathway Gothic One', sans-serif;  
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 5px;
   color: rgb(28,28,28);
   cursor: pointer
 `
@@ -33,7 +35,7 @@ export default function Footer({ showAboutModal, showContactModal }) {
       <Divider />
       <Foot>
         <Bottom>
-          <AboutContact onClick={showAboutModal}>About</AboutContact>
+          <AboutContact onClick={showAboutModal}>About Gig-A-Bit</AboutContact>
           <Text>&copy; Stefon Simmons</Text>
           <AboutContact onClick={showContactModal}>Contact Developer</AboutContact>
         </Bottom>

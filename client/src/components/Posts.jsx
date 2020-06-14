@@ -60,7 +60,7 @@ const List = styled.div`
 const Bullet = styled.li`
   font-size: 15px;
   list-style: none;
-  padding: 10px 0 
+  padding: 10px 0;
 `
 export default function Posts({ posts, noPostsMsg }) {
 
@@ -76,9 +76,9 @@ export default function Posts({ posts, noPostsMsg }) {
             <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
           </UserContainer>
           <List>
-            <Bullet>- {post.bullet_one}</Bullet>
-            <Bullet>- {post.bullet_two}</Bullet>
-            <Bullet>- {post.bullet_three}</Bullet>
+            <Bullet>{`- ${post.bullet_one }`}</Bullet>
+            <Bullet>{`- ${post.bullet_two}`}</Bullet>
+            <Bullet>{`- ${post.bullet_three}`}</Bullet>
           </List>
         </Post>
       </React.Fragment>
