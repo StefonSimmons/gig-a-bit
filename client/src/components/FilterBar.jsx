@@ -29,6 +29,7 @@ const FilterList = styled.ul`
 const Topic = styled.li`
   padding-right: 50px;
   padding-bottom: 10px;
+  text-align: center;
   cursor: pointer;
 
   @media(max-width: 800px){  

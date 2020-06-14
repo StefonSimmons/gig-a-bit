@@ -13,6 +13,7 @@ const CreateProfileModal = styled.div`
   font-family: 'Pathway Gothic One', sans-serif; 
   text-align: center;
   background-color: rgb(245,247,249);
+
 `
 
 const JoinLnk = styled(Link)`

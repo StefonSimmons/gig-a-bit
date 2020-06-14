@@ -21,6 +21,7 @@ const Post = styled.div`
 const Image = styled.img`
   border-radius: 15px;
   width: 300px;
+  height: 250px;
   padding-bottom: 10px
 `
 const UserContainer = styled.div`
