@@ -23,14 +23,16 @@ const Icon = styled.i`
 `
 const Post = styled.div`
   display: grid;
-  align-items: end;
+  align-items: start;
   margin: 0 15px 15px 15px;
-  width: 306px;
+  width: 305px;
   border: rgb(216,224,233) solid 2px;
-  border-radius: 5px;
+  border-radius: 15px;
   font-family: 'Pathway Gothic One', sans-serif; 
+  background: white;
 `
 const Image = styled.img`
+  border-radius: 15px;  
   width: 300px;
   padding-bottom: 10px
 `

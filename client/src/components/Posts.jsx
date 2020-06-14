@@ -13,10 +13,13 @@ const Post = styled.div`
   margin: 15px;
   width: 306px;
   border: rgb(216,224,233) solid 2px;
-  border-radius: 5px;
-  font-family: 'Pathway Gothic One', sans-serif; 
+  border-radius: 15px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  background: white;
+
 `
 const Image = styled.img`
+  border-radius: 15px;
   width: 300px;
   padding-bottom: 10px
 `

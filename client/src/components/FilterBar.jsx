@@ -8,7 +8,8 @@ const FilterSection = styled.div`
   padding: 40px 45px;
   justify-content: center;
   font-family: 'Pathway Gothic One', sans-serif;  
-  font-size: 20px
+  font-size: 20px;
+  background: white;
 `
 const Title = styled.h2`
   padding-right: 50px;

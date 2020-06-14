@@ -5,6 +5,7 @@ import { Divider } from './Header'
 const Foot = styled.footer`
   width: 100%;
   text-align: center;
+  background: white;
 `
 const Bottom = styled.div`
   display: flex;
