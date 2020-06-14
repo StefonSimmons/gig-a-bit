@@ -19,6 +19,7 @@ const FilterList = styled.ul`
 `
 const Topics = styled.li`
   padding-right: 50px;
+  cursor: pointer
 `
 
 
