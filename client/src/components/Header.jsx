@@ -13,6 +13,7 @@ const Title = styled.h1`
   font-family: 'Pathway Gothic One', sans-serif;  
   font-weight: 700;
   font-style: italic;
+  letter-spacing: 5px;
   color: rgb(154, 78, 80)
 `
 const NavBar = styled.nav`
@@ -54,7 +55,7 @@ const NavLink = styled(Link)`
   }
 `
 const NavItems = styled.li`
-  padding: 0 50px;
+  padding: 0px 50px;
   font-family: 'Pathway Gothic One', sans-serif;  
   font-size: 20px;
   cursor: pointer;

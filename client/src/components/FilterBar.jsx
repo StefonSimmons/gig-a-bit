@@ -5,7 +5,7 @@ import { Divider } from './Header'
 const FilterSection = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 40px 45px;
+  padding: 25px 45px;
   justify-content: center;
   font-family: 'Pathway Gothic One', sans-serif;  
   font-size: 20px;
