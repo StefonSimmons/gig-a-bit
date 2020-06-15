@@ -6,6 +6,12 @@ const Foot = styled.footer`
   width: 100%;
   text-align: center;
   background: white;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  // height: 15px;
 `
 const Bottom = styled.div`
   display: flex;
