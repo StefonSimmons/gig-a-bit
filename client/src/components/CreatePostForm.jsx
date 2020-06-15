@@ -12,7 +12,8 @@ const CreatePostContainer = styled.div`
   width: 302px;
   margin: 0 15px 15px 15px;
   border: rgb(216,224,233) solid 2px;
-  border-radius: 5px
+  border-radius: 15px;
+  background: white;
 `
 const Create = styled.div`
   display: flex;
@@ -73,10 +74,8 @@ export default class CreatePostForm extends Component {
     bullet_two: '',
     bullet_three: '',
     user_id: '',
-    topic_id: ''
+    topic_id: '1'
   }
-
-
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,11 +85,10 @@ export default class CreatePostForm extends Component {
     })
   }
 
-
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { createNewPost, loggedInUser, topics } = this.props;
-    const userPosts = loggedInUser !== null ?
+    const createPostForm = loggedInUser !== null ?
       <CreateFormContainer>
         <Create>
           <CreateBtn onClick={(e) => {
@@ -164,10 +162,9 @@ export default class CreatePostForm extends Component {
       :
       "Loading..."
 
-
     return (
       <>
-        {userPosts}
+        {createPostForm}
       </>
     )
   }

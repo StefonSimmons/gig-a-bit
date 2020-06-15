@@ -4,46 +4,64 @@ import { Divider } from './Header'
 
 const FilterSection = styled.div`
   display: flex;
-  padding: 50px 45px;
+  flex-wrap: wrap;
+  padding: 25px 45px;
   justify-content: center;
   font-family: 'Pathway Gothic One', sans-serif;  
-  font-size: 20px
+  font-size: 20px;
+  background: white;
 `
-const Title = styled.h2`
-  padding-right: 50px;
+const FilterFor = styled.h2`
+  margin: 10px 25px;
   font-weight: 700;
+  align-self: center;
+  text-align: center;
+
+  @media(max-width: 800px){  
+    padding: 0 50px 40px 50px; 
+  }
 `
 const FilterList = styled.ul`
   display: flex;
+  flex-wrap: wrap;  
   align-items: center;
+  justify-content: center;
 `
-const Topics = styled.li`
-  padding-right: 50px;
-  cursor: pointer
+const Topic = styled.li`
+  margin: 10px 20px;
+  padding: 8px 10px;
+  text-align: center;
+  background: rgb(234, 190, 191);
+  border-radius: 9px;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(204, 160, 161);
+  }
 `
 
+export default function FilterBar({ topics, filterPosts, getAllPosts }) {
 
-export default function FilterBar({ topics, filterPosts, getAllPosts}) {
-
-  const topicNames = topics.map((topic,id) => {
+  const topicNames = topics.map((topic, id) => {
     return (
       <React.Fragment key={id}>
-        <Topics onClick={() => filterPosts(topic.id)}>{topic.name}</Topics>
+        <Topic onClick={() => filterPosts(topic.id, topic.name)}>{topic.name}</Topic>
       </React.Fragment>
     )
   })
   return (
     <>
       <FilterSection>
-        <Title>I'm Looking For:</Title>
+        <FilterFor>I'm Looking For:</FilterFor>
         <nav>
           <FilterList>
-            <Topics onClick={getAllPosts}>All Posts</Topics>
+            <Topic onClick={getAllPosts}>All Posts</Topic>
             {topicNames}
           </FilterList>
         </nav>
       </FilterSection>
-      <Divider/>
+      <Divider />
     </>
   )
 }

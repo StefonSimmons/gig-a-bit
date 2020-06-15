@@ -12,7 +12,8 @@ const UpdatePostContainer = styled.div`
   width: 302px;
   margin: 0 15px 15px 15px;
   border: rgb(216,224,233) solid 2px;
-  border-radius: 5px
+  background: rgb(245,247,249);
+  border-radius: 15px
 `
 const Update = styled.div`
   display: flex;
@@ -82,8 +83,8 @@ export default class UpdatePostForm extends Component {
   }
 
   setPostFormInfo = () => {
-    const { media_link, bullet_one, bullet_two, bullet_three } = this.props.post;
-    this.setState({ media_link, bullet_one, bullet_two, bullet_three })
+    const { media_link, bullet_one, bullet_two, bullet_three, topic_id } = this.props.post;
+    this.setState({ media_link, bullet_one, bullet_two, bullet_three, topic_id })
   }
 
   handleChange = (e) => {
@@ -95,15 +96,14 @@ export default class UpdatePostForm extends Component {
     })
   }
 
+  cancel = () => {
+    window.location.reload()
+  }
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { updatePost, loggedInUser, topics, post } = this.props;
 
-    // console.log(post.id)
-    // console.log(post.media_link)
-    // console.log(post.bullet_one)
-    // console.log(post.bullet_two)
 
     const userPosts = loggedInUser !== null ?
       <UpdateFormContainer>
@@ -121,12 +121,13 @@ export default class UpdatePostForm extends Component {
               topic_id: ''
             })
           }}>Save Changes</UpdateBtn>
-          <CancelBtn>
+          <CancelBtn onClick={this.cancel}>
             Cancel
           </CancelBtn>
-        </Update>
+        </Update >
+        
         <UpdatePostContainer>
-          <Form>
+          <Form id="updateForm">
             <MediaInput
               type="text"
               name="media_link"
@@ -141,7 +142,10 @@ export default class UpdatePostForm extends Component {
               placeholder={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)}
             />
             <Label htmlFor="topic">Choose a Topic:</Label>
-            <Dropdown name="topic_id" id="topic" onChange={this.handleChange}>
+            <Dropdown name="topic_id" id="topic" form="updateForm" onChange={this.handleChange}>
+              <option value="none" selected disabled hidden>
+                {post.topic_name}
+              </option>
               {topics.map(topic =>
                 <TopicOptions
                   key={topic.id}
@@ -178,7 +182,7 @@ export default class UpdatePostForm extends Component {
             />
           </Form>
         </UpdatePostContainer>
-      </UpdateFormContainer>
+      </UpdateFormContainer >
       :
       "Loading..."
 

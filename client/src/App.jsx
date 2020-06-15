@@ -1,23 +1,27 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
 import CreateProfileForm from './components/CreateProfileForm'
-import LogInForm from './components/LogInForm';
+import LogInForm from './components/LogInForm'
+import AboutModal from './components/AboutModal'
+import ContactModal from './components/ContactModal'
 
 class App extends Component {
 
   state = {
     loggedInUser: null,
-    user: null,
     logInClicked: false,
     createProfileClicked: false,
+    aboutClicked: false,
+    contactClicked: false
   }
 
   componentDidMount() {
     this.handleVerify()
+
   }
 
   handleLoginSubmit = async (loginParams) => {
@@ -32,6 +36,11 @@ class App extends Component {
     this.setState({ loggedInUser });
   }
 
+  handleVerify = async () => {
+    const loggedInUser = await verifyUser();
+    this.setState({ loggedInUser })
+  }
+
   handleLogout = () => {
     this.setState({
       loggedInUser: null
@@ -39,11 +48,6 @@ class App extends Component {
     localStorage.clear();
     removeToken();
     this.props.history.push('/')
-  }
-
-  handleVerify = async () => {
-    const loggedInUser = await verifyUser();
-    this.setState({ loggedInUser })
   }
 
   toggleLoginForm = () => {
@@ -58,6 +62,17 @@ class App extends Component {
     }))
   }
 
+  toggleAboutModal = () => {
+    this.setState(prevState => ({
+      aboutClicked: !prevState.aboutClicked
+    }))
+  }
+
+  toggleContactModal = () => {
+    this.setState(prevState => ({
+      contactClicked: !prevState.contactClicked
+    }))
+  }
 
   render() {
 
@@ -82,7 +97,18 @@ class App extends Component {
         <Main
           loggedInUser={this.state.loggedInUser}
         />
-        <Footer />
+        <AboutModal
+          aboutClicked={this.state.aboutClicked}
+          hideAboutModal={this.toggleAboutModal}
+        />
+        <ContactModal
+          contactClicked={this.state.contactClicked}
+          hideContactModal={this.toggleContactModal}
+        />
+        <Footer
+          showAboutModal={this.toggleAboutModal}
+          showContactModal={this.toggleContactModal}
+        />
       </div>
     )
   }

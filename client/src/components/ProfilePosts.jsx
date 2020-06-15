@@ -22,13 +22,18 @@ const Icon = styled.i`
   cursor: pointer
 `
 const Post = styled.div`
+  display: grid;
+  align-items: start;
   margin: 0 15px 15px 15px;
-  width: 306px;
+  width: 304px;
   border: rgb(216,224,233) solid 2px;
-  border-radius: 5px;
+  border-radius: 15px;
   font-family: 'Pathway Gothic One', sans-serif; 
+  background: white;
 `
 const Image = styled.img`
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; 
   width: 300px;
   padding-bottom: 10px
 `
@@ -70,13 +75,14 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0 
 `
-export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID, updatePost, deletePost }) {
+export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editPostID, updatePost, deletePost, noPostsMsg }) {
+
 
   const allPosts = posts.map((post, id) => {
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
         editPostID === post.id ?
-          <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
+          <div style={editPostID === post.id ? { display: "block" } : { display: "none" }}>
             <UpdatePostForm
               loggedInUser={loggedInUser}
               topics={topics}
@@ -85,7 +91,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
             />
           </div>
           :
-          <PostContainer key={id} style={editBtnClicked && editPostID === post.id ? { display: "none" } : { display: "block" }}>
+          <PostContainer key={id} style={editPostID === post.id ? { display: "none" } : { display: "block" }}>
             <UpdateDeleteBtns>
               <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
               <Icon onClick={() => deletePost(post.id)}><i className="material-icons w3-xxlarge">clear</i></Icon>
@@ -107,23 +113,19 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
       )
     }
   })
-  // IF clicked editPostID === post.id then render the UpdatePostForm component in its place
+  
   return (
     <>
-      {/* <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
-        <UpdatePostForm
-          loggedInUser={loggedInUser}
-          topics={topics}
-          />
-      </div> */}
       <Main>
         <CreatePostForm
           loggedInUser={loggedInUser}
           createNewPost={createNewPost}
           topics={topics}
         />
+        {noPostsMsg}
         {allPosts}
       </Main>
     </>
   )
+  
 }
