@@ -24,7 +24,6 @@ class App extends Component {
 
   }
 
-
   handleLoginSubmit = async (loginParams) => {
     console.log(loginParams.email)
     console.log(loginParams)

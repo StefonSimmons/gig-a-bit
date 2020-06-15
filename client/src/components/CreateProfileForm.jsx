@@ -15,7 +15,6 @@ const CreateProfileModal = styled.div`
   background-color: rgb(245,247,249);
 
 `
-
 const JoinLnk = styled(Link)`
   text-decoration: none;
   font-weight: 500;
@@ -23,7 +22,6 @@ const JoinLnk = styled(Link)`
   letter-spacing: 1.26px;
   color: white;
 `
-
 
 export default class CreateProfileForm extends Component {
 

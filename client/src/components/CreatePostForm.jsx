@@ -77,8 +77,6 @@ export default class CreatePostForm extends Component {
     topic_id: ''
   }
 
-
-
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
@@ -86,7 +84,6 @@ export default class CreatePostForm extends Component {
       user_id: this.props.loggedInUser.id
     })
   }
-
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
@@ -164,7 +161,6 @@ export default class CreatePostForm extends Component {
       </CreateFormContainer>
       :
       "Loading..."
-
 
     return (
       <>

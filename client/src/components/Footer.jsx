@@ -31,9 +31,6 @@ const AboutContact = styled.h6`
     color: rgb(154, 78, 80);
   }
 `
-
-
-
 export default function Footer({ showAboutModal, showContactModal }) {
   return (
     <div>

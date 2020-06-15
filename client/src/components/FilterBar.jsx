@@ -41,7 +41,6 @@ const Topic = styled.li`
   }
 `
 
-
 export default function FilterBar({ topics, filterPosts, getAllPosts }) {
 
   const topicNames = topics.map((topic, id) => {
