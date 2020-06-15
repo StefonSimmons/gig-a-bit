@@ -43,7 +43,7 @@ class Main extends Component {
     ))
   }
 
-  toggleUpdatePostForm = (postID) => {
+  showUpdatePostForm = (postID) => {
     this.setState(
       { editPostID: postID }
     )
@@ -94,7 +94,7 @@ class Main extends Component {
               posts={this.state.posts}
               createNewPost={this.createNewPost}
               topics={this.state.topics}
-              showUpdatePostForm={this.toggleUpdatePostForm}
+              showUpdatePostForm={this.showUpdatePostForm}
               editPostID={this.state.editPostID}
               updatePost={this.updateOnePost}
               deletePost={this.destroyPost}
