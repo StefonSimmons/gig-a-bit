@@ -35,6 +35,10 @@ const Topic = styled.li`
   letter-spacing: 2px;
   cursor: pointer;
 
+  &:hover {
+    background: rgb(204, 160, 161);
+  }
+
   @media(max-width: 800px){  
     padding: 0 50px 40px 50px; 
   }

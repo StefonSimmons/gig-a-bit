@@ -82,7 +82,6 @@ class Main extends Component {
 
 
   render() {
-    const { loggedInUser } = this.props
 
     return (
       <div>

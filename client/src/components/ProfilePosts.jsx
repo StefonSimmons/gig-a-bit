@@ -78,7 +78,6 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
 
 
 
-
   const allPosts = posts.map((post, id) => {
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
@@ -114,7 +113,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
       )
     }
   })
-
+  
   return (
     <>
       <Main>
@@ -128,4 +127,5 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
       </Main>
     </>
   )
+  
 }

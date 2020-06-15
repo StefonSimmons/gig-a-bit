@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import TopicOptions from './TopicOptions'
 
@@ -104,10 +103,6 @@ export default class UpdatePostForm extends Component {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { updatePost, loggedInUser, topics, post } = this.props;
 
-    // console.log(post.id)
-    // console.log(post.media_link)
-    // console.log(post.bullet_one)
-    // console.log(post.bullet_two)
 
     const userPosts = loggedInUser !== null ?
       <UpdateFormContainer>
@@ -130,7 +125,7 @@ export default class UpdatePostForm extends Component {
           </CancelBtn>
         </Update >
         <UpdatePostContainer>
-          <Form>
+          <Form id="updateForm">
             <MediaInput
               type="text"
               name="media_link"
@@ -145,7 +140,7 @@ export default class UpdatePostForm extends Component {
               placeholder={loggedInUser.primary_name.concat(' ').concat(loggedInUser.surname)}
             />
             <Label htmlFor="topic">Choose a Topic:</Label>
-            <Dropdown name="topic_id" id="topic" onChange={this.handleChange}>
+            <Dropdown name="topic_id" id="topic" form="updateForm" onChange={this.handleChange}>
               {topics.map(topic =>
                 <TopicOptions
                   key={topic.id}

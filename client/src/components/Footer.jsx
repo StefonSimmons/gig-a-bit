@@ -29,11 +29,13 @@ const AboutContact = styled.h6`
 `
 
 
+
 export default function Footer({ showAboutModal, showContactModal }) {
   return (
     <div>
-      <Divider />
+      
       <Foot>
+      <Divider />
         <Bottom>
           <AboutContact onClick={showAboutModal}>About Gig-A-Bit</AboutContact>
           <Text>&copy; Stefon Simmons</Text>
