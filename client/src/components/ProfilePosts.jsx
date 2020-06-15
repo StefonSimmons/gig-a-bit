@@ -78,7 +78,6 @@ const Bullet = styled.li`
 export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editPostID, updatePost, deletePost, noPostsMsg }) {
 
 
-
   const allPosts = posts.map((post, id) => {
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
@@ -90,7 +89,7 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
               post={post}
               updatePost={updatePost}
             />
-          </div> 
+          </div>
           :
           <PostContainer key={id} style={editPostID === post.id ? { display: "none" } : { display: "block" }}>
             <UpdateDeleteBtns>

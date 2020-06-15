@@ -12,7 +12,6 @@ class Main extends Component {
     topics: [],
     postsCopy: [],
     posts: [],
-    // editBtnClicked: false,
     editPostID: null,
     message: null,
   }
@@ -45,12 +44,9 @@ class Main extends Component {
   }
 
   toggleUpdatePostForm = (postID) => {
-    this.setState(prevState => (
-      {
-        // editBtnClicked: !prevState.editBtnClicked,
-        editPostID: postID
-      }
-    ))
+    this.setState(
+      { editPostID: postID }
+    )
   }
 
   updateOnePost = async (id, postInfo) => {
@@ -99,7 +95,6 @@ class Main extends Component {
               createNewPost={this.createNewPost}
               topics={this.state.topics}
               showUpdatePostForm={this.toggleUpdatePostForm}
-              editBtnClicked={this.state.editBtnClicked}
               editPostID={this.state.editPostID}
               updatePost={this.updateOnePost}
               deletePost={this.destroyPost}
