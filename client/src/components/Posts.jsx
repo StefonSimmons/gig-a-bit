@@ -11,15 +11,16 @@ const Post = styled.div`
   display: grid;
   align-items: end;
   margin: 15px;
-  width: 306px;
+  width: 304px;
   border: rgb(216,224,233) solid 2px;
   border-radius: 15px;
   font-family: 'Pathway Gothic One', sans-serif;
-  background: white;
+  background: rgb(245,247,249)
 
 `
 const Image = styled.img`
-  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   width: 300px;
   height: 250px;
   padding-bottom: 10px

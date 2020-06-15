@@ -25,14 +25,15 @@ const Post = styled.div`
   display: grid;
   align-items: start;
   margin: 0 15px 15px 15px;
-  width: 305px;
+  width: 304px;
   border: rgb(216,224,233) solid 2px;
   border-radius: 15px;
   font-family: 'Pathway Gothic One', sans-serif; 
   background: white;
 `
 const Image = styled.img`
-  border-radius: 15px;  
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; 
   width: 300px;
   padding-bottom: 10px
 `

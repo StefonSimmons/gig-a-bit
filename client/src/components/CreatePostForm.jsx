@@ -12,7 +12,7 @@ const CreatePostContainer = styled.div`
   width: 302px;
   margin: 0 15px 15px 15px;
   border: rgb(216,224,233) solid 2px;
-  border-radius: 5px;
+  border-radius: 15px;
   background: white;
 `
 const Create = styled.div`
