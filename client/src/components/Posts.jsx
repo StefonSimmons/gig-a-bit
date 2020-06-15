@@ -33,13 +33,13 @@ const UserContainer = styled.div`
 const UserName = styled.h3`
   text-align: center;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 24px;
 `
 const Topic = styled.h4`
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 4px;
-  letter-spacing: 1.5px 
+  letter-spacing: 3px 
 `
 export const Btn = styled.button`
   margin: 20px 0;
@@ -59,7 +59,7 @@ const List = styled.div`
   margin: 20px
 `
 const Bullet = styled.li`
-  font-size: 15px;
+  font-size: 18px;
   list-style: none;
   padding: 10px 0;
 `

@@ -25,7 +25,11 @@ const AboutContact = styled.h6`
   font-weight: 900;
   letter-spacing: 5px;
   color: rgb(28,28,28);
-  cursor: pointer
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(154, 78, 80);
+  }
 `
 
 

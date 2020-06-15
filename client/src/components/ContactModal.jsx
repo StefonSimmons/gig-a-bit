@@ -44,7 +44,7 @@ export const Circle = styled.div`
 `
 const Statement = styled.ul`
   font-family: 'Pathway Gothic One', sans-serif;  
-  font-size: 16px;
+  font-size: 18px;
   line-height: 3;
   letter-spacing: 2px
 `
