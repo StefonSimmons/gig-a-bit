@@ -83,8 +83,8 @@ export default class UpdatePostForm extends Component {
   }
 
   setPostFormInfo = () => {
-    const { media_link, bullet_one, bullet_two, bullet_three } = this.props.post;
-    this.setState({ media_link, bullet_one, bullet_two, bullet_three })
+    const { media_link, bullet_one, bullet_two, bullet_three, topic_id } = this.props.post;
+    this.setState({ media_link, bullet_one, bullet_two, bullet_three, topic_id })
   }
 
   handleChange = (e) => {
@@ -142,6 +142,9 @@ export default class UpdatePostForm extends Component {
             />
             <Label htmlFor="topic">Choose a Topic:</Label>
             <Dropdown name="topic_id" id="topic" form="updateForm" onChange={this.handleChange}>
+              <option value="none" selected disabled hidden>
+                {post.topic_name}
+              </option>
               {topics.map(topic =>
                 <TopicOptions
                   key={topic.id}
