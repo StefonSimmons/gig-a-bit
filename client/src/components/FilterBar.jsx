@@ -15,6 +15,7 @@ const FilterFor = styled.h2`
   margin: 10px 25px;
   font-weight: 700;
   align-self: center;
+  text-align: center;
 
   @media(max-width: 800px){  
     padding: 0 50px 40px 50px; 
@@ -37,10 +38,6 @@ const Topic = styled.li`
 
   &:hover {
     background: rgb(204, 160, 161);
-  }
-
-  @media(max-width: 800px){  
-    padding: 0 50px 40px 50px; 
   }
 `
 

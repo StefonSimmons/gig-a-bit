@@ -12,7 +12,8 @@ const UpdatePostContainer = styled.div`
   width: 302px;
   margin: 0 15px 15px 15px;
   border: rgb(216,224,233) solid 2px;
-  border-radius: 5px
+  background: rgb(245,247,249);
+  border-radius: 15px
 `
 const Update = styled.div`
   display: flex;

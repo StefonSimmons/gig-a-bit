@@ -26,7 +26,6 @@ const NavList = styled.ul`
     display: block;
     text-align: center;
     position: absolute;
-    // right: 45px;
   }
 `
 const Hamburger = styled.span`
@@ -34,8 +33,7 @@ const Hamburger = styled.span`
 
   @media(max-width: 670px){
     display: inline-block;
-    // width: 40px;
-    // padding-right: 50px;
+
     cursor: pointer;
   }
 `
@@ -53,20 +51,19 @@ const NavLink = styled(Link)`
 
   @media(max-width: 670px){
     display: none;
-    // width: 40px;
-    // padding-right: 50px;
-    // cursor: pointer;
   }
 `
 const NavItems = styled.li`
-  padding-right: 50px;
+  padding: 0 50px;
   font-family: 'Pathway Gothic One', sans-serif;  
   font-size: 20px;
   cursor: pointer;
 
+  &:hover {
+    color: rgb(154, 78, 80);
+  }
   @media(max-width: 670px){
     display: none;
-    // width: 40px;
     padding: 25px 0px;
     cursor: pointer;
   }
@@ -119,19 +116,19 @@ export default class Header extends Component {
                       <NavLink to='/my_profile' style={openMenu ? { display: "block" } : { display: "" }}>
                         <NavItems style={openMenu ? { display: "block" } : { display: "" }}>
                           My Profile
-                      </NavItems>
+                        </NavItems>
                       </NavLink>
                     </>
                     :
                     <NavItems onClick={showCreateProfileForm} style={openMenu ? { display: "block" } : { display: "" }}>
                       Create A Profile
-                  </NavItems>
+                    </NavItems>
                 }
                 {
                   loggedInUser
                     ?
                     <>
-                      <NavItems onClick={logout} style={openMenu ? { display: "block" } : { display: "" }}>
+                    <NavItems onClick={logout} style={openMenu ? { display: "block" } : { display: "" }}>
                         Log Out
                     </NavItems>
 
