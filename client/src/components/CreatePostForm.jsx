@@ -74,7 +74,7 @@ export default class CreatePostForm extends Component {
     bullet_two: '',
     bullet_three: '',
     user_id: '',
-    topic_id: ''
+    topic_id: '1'
   }
 
   handleChange = (e) => {
