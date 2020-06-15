@@ -54,7 +54,7 @@ export default class CreateProfileForm extends Component {
 
 
   render() {
-    const { user_type, primary_name, surname, email, password } = this.state;
+    const { primary_name, surname, email, password } = this.state;
     const { handleRegisterSubmit, createProfileClicked, hideCreateProfileForm } = this.props;
 
     return (

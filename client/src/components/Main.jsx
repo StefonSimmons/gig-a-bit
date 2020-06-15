@@ -12,7 +12,7 @@ class Main extends Component {
     topics: [],
     postsCopy: [],
     posts: [],
-    editBtnClicked: false,
+    // editBtnClicked: false,
     editPostID: null,
     message: null,
   }
@@ -47,7 +47,7 @@ class Main extends Component {
   toggleUpdatePostForm = (postID) => {
     this.setState(prevState => (
       {
-        editBtnClicked: !prevState.editBtnClicked,
+        // editBtnClicked: !prevState.editBtnClicked,
         editPostID: postID
       }
     ))

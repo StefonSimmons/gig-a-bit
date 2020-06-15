@@ -88,7 +88,7 @@ export default class CreatePostForm extends Component {
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
     const { createNewPost, loggedInUser, topics } = this.props;
-    const userPosts = loggedInUser !== null ?
+    const createPostForm = loggedInUser !== null ?
       <CreateFormContainer>
         <Create>
           <CreateBtn onClick={(e) => {
@@ -164,7 +164,7 @@ export default class CreatePostForm extends Component {
 
     return (
       <>
-        {userPosts}
+        {createPostForm}
       </>
     )
   }

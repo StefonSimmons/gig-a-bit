@@ -75,7 +75,7 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0 
 `
-export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editBtnClicked, editPostID, updatePost, deletePost, noPostsMsg }) {
+export default function ProfilePosts({ loggedInUser, posts, createNewPost, topics, showUpdatePostForm, editPostID, updatePost, deletePost, noPostsMsg }) {
 
 
 
@@ -83,16 +83,16 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
     if (loggedInUser !== null && post.user_id === loggedInUser.id) {
       return (
         editPostID === post.id ?
-          <div style={editBtnClicked ? { display: "block" } : { display: "none" }}>
+          <div style={editPostID === post.id ? { display: "block" } : { display: "none" }}>
             <UpdatePostForm
               loggedInUser={loggedInUser}
               topics={topics}
               post={post}
               updatePost={updatePost}
             />
-          </div>
+          </div> 
           :
-          <PostContainer key={id} style={editBtnClicked && editPostID === post.id ? { display: "none" } : { display: "block" }}>
+          <PostContainer key={id} style={editPostID === post.id ? { display: "none" } : { display: "block" }}>
             <UpdateDeleteBtns>
               <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
               <Icon onClick={() => deletePost(post.id)}><i className="material-icons w3-xxlarge">clear</i></Icon>

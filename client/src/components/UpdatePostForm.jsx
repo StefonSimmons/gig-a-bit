@@ -125,6 +125,7 @@ export default class UpdatePostForm extends Component {
             Cancel
           </CancelBtn>
         </Update >
+        
         <UpdatePostContainer>
           <Form id="updateForm">
             <MediaInput
