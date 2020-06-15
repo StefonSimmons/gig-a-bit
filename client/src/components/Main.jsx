@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import FilterBar from './FilterBar'
-import { getAllTopics } from '../services/topics'
 import { postsUserTopic, createPost, updatePost, deletePost } from '../services/posts'
+import { getAllTopics } from '../services/topics'
+import FilterBar from './FilterBar'
 import Posts from './Posts'
 import ProfilePosts from './ProfilePosts'
 
@@ -16,11 +16,13 @@ class Main extends Component {
     message: null,
   }
 
+  // loads all topics and posts upon component rendering 
   componentDidMount() {
     this.listAllTopics()
     this.listAllPosts()
   }
 
+  //SHOW ALL CALLS 
   listAllTopics = async () => {
     const topics = await getAllTopics();
     this.setState(
@@ -36,6 +38,7 @@ class Main extends Component {
     })
   }
 
+  // CREATE, UPDATE, DESTROY CALLS - posts
   createNewPost = async (postInfo) => {
     const newPost = await createPost(postInfo)
     this.setState(prevState => (
@@ -63,6 +66,7 @@ class Main extends Component {
     }))
   }
 
+  // FILTER AND RELOAD FOR FILTERING
   filterPosts = (topicID, topicName) => {
     this.setState(prevState => ({
       posts: prevState.postsCopy
@@ -75,7 +79,7 @@ class Main extends Component {
     }))
   }
 
-  getAllPosts = () => {
+  reloadAllPosts = () => {
     this.setState(prevState => ({ posts: prevState.postsCopy }))
     this.setState({ message: null })
   }
@@ -88,7 +92,7 @@ class Main extends Component {
         <FilterBar
           topics={this.state.topics}
           filterPosts={this.filterPosts}
-          getAllPosts={this.getAllPosts}
+          reloadAllPosts={this.reloadAllPosts}
         />
         <Switch>
 
