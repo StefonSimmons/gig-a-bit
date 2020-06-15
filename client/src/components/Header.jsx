@@ -23,7 +23,7 @@ const NavList = styled.ul`
   display: flex;
   align-items: center;
 
-  @media(max-width: 670px){
+  @media(max-width: 700px){
     display: block;
     text-align: center;
     position: absolute;
@@ -32,7 +32,7 @@ const NavList = styled.ul`
 const Hamburger = styled.span`
   display: none;
 
-  @media(max-width: 670px){
+  @media(max-width: 700px){
     display: inline-block;
 
     cursor: pointer;
@@ -42,7 +42,7 @@ const NavOptionDropDown = styled.div`
   display:flex;
   align-items: center;
 
-  @media(max-width: 670px){
+  @media(max-width: 700px){
     margin-top: 15px;
     padding: 20px;
   }
@@ -50,7 +50,7 @@ const NavOptionDropDown = styled.div`
 const NavLink = styled(Link)`
   text-decoration: none;
 
-  @media(max-width: 670px){
+  @media(max-width: 700px){
     display: none;
   }
 `
@@ -63,7 +63,7 @@ const NavItems = styled.li`
   &:hover {
     color: rgb(154, 78, 80);
   }
-  @media(max-width: 670px){
+  @media(max-width: 700px){
     display: none;
     padding: 25px 0px;
     cursor: pointer;

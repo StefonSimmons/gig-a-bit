@@ -12,12 +12,20 @@ const Bottom = styled.div`
   justify-content: space-around;
   color: rgb(28,28,28);
   padding: 25px 0; 
+
+  @media(max-width: 400px){
+    flex-direction: column;
+  }
 `
 const Text = styled.h6`
   font-family: 'Pathway Gothic One', sans-serif;  
   font-size: 18px;
   letter-spacing: 3px;
   color: rgb(28,28,28);
+
+  @media(max-width: 400px){
+    margin: 8px
+  }
 `
 const AboutContact = styled.h6`
   font-family: 'Pathway Gothic One', sans-serif;  
@@ -29,6 +37,9 @@ const AboutContact = styled.h6`
 
   &:hover {
     color: rgb(154, 78, 80);
+  }
+  @media(max-width: 400px){
+    margin: 5px
   }
 `
 export default function Footer({ showAboutModal, showContactModal }) {
