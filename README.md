@@ -50,14 +50,15 @@ Create a full-stack app with CRUD functionality and user authentication
 
 ### Libraries
 
-|     Library      | Description                                |
-| :--------------: | :----------------------------------------- |
-|      React       | _Javascript library used to develop the front-end (client)_  |
-|   React Router   | _Used for establishing links and routes for front-end components_ |
-| Rails | _Ruby library used to develop the back-end server/api_ |
-|     Axios    | _Used to make http requests from the front end_ |
-|  JSON Web Tokens  | _Used to encode and decode payload for user authentication_ |
-|Styled Components | _Used for writing CSS in react components vs a seperate stylesheet _
+|     Library          | Description                                |
+| :--------------:     | :----------------------------------------- |
+|      React           | _Javascript library used to develop the front-end (client)_  |
+|   React Router       | _Used for establishing links and routes for front-end components_ |
+|     Rails            | _Ruby library used to develop the back-end server/api_ |
+|     Axios            | _Used to make http requests from the front end_ |
+|  JSON Web Tokens     | _Used to encode and decode payload for user authentication_ |
+|  Styled Components   | _Used for writing CSS in react components vs a seperate stylesheet _|
+|   bcrypt             | _Used to hash passwords on the backend._|
 
 <br>
 
@@ -81,8 +82,7 @@ Mobile View (via whimsical)
 ```
 src
 |__ assets/
-      |__ fonts
-      |__ images
+      |__ reset.css
 |__ components/
       |__ Header.jsx
       |__ FilterBar.jsx
@@ -94,6 +94,8 @@ src
       |__ CreatePost.jsx
       |__ UpdatePost.jsx
       |__ Footer.jsx
+      |__ About.jsx
+      |__ Contact.jsx
 |__ services/
       |__ api-helper.js
       |__ auth.js
@@ -113,7 +115,7 @@ src
 |    Header    | functional |   n   |   y   | _passed logged in user status as prop for dynamic nav btns._ |
 |   FilterBar  | functional |   n   |   y   | _props passed from MainComponent. Filters posts by topic onClick._|
 | MainContainer|   class    |   y   |   n   | _handles state for post data._                 |
-|   Posts   | functional |   n   |   y   | _shows all posts. props from main_ |
+|   Posts      | functional |   n   |   y   | _shows all posts. props from main_ |
 |     LogIn    |   class    |   y   |   y   | _displays onChange event form for user login. Recieves props from App_ |
 | ProfilePosts | functional |   n   |   y   | _Access only for logged in users. Recieves props from App and Main _   |
 |    Footer    | functional |   n   |   n   | _Static component for About and Contact Links_ |
@@ -126,9 +128,9 @@ src
 | Task                               | Priority | Estimated Time | Time Invested | Actual Time |
 | ---------------------------------- | :------: | :------------: | :-----------: | :---------: |
 | Installing dependencies            |    H     |     15 mins    |     9 mins    |    9 mins   |
-| App & Main.jsx                     |    H     |     5 hrs      |     30 mins   |        -    |
+| App & Main.jsx                     |    H     |     5 hrs      |     1 hr      |    1 hr     |
 | Header/Nav                         |    H     |     2 hrs      |     1.5 hrs   |    1.5 hrs  |
-| Hamburger Menu                     |    L     |     3 hrs      |     2 hrs     |      -      |
+| Hamburger Menu                     |    L     |     3 hrs      |     2 hrs     |    2 hr     |
 | Footer                             |    H     |     1 hrs      |     1 hr      |    1 hrs    |
 | LogIn Modal                        |    H     |     2 hrs      |     3 hrs     |    3 hrs    |
 | CreateProfile Modal                |    H     |     2 hrs      |     1.5 hrs   |    1.5 hrs  |
@@ -146,7 +148,7 @@ src
 | Server/API (auth and app_controller)|   H     |     1 hr       |     4 hrs     |    4 hrs    |
 | Server/API (custom routes)         |    M     |     .5 hrs     |     1.5 hrs   |    1.5 hrs  |
 | Styling/Responsive Design          |    M     |     10 hrs     |     6 hrs     |    6 hrs    |
-| TOTAL                              |    --    |    47 hrs      |     49 hrs    |     -       |
+| TOTAL                              |    --    |    47 hrs      |     49.5 hrs  |   49.5 hr   |
 
 
 <br>
@@ -174,8 +176,30 @@ src
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+- The below action is located in the posts controller on the backend. I used the Active Record .select, .join and .order methods to join my postgresql tables and customize an action for easier access to my API data when called on the frontend.
+
+```
+def posts_user_topic
+  @posts = Post.joins(:user, :topic).select(
+    "posts.id, 
+    posts.media_link, 
+    users.id AS user_id,
+    users.primary_name, 
+    users.surname,
+    topics.id AS topic_id,
+    topics.name AS topic_name,
+    users.email, 
+    posts.bullet_one, 
+    posts.bullet_two, 
+    posts.bullet_three,
+    posts.created_at,
+    posts.updated_at"
+  ).order('posts.created_at DESC')
+  render json: @posts
+end
+
+```
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution, if you'd like.
+> This section lists all major issues encountered and their resolution. There are currently no major issues.
