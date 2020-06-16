@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
 import Main from './components/Main'
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
 import CreateProfileForm from './components/CreateProfileForm'
 import LogInForm from './components/LogInForm'
 import AboutModal from './components/AboutModal'
@@ -19,20 +19,20 @@ class App extends Component {
     contactClicked: false
   }
 
+  // verifies the logged in user's authorization token upon the component's render
   componentDidMount() {
     this.handleVerify()
 
   }
 
-  handleLoginSubmit = async (loginParams) => {
-    console.log(loginParams.email)
-    console.log(loginParams)
-    const loggedInUser = await loginUser(loginParams);
+  // USER AUTHENTICATION CALLS
+  handleRegisterSubmit = async (registerParams) => {
+    const loggedInUser = await registerUser(registerParams);
     this.setState({ loggedInUser });
   }
 
-  handleRegisterSubmit = async (registerParams) => {
-    const loggedInUser = await registerUser(registerParams);
+  handleLoginSubmit = async (loginParams) => {
+    const loggedInUser = await loginUser(loginParams);
     this.setState({ loggedInUser });
   }
 
@@ -50,6 +50,7 @@ class App extends Component {
     this.props.history.push('/')
   }
 
+  // HANDLES ONCLICK EVENTS FOR MODALS
   toggleLoginForm = () => {
     this.setState(prevState => ({
       logInClicked: !prevState.logInClicked

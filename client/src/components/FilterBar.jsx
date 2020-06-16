@@ -41,7 +41,7 @@ const Topic = styled.li`
   }
 `
 
-export default function FilterBar({ topics, filterPosts, getAllPosts }) {
+export default function FilterBar({ topics, filterPosts, reloadAllPosts }) {
 
   const topicNames = topics.map((topic, id) => {
     return (
@@ -56,7 +56,7 @@ export default function FilterBar({ topics, filterPosts, getAllPosts }) {
         <FilterFor>I'm Looking For:</FilterFor>
         <nav>
           <FilterList>
-            <Topic onClick={getAllPosts}>All Posts</Topic>
+            <Topic onClick={reloadAllPosts}>All Posts</Topic>
             {topicNames}
           </FilterList>
         </nav>

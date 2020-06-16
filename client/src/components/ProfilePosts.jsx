@@ -128,5 +128,4 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
       </Main>
     </>
   )
-  
 }

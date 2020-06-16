@@ -80,7 +80,7 @@ export default class CreateProfileForm extends Component {
 
               <Label htmlFor="type">I'm Registering As:</Label>
               <Dropdown name="user_type" id="type" form="createProfile" onChange={this.handleChange}>
-                <option value="Individual" selected>Individual</option>
+                <option value="Individual">Individual</option>
                 <option value="Group (Less Than 10 Individuals)">Group (Less Than 10 Individuals)</option>
               </Dropdown>
               <br />
