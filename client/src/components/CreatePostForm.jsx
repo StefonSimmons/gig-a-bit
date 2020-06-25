@@ -111,7 +111,7 @@ export default class CreatePostForm extends Component {
               type="text"
               name="media_link"
               value={media_link}
-              placeholder="Enter image, video, or audio link here"
+              placeholder="Enter online image link here (.jpg, .png, or .gif)"
               onChange={this.handleChange}
             />
             <ReadOnlyInput
