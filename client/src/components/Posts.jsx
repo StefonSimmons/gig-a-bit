@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes }from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const Main = styled.main`
   display: flex;
@@ -63,8 +63,8 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0;
 `
-// animation
-const rotate = keyframes`
+// animations
+const clockRotate1 = keyframes`
   0%{transform: rotate(360deg); box-shadow: 1px 1px 0px 0px rgb(154, 78, 80);}
   50%{transform: rotate(180deg); box-shadow: 1px 1px 4px 4px rgb(154, 78, 80);}
   100%{transform: rotate(0deg); box-shadow: 1px 1px 0px 0px rgb(154, 78, 80);}
@@ -73,6 +73,11 @@ const counterRotate = keyframes`
   0%{transform: rotate(0deg); box-shadow: 1px 1px 0px 0px rgb(80, 78, 154);}
   50%{transform: rotate(180deg); box-shadow: 1px 1px 2px 2px rgb(80, 78, 154);}
   100%{transform: rotate(360deg); box-shadow: 1px 1px 0px 0px rgb(80, 78, 154);}
+`
+const clockRotate2 = keyframes`
+  0%{transform: rotate(360deg); box-shadow: 1px 1px 0px 0px rgb(78, 154, 80);}
+  50%{transform: rotate(180deg); box-shadow: 1px 1px 2px 2px rgb(78, 154, 80);}
+  100%{transform: rotate(0deg); box-shadow: 1px 1px 0px 0px rgb(78, 154, 80);}
 `
 
 const Loading = styled.div`
@@ -85,7 +90,7 @@ const Loading = styled.div`
   border-radius: 90px;
   width: 100px;
   height: 100px;
-  animation: ${rotate} 4s infinite
+  animation: ${clockRotate1} 4s infinite
 `
 const InnerLoad = styled.div`
   border-left: solid 2px black;
@@ -98,6 +103,19 @@ const InnerLoad = styled.div`
   height: 80px;
   animation: ${counterRotate} 2s infinite
 `
+const CoreLoad = styled.div`
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 90px;
+  animation: ${clockRotate2} 4s infinite;
+`
+
+
 export default function Posts({ posts, noPostsMsg }) {
 
   const allPosts = posts.map((post, id) => {
@@ -111,7 +129,7 @@ export default function Posts({ posts, noPostsMsg }) {
             <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
           </UserContainer>
           <List>
-            <Bullet>{`- ${post.bullet_one }`}</Bullet>
+            <Bullet>{`- ${post.bullet_one}`}</Bullet>
             <Bullet>{`- ${post.bullet_two}`}</Bullet>
             <Bullet>{`- ${post.bullet_three}`}</Bullet>
           </List>
@@ -119,9 +137,10 @@ export default function Posts({ posts, noPostsMsg }) {
       </React.Fragment>
     )
   })
-  
+
   if (!posts.length) {
-    return <Loading><InnerLoad>Loading...</InnerLoad></Loading>
+    return <Loading><InnerLoad><CoreLoad>
+    </CoreLoad></InnerLoad></Loading>
   }
 
   return (
