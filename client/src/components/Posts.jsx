@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes }from 'styled-components'
 
 const Main = styled.main`
   display: flex;
@@ -63,10 +63,44 @@ const Bullet = styled.li`
   list-style: none;
   padding: 10px 0;
 `
+// animation
+const rotate = keyframes`
+  0%{transform: rotate(360deg); box-shadow: 1px 1px 0px 0px rgb(154, 78, 80);}
+  50%{transform: rotate(180deg); box-shadow: 1px 1px 4px 4px rgb(154, 78, 80);}
+  100%{transform: rotate(0deg); box-shadow: 1px 1px 0px 0px rgb(154, 78, 80);}
+`
+const counterRotate = keyframes`
+  0%{transform: rotate(0deg); box-shadow: 1px 1px 0px 0px rgb(80, 78, 154);}
+  50%{transform: rotate(180deg); box-shadow: 1px 1px 2px 2px rgb(80, 78, 154);}
+  100%{transform: rotate(360deg); box-shadow: 1px 1px 0px 0px rgb(80, 78, 154);}
+`
+
+const Loading = styled.div`
+  margin: 200px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: solid 1px black;
+  border-radius: 90px;
+  width: 100px;
+  height: 100px;
+  animation: ${rotate} 4s infinite
+`
+const InnerLoad = styled.div`
+  border-left: solid 2px black;
+  border-right: solid 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 90px;
+  width: 80px;
+  height: 80px;
+  animation: ${counterRotate} 2s infinite
+`
 export default function Posts({ posts, noPostsMsg }) {
 
   const allPosts = posts.map((post, id) => {
-
     return (
       <React.Fragment key={id}>
         <Post>
@@ -85,6 +119,10 @@ export default function Posts({ posts, noPostsMsg }) {
       </React.Fragment>
     )
   })
+  
+  if (!posts.length) {
+    return <Loading><InnerLoad>Loading...</InnerLoad></Loading>
+  }
 
   return (
     <>
