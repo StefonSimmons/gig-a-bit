@@ -91,10 +91,8 @@ export default class CreatePostForm extends Component {
     const createPostForm = loggedInUser !== null ?
       <CreateFormContainer>
         <Create>
-          <CreateBtn onClick={(e) => {
-            e.preventDefault();
+          <CreateBtn onClick={() => {
             createNewPost(this.state);
-            window.location.reload()
             this.setState({
               media_link: '',
               bullet_one: '',
@@ -123,10 +121,11 @@ export default class CreatePostForm extends Component {
             <Label htmlFor="topic">Choose a Topic:</Label>
             <Dropdown name="topic_id" id="topic" onChange={this.handleChange}>
               {topics.map(topic =>
-                <TopicOptions
-                  key={topic.id}
-                  topic={topic}
-                />
+                <React.Fragment key={topic.id}>
+                  <TopicOptions
+                    topic={topic}
+                  />
+                </React.Fragment>
               )}
             </Dropdown>
             <ReadOnlyInput

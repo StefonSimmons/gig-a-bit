@@ -75,8 +75,9 @@ export default class UpdatePostForm extends Component {
     bullet_two: '',
     bullet_three: '',
     user_id: '',
-    topic_id: ''
+    topic_id: '',
   }
+
 
   componentDidMount() {
     this.setPostFormInfo()
@@ -97,21 +98,19 @@ export default class UpdatePostForm extends Component {
   }
 
   cancel = () => {
-    window.location.reload()
+    this.props.showUpdatePostForm('')
   }
 
   render() {
     const { media_link, bullet_one, bullet_two, bullet_three } = this.state;
-    const { updatePost, loggedInUser, topics, post } = this.props;
+    const { updatePost, loggedInUser, topics, post, showUpdatePostForm } = this.props;
 
 
     const userPosts = loggedInUser !== null ?
       <UpdateFormContainer>
         <Update>
-          <UpdateBtn onClick={(e) => {
-            e.preventDefault();
+          <UpdateBtn onClick={() => {
             updatePost(post.id, this.state);
-            window.location.reload()
             this.setState({
               media_link: '',
               bullet_one: '',
@@ -120,12 +119,13 @@ export default class UpdatePostForm extends Component {
               user_id: '',
               topic_id: ''
             })
+            showUpdatePostForm('')
           }}>Save Changes</UpdateBtn>
           <CancelBtn onClick={this.cancel}>
             Cancel
           </CancelBtn>
         </Update >
-        
+
         <UpdatePostContainer>
           <Form id="updateForm">
             <MediaInput
@@ -146,11 +146,13 @@ export default class UpdatePostForm extends Component {
               <option value="none" selected disabled hidden>
                 {post.topic_name}
               </option>
-              {topics.map(topic =>
-                <TopicOptions
-                  key={topic.id}
-                  topic={topic}
-                />
+              {topics.map((topic, id) =>
+                <React.Fragment key={id}>
+                  <TopicOptions
+                    key={topic.id}
+                    topic={topic}
+                  />
+                </React.Fragment>
               )}
             </Dropdown>
             <ReadOnlyInput

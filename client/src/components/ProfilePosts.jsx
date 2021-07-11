@@ -80,41 +80,43 @@ export default function ProfilePosts({ loggedInUser, posts, createNewPost, topic
 
 
   const allPosts = posts.map((post, id) => {
-    if (loggedInUser !== null && post.user_id === loggedInUser.id) {
-      return (
-        editPostID === post.id ?
-          <div style={editPostID === post.id ? { display: "block" } : { display: "none" }}>
-            <UpdatePostForm
-              loggedInUser={loggedInUser}
-              topics={topics}
-              post={post}
-              updatePost={updatePost}
-            />
-          </div>
-          :
-          <PostContainer key={id} style={editPostID === post.id ? { display: "none" } : { display: "block" }}>
-            <UpdateDeleteBtns>
-              <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
-              <Icon onClick={() => deletePost(post.id)}><i className="material-icons w3-xxlarge">clear</i></Icon>
-            </UpdateDeleteBtns>
-            <Post>
-              <Image src={post.media_link} alt={post.topic_name} />
-              <UserContainer>
-                <UserName>{`${post.primary_name} ${post.surname}`}</UserName>
-                <Topic>{post.topic_name}</Topic>
-                <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
-              </UserContainer>
-              <List>
-                <Bullet>- {post.bullet_one}</Bullet>
-                <Bullet>- {post.bullet_two}</Bullet>
-                <Bullet>- {post.bullet_three}</Bullet>
-              </List>
-            </Post>
-          </PostContainer>
-      )
-    }
+    return (loggedInUser !== null && post.user_id === loggedInUser.id) &&
+      <React.Fragment key={id}>
+        {
+          editPostID === post.id ?
+            <div style={editPostID === post.id ? { display: "block" } : { display: "none" }}>
+              <UpdatePostForm
+                loggedInUser={loggedInUser}
+                topics={topics}
+                post={post}
+                updatePost={updatePost}
+                showUpdatePostForm={showUpdatePostForm}
+              />
+            </div>
+            :
+            <PostContainer style={editPostID === post.id ? { display: "none" } : { display: "block" }}>
+              <UpdateDeleteBtns>
+                <Icon onClick={() => showUpdatePostForm(post.id)}><i className="material-icons w3-xxlarge">edit</i></Icon>
+                <Icon onClick={() => deletePost(post.id)}><i className="material-icons w3-xxlarge">clear</i></Icon>
+              </UpdateDeleteBtns>
+              <Post>
+                <Image src={post.media_link} alt={post.topic_name} />
+                <UserContainer>
+                  <UserName>{`${post.primary_name} ${post.surname}`}</UserName>
+                  <Topic>{post.topic_name}</Topic>
+                  <Btn><BtnLnk href={`mailto:${post.email}`}>Email Me</BtnLnk></Btn>
+                </UserContainer>
+                <List>
+                  <Bullet>- {post.bullet_one}</Bullet>
+                  <Bullet>- {post.bullet_two}</Bullet>
+                  <Bullet>- {post.bullet_three}</Bullet>
+                </List>
+              </Post>
+            </PostContainer>
+        }
+      </React.Fragment>
   })
-  
+
   return (
     <>
       <Main>

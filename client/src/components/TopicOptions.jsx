@@ -1,9 +1,7 @@
 import React from 'react'
 
-export default function DropDown({ topic, key }) {
+export default function DropDown({ topic }) {
   return (
-    <React.Fragment key={key}>
-      <option value={topic.id}>{topic.name}</option>
-    </React.Fragment>
+    <option value={topic.id}>{topic.name}</option>
   )
 }
