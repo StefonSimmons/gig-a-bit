@@ -3,7 +3,6 @@
 
 
 
-
 - [Overview](#Gig-A-Bit)
 - [MVP](#mvp)
   - [Goals](#goals)
